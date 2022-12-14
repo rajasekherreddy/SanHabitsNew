@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             BackgroundColor="{DynamicResource BackgroundColor}"
+             xmlns:viewModel="clr-namespace:HappinessIndex.ViewModels"
+             Title="INSURANCE"
+             x:Class="HappinessIndex.Views.TherapyInsuranceView">
+
+    <ContentPage.BindingContext>
+        <viewModel:TherapyInsuranceViewModel/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.ToolbarItems >
+        <ToolbarItem  Text="NEXT" Command="{Binding CmdGotoTherapyPreferences}" />
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <StackLayout Margin="20">
+            <Label Text="Health insurance provider" Margin="0,0,0,5" Style="{StaticResource lblTextWhite}"
+                   HorizontalOptions="Start" FontSize="20"/>
+
+            <Entry BackgroundColor="White" Text="{Binding Insurances_accepted}"/>
+
+            <Label Text="No Results" Margin="0,30,0,0" HorizontalOptions="Start" Style="{StaticResource lblTextWhite}"/>
+
+            <Label Text="We were unable to locate an insurance carrier based on your input."
+                   HorizontalOptions="Start"
+                   TextColor="{StaticResource BackgroundDarkColor}"
+                   Style="{StaticResource lblTextWhite}" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

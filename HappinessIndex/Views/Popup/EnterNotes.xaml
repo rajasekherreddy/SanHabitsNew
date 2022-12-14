@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<popupPage:PopupBasePage xmlns="http://xamarin.com/schemas/2014/forms"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                 FlowDirection="MatchParent"
+                 xmlns:resource="clr-namespace:HappinessIndex.Resx"
+                 xmlns:popupPage="clr-namespace:HappinessIndex.Views.Popup"
+                 x:Class="HappinessIndex.Views.Popup.EnterNotes">
+    <Grid HorizontalOptions="FillAndExpand"
+          VerticalOptions="End"
+          Padding="20,0, 20, 20"
+          RowSpacing="20"
+          BackgroundColor="{StaticResource BackgroundColor}">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <StackLayout Orientation="Horizontal" Margin="-20,0"
+                     BackgroundColor="{StaticResource BackgroundDarkColor}">
+            <Label Style="{StaticResource PageTitle}" TextColor="White"
+                   HorizontalOptions="StartAndExpand"
+                   x:Name="TitleXt"
+                   Margin="20,0"/>
+            <Button ImageSource="CloseFilled.png" Clicked="ClosePopup"
+                    HorizontalOptions="End"
+                HeightRequest="40" WidthRequest="40" Margin="0,0,7,0"
+                    BackgroundColor="Transparent"/>
+        </StackLayout>
+
+        <Frame BorderColor="{StaticResource BackgroundDarkColor}"
+                       VerticalOptions="FillAndExpand"
+                       Grid.Row="1" HasShadow="False" Padding="0">
+            <Editor Text="{Binding Notes}" HorizontalOptions="FillAndExpand"
+                    VerticalOptions="FillAndExpand"
+                    AutoSize="TextChanges"
+                    Placeholder="{x:Static resource:AppResources.Notes}"/>
+        </Frame>
+
+        <Frame BorderColor="{StaticResource BackgroundDarkColor}"
+                       VerticalOptions="FillAndExpand"
+                       Grid.Row="2" HasShadow="False" Padding="0">
+            <Editor Text="{Binding Causes}"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="FillAndExpand"
+                    AutoSize="TextChanges"
+                    Placeholder="{x:Static resource:AppResources.Causes}"/>
+        </Frame>
+
+        <Frame BorderColor="{StaticResource BackgroundDarkColor}"
+                       VerticalOptions="FillAndExpand"
+                       Grid.Row="3" HasShadow="False" Padding="0">
+            <Editor Text="{Binding Fixes}"
+                    VerticalOptions="FillAndExpand"
+                    HorizontalOptions="FillAndExpand"
+                    AutoSize="TextChanges"
+                    Placeholder="{x:Static resource:AppResources.WhatHelped}"/>
+        </Frame>
+
+        <Button Text="{x:Static resource:AppResources.Save}"
+                        Grid.Row="4"
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="Center"
+                        Clicked="ClosePopup"
+                        Command="{Binding EnterNotesCommand}"
+                        CommandParameter="Save"/>
+
+    </Grid>
+
+</popupPage:PopupBasePage>

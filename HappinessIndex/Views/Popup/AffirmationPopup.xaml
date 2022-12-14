@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<popupPage:PopupBasePage
+    x:Class="HappinessIndex.Views.Popup.AffirmationPopup"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:popupPage="clr-namespace:HappinessIndex.Views.Popup"
+    mc:Ignorable="d">
+
+
+    <Frame
+        BackgroundColor="{StaticResource BackgroundDarkColor}"
+        CornerRadius="30"
+        HeightRequest="300"
+        HorizontalOptions="CenterAndExpand"
+        VerticalOptions="CenterAndExpand"
+        WidthRequest="300">
+
+        <Grid>
+            <Image Source="{Binding SelectedImageTemplate}" />
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="11*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Label
+                    Margin="30,80"
+                    FontSize="{StaticResource AffirmationFontSize}"
+                    Text="{Binding SelectedQuote}"
+                    TextColor="{Binding SelectedQuoteColor, Converter={StaticResource StringToColorConverter}}" />
+
+                <Label
+                    Margin="0,0,0,0"
+                    FontSize="16"
+                    HorizontalTextAlignment="Center"
+                    Text="{Binding SelectedQuoteAuthor}"
+                    TextColor="{Binding SelectedQuoteAuthorColor, Converter={StaticResource StringToColorConverter}}"
+                    VerticalOptions="End" />
+            </Grid>
+        </Grid>
+    </Frame>
+
+</popupPage:PopupBasePage>

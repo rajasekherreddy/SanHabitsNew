@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "292712146644",
+    "firebase_url": "https://build-happiness.firebaseio.com",
+    "project_id": "build-happiness",
+    "storage_bucket": "build-happiness.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:292712146644:android:1c0c83dfa22bd9c67ffd41",
+        "android_client_info": {
+          "package_name": "com.sanhabits.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "292712146644-jk87n6q4c7teiri9ts4kcc0k5doslq85.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBqNhjHC49wO3X7QVAyz0q6OAH71dyHcSM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "292712146644-jk87n6q4c7teiri9ts4kcc0k5doslq85.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "292712146644-8kepgrhuspcupqeumtdq4bscg4h97u4f.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.sanhabits.app",
+                "app_store_id": "1503903016"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

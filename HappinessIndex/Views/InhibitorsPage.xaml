@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:Page.UseSafeArea="True"
+             Title="{x:Static resource:AppResources.NegativeThoughtsToday}"
+             xmlns:behavior="clr-namespace:HappinessIndex.Behaviors"
+             BackgroundColor="{DynamicResource BackgroundColor}"
+             xmlns:resource="clr-namespace:HappinessIndex.Resx"
+             xmlns:controls="clr-namespace:HappinessIndex.Controls"
+             xmlns:viewModel="clr-namespace:HappinessIndex.ViewModels"
+             x:Class="HappinessIndex.Views.InhibitorsPage">
+
+    <ContentPage.BindingContext>
+        <viewModel:InhibitorsPageViewModel/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Behaviors>
+        <behavior:EventToCommandBehavior
+                EventName="Appearing"
+                Command="{Binding RefreshCommand}"/>
+    </ContentPage.Behaviors>
+
+    <ContentPage.Content>
+        <Grid Padding="{StaticResource DefaultPagePadding}">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <StackLayout Spacing="10">
+
+                <Label Grid.Row="1" Text="{x:Static resource:AppResources.TheirEffectOnYourHappiness}"
+                               FontSize="{StaticResource ContentFontSize}"
+                               HorizontalOptions="Center"/>
+
+                <ScrollView VerticalScrollBarVisibility="Never">
+
+                    <StackLayout Spacing="5"
+                                 Margin="0,0,0,20"
+                                 BindableLayout.ItemsSource="{Binding NegativeFactors}">
+
+                        <BindableLayout.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="100"/>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition Width="0"/>
+                                        <ColumnDefinition Width="30"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="25"/>
+                                        <RowDefinition/>
+                                    </Grid.RowDefinitions>
+
+                                    <Label VerticalOptions="Center"
+                                                       HorizontalOptions="End"
+                                                       Margin="0,0,20,0"
+                                                       Grid.Row="1"
+                                                       FontAttributes="Bold"
+                                                       FontSize="{StaticResource ContentFontSize}"
+                                                       Text="{Binding DisplayName}"/>
+
+                                    <controls:SliderExt IsNegative="True" Value="{Binding Value}"
+                                                        x:Name="Slider"
+                                                        MaximumTrackColor="Gray"
+                                                        Maximum="10"
+                                                        Grid.Row="1"
+                                                        VerticalOptions="End"
+                                                        MinimumTrackColor="{Binding Color}"
+                                                        ThumbColor="{StaticResource BackgroundDarkColor}"
+                                                        Grid.Column="1"/>
+
+                                    <Label x:Name="Display"
+                                                       Text="{Binding Source={Reference Slider}, Path=TooltipDisplay}"
+                                                       HorizontalOptions="EndAndExpand"
+                                                       Grid.Column="1"
+                                                       FontAttributes="Bold"
+                                                       TextColor="{Binding Source={Reference Slider}, Path=TooltipColor}"
+                                                       FontSize="{StaticResource NoteFontSize}">
+                                        <Label.Margin>
+                                            <OnPlatform x:TypeArguments="Thickness">
+                                                <On Platform="Android" Value="0,10,15,0"/>
+                                                <On Platform="iOS" Value="0,10,0,0"/>
+                                            </OnPlatform>
+                                        </Label.Margin>
+                                    </Label>
+
+                                    <!--<Label FontSize="{StaticResource ContentFontSize}"
+                                                       Text="{Binding Value, StringFormat='{0:F0}'}"
+                                                       Grid.Column="2"
+                                                       Grid.Row="1"
+                                                       Margin="20,0"
+                                                       VerticalOptions="Center"/>-->
+
+                                    <ImageButton Grid.Column="3"
+                                                             Grid.Row="1"
+                                                             HorizontalOptions="Start"
+                                                             HeightRequest="20"
+                                                             WidthRequest="20"
+                                                             Margin="0,0,0,10"
+                                                             Command="{Binding EnterNotesCommand}"
+                                                             Source="{Binding NotesImage}"
+                                                             BackgroundColor="{StaticResource BackgroundColor}"/>
+
+                                </Grid>
+                            </DataTemplate>
+                        </BindableLayout.ItemTemplate>
+
+                    </StackLayout>
+                </ScrollView>
+            </StackLayout>
+
+
+
+            <Button Text="{x:Static resource:AppResources.Save}"
+                        Command="{Binding SaveHighlightsCommand}"
+                        VerticalOptions="Center"
+                        HorizontalOptions="FillAndExpand" Margin="10,0,10,10" Grid.Row="1"/>
+
+            <ActivityIndicator IsVisible="{Binding IsBusy}"
+                               IsRunning="{Binding IsBusy}"
+                               VerticalOptions="Center"
+                               HorizontalOptions="Center"
+                               Grid.RowSpan="2"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

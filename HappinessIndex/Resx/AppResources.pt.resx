@@ -1,0 +1,673 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>2.0</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <data name="AppName" xml:space="preserve">
+        <value>Construa Felicidade</value>
+    </data>
+    <data name="GoodMorning" xml:space="preserve">
+        <value>Bom Dia</value>
+    </data>
+    <data name="GoodAfternoon" xml:space="preserve">
+        <value>Boa Tarde,</value>
+    </data>
+    <data name="GoodEvening" xml:space="preserve">
+        <value>Boa Noite, </value>
+    </data>
+    <data name="ReadyMessage" xml:space="preserve">
+        <value>Vamos começar com seu diário da Felicidade para </value>
+    </data>
+    <data name="Today" xml:space="preserve">
+        <value>(Hoje)</value>
+    </data>
+    <data name="ReadyButton" xml:space="preserve">
+        <value>ESTOU PRONTO(A)</value>
+    </data>
+    <data name="Edit" xml:space="preserve">
+        <value>EDITAR DIÁRIA</value>
+    </data>
+    <data name="View" xml:space="preserve">
+        <value>Visualização</value>
+    </data>
+    <data name="QuickTour" xml:space="preserve">
+        <value>TOUR RÁPIDO</value>
+    </data>
+    <data name="Expectation" xml:space="preserve">
+        <value>Expectativas</value>
+    </data>
+    <data name="Reality" xml:space="preserve">
+        <value>Realidade</value>
+    </data>
+    <data name="Reality" xml:space="preserve">
+        <value>Realidade</value>
+    </data>
+    <data name="AddOrRemove" xml:space="preserve">
+        <value>Adicionar ou Remover</value>
+    </data>
+    <data name="Exercise" xml:space="preserve">
+        <value>Exercícios</value>
+    </data>
+    <data name="Family" xml:space="preserve">
+        <value>Família</value>
+    </data>
+    <data name="Food" xml:space="preserve">
+        <value>Alimentação</value>
+    </data>
+    <data name="Social Contact" xml:space="preserve">
+        <value>Vida Social</value>
+    </data>
+    <data name="Love" xml:space="preserve">
+        <value>Amor</value>
+    </data>
+    <data name="Work" xml:space="preserve">
+        <value>Trabalho</value>
+    </data>
+    <data name="Tranquility" xml:space="preserve">
+        <value>Tranquilidade</value>
+    </data>
+    <data name="Money" xml:space="preserve">
+        <value>Dinheiro</value>
+    </data>
+    <data name="Travelling" xml:space="preserve">
+        <value>Viagens</value>
+    </data>
+    <data name="Curiosity" xml:space="preserve">
+        <value>Curiosidade</value>
+    </data>
+    <data name="Order" xml:space="preserve">
+        <value>Ordem</value>
+    </data>
+    <data name="Music/Movies" xml:space="preserve">
+        <value>Música/Filmes</value>
+    </data>
+    <data name="YourDay" xml:space="preserve">
+        <value>Seu Dia</value>
+    </data>
+    <data name="More" xml:space="preserve">
+        <value>Mais</value>
+    </data>
+    <data name="Save" xml:space="preserve">
+        <value>SALVAR</value>
+    </data>
+    <data name="Journal" xml:space="preserve">
+        <value>DIÁRIO</value>
+    </data>
+    <data name="Reports" xml:space="preserve">
+        <value>RELATÓRIOS</value>
+    </data>
+    <data name="Factors" xml:space="preserve">
+        <value>FATORES</value>
+    </data>
+    <data name="Profile" xml:space="preserve">
+        <value>PERFIL</value>
+    </data>
+    <data name="Feedback" xml:space="preserve">
+        <value>COMENTÁRIOS</value>
+    </data>
+    <data name="HappinessJournalFor" xml:space="preserve">
+        <value>DIÁRIO DE FELICIDADE PARA </value>
+    </data>
+    <data name="HowWasYourDay" xml:space="preserve">
+        <value>Como foi seu dia hoje?</value>
+    </data>
+    <data name="YourHappinessScore" xml:space="preserve">
+        <value>SUA PONTUAÇÃO DE FELICIDADE</value>
+    </data>
+    <data name="From" xml:space="preserve">
+        <value>De : </value>
+    </data>
+    <data name="To" xml:space="preserve">
+        <value>Para : </value>
+    </data>
+    <data name="OverallHappinessScore" xml:space="preserve">
+        <value>Pontuação geral de Felicidade</value>
+    </data>
+    <data name="HappinessScorebyFactor" xml:space="preserve">
+        <value>Pontuação de Felicidade por Fatores</value>
+    </data>
+    <data name="HappinessFactors" xml:space="preserve">
+        <value>Fatores de Felicidade</value>
+    </data>
+    <data name="HappinessScore" xml:space="preserve">
+        <value>Pontuação de Felicidade</value>
+    </data>
+    <data name="ReportFor" xml:space="preserve">
+        <value>Relatório para </value>
+    </data>
+    <data name="ReportGeneratedFrom" xml:space="preserve">
+        <value>Relatório gerado a partir de </value>
+    </data>
+    <data name="To1" xml:space="preserve">
+        <value> para </value>
+    </data>
+    <data name="AvgValues" xml:space="preserve">
+        <value> (Valores médios)</value>
+    </data>
+    <data name="CleanlinessOrganization" xml:space="preserve">
+        <value>(Limpeza e Organização)</value>
+    </data>
+    <data name="SearchForKnowledgeIntellectual" xml:space="preserve">
+        <value>(Busca por conhecimento intelectual)</value>
+    </data>
+    <data name="SelectYourFactors" xml:space="preserve">
+        <value>SELECIONE SEUS FATORES</value>
+    </data>
+    <data name="PleaseSelectAMaximumOf6Factors" xml:space="preserve">
+        <value>Por favor, selecione no máximo 7 critérios.</value>
+    </data>
+    <data name="PleaseSelectAMinimumOf2Factors" xml:space="preserve">
+        <value>Por favor, seleccione no mínimo 2 critérios.</value>
+    </data>
+    <data name="Ok" xml:space="preserve">
+        <value>OK</value>
+    </data>
+    <data name="SavedSuccessfully" xml:space="preserve">
+        <value>Salvo com Sucesso</value>
+    </data>
+    <data name="Cancel" xml:space="preserve">
+        <value>CANCELAR</value>
+    </data>
+    <data name="UploadImage" xml:space="preserve">
+        <value>ANEXAR IMAGEM AO JORNAL</value>
+    </data>
+    <data name="TakeAPicture" xml:space="preserve">
+        <value>Tire uma foto</value>
+    </data>
+    <data name="PickAPhotoFromAlbum" xml:space="preserve">
+        <value>Escolha uma foto do álbum</value>
+    </data>
+    <data name="HighlightsOfTheDay" xml:space="preserve">
+        <value>DESTAQUES DO DIA</value>
+    </data>
+    <data name="TheBestThingThatHappenedToday" xml:space="preserve">
+        <value>O que você está agradecido(a) hoje?</value>
+    </data>
+    <data name="ChallengesFacedToday" xml:space="preserve">
+        <value>Desafios enfrentados hoje.</value>
+    </data>
+    <data name="LessonsLearntToday" xml:space="preserve">
+        <value>Lições aprendidas hoje.</value>
+    </data>
+    <data name="PleaseSelectAnImageForTodaysJournal" xml:space="preserve">
+        <value>Selecione uma imagem para o seu Diário de Hoje.</value>
+    </data>
+    <data name="Name" xml:space="preserve">
+        <value>Nome</value>
+    </data>
+    <data name="Email" xml:space="preserve">
+        <value>E-mail</value>
+    </data>
+    <data name="Country" xml:space="preserve">
+        <value>País</value>
+    </data>
+    <data name="Phone" xml:space="preserve">
+        <value>Telefone</value>
+    </data>
+    <data name="Age" xml:space="preserve">
+        <value>Idade</value>
+    </data>
+    <data name="Gender" xml:space="preserve">
+        <value>Gênero</value>
+    </data>
+    <data name="Password" xml:space="preserve">
+        <value>Senha</value>
+    </data>
+    <data name="ConfirmPassword" xml:space="preserve">
+        <value>Confirmar Senha</value>
+    </data>
+    <data name="SecurityQuestion" xml:space="preserve">
+        <value>Pergunta de Segurança</value>
+    </data>
+    <data name="SecurityAnswer" xml:space="preserve">
+        <value>Resposta de Segurança</value>
+    </data>
+    <data name="Personal Information" xml:space="preserve">
+        <value>INFORMAÇÕES PESSOAL</value>
+    </data>
+    <data name="FeedbackOnBuildHappinessApp" xml:space="preserve">
+        <value>Feedback do San Habits app</value>
+    </data>
+    <data name="EmailIsNotSupportedOnThisDevice" xml:space="preserve">
+        <value>E-mail não é suportado neste dispositivo.</value>
+    </data>
+    <data name="FeedbackContent" xml:space="preserve">
+        <value>Enquanto nos esforçamos para melhorar o aplicativo e as experiências dos usuários, gostaríamos e apreciaríamos receber seus comentários por e-mail: </value>
+    </data>
+    <data name="Logout" xml:space="preserve">
+        <value>SAIR</value>
+    </data>
+    <data name="CloseAppAndStayLogged-in" xml:space="preserve">
+        <value>Feche o aplicativo e fique logged-in</value>
+    </data>
+    <data name="NoLogMeOut" xml:space="preserve">
+        <value>Não, Sair</value>
+    </data>
+    <data name="Login" xml:space="preserve">
+        <value>Login</value>
+    </data>
+    <data name="Signup" xml:space="preserve">
+        <value>INSCREVER-SE</value>
+    </data>
+    <data name="ForgotPassword" xml:space="preserve">
+        <value>ESQUECEU A SENHA</value>
+    </data>
+    <data name="EnterYourNameAndEmail" xml:space="preserve">
+        <value>ENTRE COM SEU NOME E ENDEREÇO DE E-MAIL PARA CONTINUAR</value>
+    </data>
+    <data name="AlreadyHaveAnAccount" xml:space="preserve">
+        <value>VOCÊ JÁ TEM UMA CONTA? </value>
+    </data>
+    <data name="SuccessfullyRegistered" xml:space="preserve">
+        <value>Cadastrado com Sucesso.</value>
+    </data>
+    <data name="GoToJournals" xml:space="preserve">
+        <value>Ir para o Diário</value>
+    </data>
+    <data name="EditProfile" xml:space="preserve">
+        <value>EDITAR PERFIL</value>
+    </data>
+    <data name="EmailAlreadyRegistered" xml:space="preserve">
+        <value>Desculpe, o seu e-mail já está registrado. Por favor, Login.</value>
+    </data>
+    <data name="NoUserFound" xml:space="preserve">
+        <value>Nenhum usuário encontrado neste dispositivo, por favor, forneça seu nome e e-mail para continuar.</value>
+    </data>
+    <data name="InvalidUserName" xml:space="preserve">
+        <value>Nome de usuário ou senha inválidos.</value>
+    </data>
+    <data name="EnterYourEmailToReset" xml:space="preserve">
+        <value>Digite seu e-mail para redefinir a senha.</value>
+    </data>
+    <data name="EmailNotRegistered" xml:space="preserve">
+        <value>Este e-mail não foi registrado. Clique em Inscreva-se e registre o endereço de e-mail.</value>
+    </data>
+    <data name="InvalidAnswer" xml:space="preserve">
+        <value>Digite uma resposta válida para redefinir a senha.</value>
+    </data>
+    <data name="InvalidPassword" xml:space="preserve">
+        <value>Senha de confirmação inválida.</value>
+    </data>
+    <data name="PasswordResetSuccessfully" xml:space="preserve">
+        <value>A senha foi redefinida com sucesso.</value>
+    </data>
+    <data name="BuildMeasureLearn" xml:space="preserve">
+        <value>CONSTRUIR - ANALISAR - APRENDER!</value>
+    </data>
+    <data name="BuildMeasureLearnP1" xml:space="preserve">
+        <value>Como seres humanos, nós somos criadores de hábitos.</value>
+    </data>
+    <data name="BuildMeasureLearnP2" xml:space="preserve">
+        <value>Nossa missão é ajudar pessoas a Construir Felicidade formando um hábito de se focar no que realmente importa na vida delas.</value>
+    </data>
+    <data name="BuildMeasureLearnP3" xml:space="preserve">
+        <value>Pesquisas científicas intensas sugerem que a causa maior de tristeza é o vão entre nossas expectativas e nossas realidades.</value>
+    </data>
+    <data name="BuildMeasureLearnP4" xml:space="preserve">
+        <value>Este aplicativo vai ajudar cada pessoa a priorizar seu Critério-Determinante-da-Felicidade pessoal, rastreando diariamente o progresso diário e eliminando o vão entre expectativas e realidades em cada critério.</value>
+    </data>
+    <data name="BuildMeasureLearnP5" xml:space="preserve">
+        <value>Você vai desfrutar do brilho da felicidade através do aprendizado válido à medida que constrói, analisa e aprende a Construir a sua Felicidade – um dia de cada vez.</value>
+    </data>
+    <data name="GetStarted" xml:space="preserve">
+        <value>INICIAR</value>
+    </data>
+    <data name="HappinessJournalEntry" xml:space="preserve">
+        <value>Diário da Felicidade</value>
+    </data>
+    <data name="HappinessJournalEntryContent" xml:space="preserve">
+        <value>Esta é a sua página diária em que você marca sua pontuação de satisfação para o seu dia e os critérios  de felicidade escolhidos.</value>
+    </data>
+    <data name="HappinessJournalHighlights" xml:space="preserve">
+        <value>Inibidores</value>
+    </data>
+    <data name="HappinessJournalHighlightsContent" xml:space="preserve">
+        <value>Uma seção para verificar seus inibidores de felicidade e marcar como eles estão afetando sua felicidade.</value>
+    </data>
+    <data name="FactorsList" xml:space="preserve">
+        <value>Ativadores/Critérios da Felicidade</value>
+    </data>
+    <data name="FactorsListContent" xml:space="preserve">
+        <value>Você pode selecionar seus critérios  determinantes de felicidade na lista fornecida ou clicar no botão ADICIONAR na parte superior para criar seu próprio ativador de felicidade e usá-lo. Você pode criar listas de desejos em cada facilitador de felicidade e compartilhá-las com outras pessoas.</value>
+    </data>
+    <data name="ReportsContent" xml:space="preserve">
+        <value>Uma representação gráfica da sua pontuação diária de felicidade.  As médias semanais e mensais também estão disponíveis selecionando a data desejada.</value>
+    </data>
+    <data name="Dashboard" xml:space="preserve">
+        <value>HOME</value>
+    </data>
+    <data name="PleaseEnterYourName" xml:space="preserve">
+        <value>Por favor, insira seu nome</value>
+    </data>
+    <data name="DashboardContent" xml:space="preserve">
+        <value>Você pode adicionar um diário de hoje ou exibir / editar um diário de um dia anterior ou simplesmente navegar pelos diários salvos.</value>
+    </data>
+    <data name="ComingSoon" xml:space="preserve">
+        <value>Em Breve...</value>
+    </data>
+    <data name="ComingSoonContent" xml:space="preserve">
+        <value>
+1. Criação de grupos de usuários do aplicativo.
+2. Análise de sentimentos usando inteligência artificial.
+3. Remédios para superar o desconforto emocional causado pelos Inibidores da Felicidade.
+4. Afirmações positivas para animar o seu humor.
+5. Conectando psicólogos e terapeutas para quem deseja e precise.</value>
+    </data>
+    <data name="NoRecordsFound" xml:space="preserve">
+        <value>Nenhum registro encontrado nas datas selecionadas.</value>
+    </data>
+    <data name="Yes" xml:space="preserve">
+        <value>sim</value>
+    </data>
+    <data name="No" xml:space="preserve">
+        <value>Não</value>
+    </data>
+    <data name="Top" xml:space="preserve">
+        <value>Topo</value>
+    </data>
+    <data name="ResetPassword" xml:space="preserve">
+        <value>REINICIAR SENHA</value>
+    </data>
+    <data name="Answer" xml:space="preserve">
+        <value>Responda</value>
+    </data>
+    <data name="ConfirmPassword" xml:space="preserve">
+        <value>Confirme a Senha</value>
+    </data>
+    <data name="NewPassword" xml:space="preserve">
+        <value>Nova senha</value>
+    </data>
+    <data name="Reset" xml:space="preserve">
+        <value>REDEFINIR</value>
+    </data>
+    <data name="DoYouKNowYourPassword" xml:space="preserve">
+        <value>CONHEÇA SUA SENHA? </value>
+    </data>
+    <data name="Male" xml:space="preserve">
+        <value>Masculino</value>
+    </data>
+    <data name="Female" xml:space="preserve">
+        <value>Feminino</value>
+    </data>
+    <data name="WhatWasYourFirstCar" xml:space="preserve">
+        <value>Qual foi seu primeiro carro?</value>
+    </data>
+    <data name="WhatWasYourChildhoodNickname" xml:space="preserve">
+        <value>Qual foi o seu apelido de infância?</value>
+    </data>
+    <data name="WhatIsTheNameOfYourFaVoriteChildhoodFriend" xml:space="preserve">
+        <value>Qual é o nome do seu amigo de infância favorito?</value>
+    </data>
+    <data name="InWhatCityOrTownWasYourFirstJob" xml:space="preserve">
+        <value>Em que cidade foi seu primeiro emprego?</value>
+    </data>
+    <data name="WhatWasYourDreamJobAsAChild" xml:space="preserve">
+        <value>Qual foi o seu emprego dos sonhos quando criança?</value>
+    </data>
+    <data name="WhatIsTheNameOfTheFirstSchoolYouAttended" xml:space="preserve">
+        <value>Qual é o nome da primeira escola que você frequentou?</value>
+    </data>
+    <data name="WhatIsYourGrandmothersFirstName" xml:space="preserve">
+        <value>Qual é o primeiro nome da sua avó?</value>
+    </data>
+    <data name="Excellent" xml:space="preserve">
+        <value>Excelente!</value>
+    </data>
+    <data name="Good" xml:space="preserve">
+        <value>Bom!</value>
+    </data>
+    <data name="Fair" xml:space="preserve">
+        <value>Razoável!</value>
+    </data>
+    <data name="Terrible" xml:space="preserve">
+        <value>Horrível!</value>
+    </data>
+    <data name="UploadedSuccessfully" xml:space="preserve">
+        <value>Carregado com sucesso.</value>
+    </data>
+    <data name="NegativeThoughtsToday" xml:space="preserve">
+        <value>INIBIDORES DA FELICIDADE</value>
+    </data>
+    <data name="Greed" xml:space="preserve">
+        <value>Ganância</value>
+    </data>
+    <data name="Envy" xml:space="preserve">
+        <value>Inveja</value>
+    </data>
+    <data name="Anger" xml:space="preserve">
+        <value>Raiva</value>
+    </data>
+    <data name="Jealousy" xml:space="preserve">
+        <value>Ciúmes</value>
+    </data>
+    <data name="Guilt" xml:space="preserve">
+        <value>Culpa</value>
+    </data>
+    <data name="Negativity" xml:space="preserve">
+        <value>Negatividade</value>
+    </data>
+    <data name="None" xml:space="preserve">
+        <value>NENHUM</value>
+    </data>
+    <data name="Low" xml:space="preserve">
+        <value>BAIXA</value>
+    </data>
+    <data name="Medium" xml:space="preserve">
+        <value>MÉDIA</value>
+    </data>
+    <data name="High" xml:space="preserve">
+        <value>ALTA</value>
+    </data>
+    <data name="Extreme" xml:space="preserve">
+        <value>EXTREMO</value>
+    </data>
+    <data name="PersonalNote" xml:space="preserve">
+        <value>ANOTAÇÕES PESSOAL</value>
+    </data>
+    <data name="Add" xml:space="preserve">
+        <value>ADD</value>
+    </data>
+    <data name="AddCustomEnabler" xml:space="preserve">
+        <value>Adicionar fatores personalizados</value>
+    </data>
+    <data name="SatisfactionScore" xml:space="preserve">
+        <value>PONTUAÇÃO DE SATISFAÇÃO</value>
+    </data>
+    <data name="AddedSuccessfully" xml:space="preserve">
+        <value>Adicionado com sucesso.</value>
+    </data>
+    <data name="SelectTheDate" xml:space="preserve">
+        <value>Data do Diário : </value>
+    </data>
+    <data name="PersonalNoteLower" xml:space="preserve">
+        <value>Anotações pessoal : </value>
+    </data>
+    <data name="SetYourPassword" xml:space="preserve">
+        <value>Defina sua senha para ter acesso seguro à sua Anotações pessoal.</value>
+    </data>
+    <data name="SetPassword" xml:space="preserve">
+        <value>CONFIGURAR SENHA</value>
+    </data>
+    <data name="Hi" xml:space="preserve">
+        <value>Oi </value>
+    </data>
+    <data name="NotificationMessage" xml:space="preserve">
+        <value>quaisquer notas para o seu diário?</value>
+    </data>
+    <data name="TheirEffectOnYourHappiness" xml:space="preserve">
+        <value>O efeito deles na sua felicidade</value>
+    </data>
+    <data name="Description" xml:space="preserve">
+        <value>Descrição</value>
+    </data>
+    <data name="EnterYourProfilePassword" xml:space="preserve">
+        <value>Digite sua senha de perfil</value>
+    </data>
+    <data name="CouldBeBetter" xml:space="preserve">
+        <value>PODERIA SER MELHOR!</value>
+    </data>
+    <data name="Reminders" xml:space="preserve">
+        <value>Lembretes</value>
+    </data>
+    <data name="EnableLightTheme" xml:space="preserve">
+        <value>Ativar fundo claro</value>
+    </data>
+    <data name="FactorChangeWarning" xml:space="preserve">
+        <value>Quaisquer fatores removidos e adicionados afetarão o diário de hoje. Edite o diário e salve suas alterações</value>
+    </data>
+    <data name="iCloucBackupPermission" xml:space="preserve">
+        <value>Deseja habilitar o backup de dados do aplicativo no seu iCloud?</value>
+    </data>
+    <data name="TheJournalEntryFor" xml:space="preserve">
+        <value>Lançamento do Diário para para </value>
+    </data>
+    <data name="IsMissing" xml:space="preserve">
+        <value> está desaparecido</value>
+    </data>
+    <data name="Settings" xml:space="preserve">
+        <value>CONFIGURAÇÕES</value>
+    </data>
+    <data name="EditFactorsFor" xml:space="preserve">
+        <value>Editar fatores para </value>
+    </data>
+    <data name="BackupFailed" xml:space="preserve">
+        <value>Falha no backup</value>
+    </data>
+    <data name="PleaseSigningUsingYouriCloudAccount" xml:space="preserve">
+        <value>Faça login usando sua conta do iCloud no seu dispositivo através de "Configurações", para permitir o uso do backup do seu diário de felicidade.</value>
+    </data>
+    <data name="DisableBackup" xml:space="preserve">
+        <value>DESATIVAR BACKUP</value>
+    </data>
+    <data name="HomeAppTour" xml:space="preserve">
+        <value>Iniciar</value>
+    </data>
+    <data name="JournalAppTourTitle" xml:space="preserve">
+        <value>Pontuação do dia</value>
+    </data>
+    <data name="NotesAppTourTitle" xml:space="preserve">
+        <value>Diário</value>
+    </data>
+    <data name="NotesAppTourContent" xml:space="preserve">
+        <value>Um lugar para escrever seu diário de gratidão todos os dias, além dos desafios enfrentados durante o dia e de todas as lições aprendidas.</value>
+    </data>
+    <data name="InhibitorsReportAppTourTitle" xml:space="preserve">
+        <value>Relatório de Inibidores da Felicidade</value>
+    </data>
+    <data name="InhibitorsReportAppTourContent" xml:space="preserve">
+        <value>Uma representação visual do nível de efeito de cada Inibidor, juntamente com as mudanças no efeito durante o dia, conforme registrado. O relatório também mostra as anotações de sentimentos, causas e o que ajudou a melhorar o sentimento. Todos os relatórios, juntamente com os detalhes, podem ser compartilhados por e-mail com outras pessoas.</value>
+    </data>
+    <data name="ReportsAppTourTitle" xml:space="preserve">
+        <value>Relatório dos facilitadores da felicidade</value>
+    </data>
+    <data name="PersonalNoteAppTour" xml:space="preserve">
+        <value>Anotações pessoais</value>
+    </data>
+    <data name="PersonalNoteAppTourContent" xml:space="preserve">
+        <value>Uma seção oculta que abrirá uma tela para inserir algumas anotações  pessoais protegidas por senha.</value>
+    </data>
+    <data name="SettingsAppTour" xml:space="preserve">
+        <value>Configurações</value>
+    </data>
+    <data name="SettingsAppTourContent" xml:space="preserve">
+        <value>Uma variedade de configurações de personalização como cores de segundo plano, ativação / desativação de backup de dados no iCloud ou no Google Drive, entrada de informações de perfil pessoal etc.</value>
+    </data>
+    <data name="House Pets" xml:space="preserve">
+        <value>Animais domésticos</value>
+    </data>
+
+    <data name="BacupFeatureMessage" xml:space="preserve">
+        <value>Atualmente, o recurso de backup manual funciona apenas em dispositivos iOS. Em dispositivos Android, o recurso de backup automático padrão funcionará para fazer backup dos dados e imagens do diário.</value>
+    </data>
+    <data name="Inhibitors" xml:space="preserve">
+        <value>Inibidores</value>
+    </data>
+    <data name="Enablers" xml:space="preserve">
+        <value>Facilitadores</value>
+    </data>
+    <data name="Fear" xml:space="preserve">
+        <value>Medo</value>
+    </data>
+    <data name="Sadness" xml:space="preserve">
+        <value>Tristeza</value>
+    </data>
+    <data name="Loneliness" xml:space="preserve">
+        <value>Solidão</value>
+    </data>
+    <data name="Anxiety" xml:space="preserve">
+        <value>Ansiedade</value>
+    </data>
+    <data name="LevelOfEffect" xml:space="preserve">
+        <value>Relatório de Inibidores da Felicidade</value>
+    </data>
+    <data name="YourInhibitorEffectScore" xml:space="preserve">
+        <value>SUA PONTUAÇÃO DE EFEITO INIBIDOR</value>
+    </data>
+    <data name="InhibitorTooltipForNewUser" xml:space="preserve">
+        <value>Clique na legenda para Mostrar / ocultar a visibilidade do inibidor</value>
+    </data>
+    <data name="EnableBackup" xml:space="preserve">
+        <value>Ativar backup</value>
+    </data>
+    <data name="Close" xml:space="preserve">
+        <value>SAIR</value>
+    </data>
+------------------------------------------------------------------------------
+  <data name="LetsGetStarted" xml:space="preserve">
+        <value>Vamos começar com o seu Diário da Felicidade!</value>
+    </data>
+ <data name="SearchForPastJournal" xml:space="preserve">
+        <value> Diários anteriores: </value>
+    </data>
+<data name="OverallDaysScore" xml:space="preserve">
+        <value>Pontuação do Dia </value>
+    </data>
+   <data name="Notes" xml:space="preserve">
+        <value>Sentimentos</value>
+    </data>
+    <data name="Causes" xml:space="preserve">
+        <value>Causas</value>
+    </data>
+    <data name="WhatHelped" xml:space="preserve">
+        <value>O que ajudou</value>
+    </data>
+  <data name="NotesFor" xml:space="preserve">
+        <value>Anotações para </value>
+    </data>
+    <data name="JournalDeleteWarning" xml:space="preserve">
+        <value>A "Pontuação do dia" inserida para {0} em {1} será excluída</value>
+    </data>
+  <data name="YourPersonalHappinessDeterminingFactors" xml:space="preserve">
+        <value>(Seus fatores facilitadores de felicidade)</value>
+    </data>
+   <data name="Language" xml:space="preserve">
+        <value>IDIOMA</value>
+    </data>
+     <data name="ChooseYourAppLanguage" xml:space="preserve">
+        <value>Escolha o idioma do seu aplicativo</value>
+    </data>
+   <data name="EnablersReport" xml:space="preserve">
+        <value>Facilitadores'</value>
+    </data>
+ <data name="InhibitorsReport" xml:space="preserve">
+        <value>Inibidores'</value>
+    </data>
+        <data name="Wishlist1" xml:space="preserve">
+        <value>Lista de Desejos1</value>
+    </data>
+    <data name="Wishlist2" xml:space="preserve">
+        <value>Lista de Desejos2</value>
+    </data>
+    <data name="Wishlist3" xml:space="preserve">
+        <value>Lista de Desejos3</value>
+    </data>
+</root>

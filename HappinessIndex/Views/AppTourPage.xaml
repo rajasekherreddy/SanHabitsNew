@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModel="clr-namespace:HappinessIndex.ViewModels"
+             BackgroundColor="{DynamicResource BackgroundColor}"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:Page.UseSafeArea="True"
+             xmlns:resource="clr-namespace:HappinessIndex.Resx"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             x:Class="HappinessIndex.Views.AppTourPage">
+
+    <ContentPage.BindingContext>
+        <viewModel:AppTourPageViewModel/>
+    </ContentPage.BindingContext>
+
+    <Grid x:Name="MainContent" RowSpacing="0">
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!--<Button ImageSource="Close.png"
+                  VerticalOptions="Center"
+                  HeightRequest="40"
+                  Margin="0,0,10,0"
+                  Grid.ColumnSpan="2"
+                  BackgroundColor="{DynamicResource BackgroundColor}"
+                  Command="{Binding CloseCommand}"
+                  WidthRequest="40"
+                  HorizontalOptions="End"/>-->
+
+        <CarouselView
+            Grid.RowSpan="2"
+            Grid.ColumnSpan="2"
+             HorizontalScrollBarVisibility="Never"
+             IndicatorView="indicatorView"
+             ItemsSource="{Binding Source}"
+             VerticalOptions="FillAndExpand"
+             IsScrollAnimated="False"
+             HorizontalOptions="EndAndExpand">
+
+            <CarouselView.ItemsLayout>
+                <LinearItemsLayout Orientation="Horizontal" ItemSpacing="10"/>
+            </CarouselView.ItemsLayout>
+
+            <CarouselView.ItemTemplate>
+                <DataTemplate>
+                    <Grid RowSpacing="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="55*"/>
+                            <RowDefinition Height="150"/>
+                            <RowDefinition Height="45*"/>
+                        </Grid.RowDefinitions>
+
+                        <Frame Padding="0"
+                               Margin="0,10,0,0"
+                               BorderColor="{StaticResource BackgroundDarkColor}"
+                               CornerRadius="20"
+                               HasShadow="True"
+                               HorizontalOptions="FillAndExpand"
+                               BackgroundColor="{DynamicResource BackgroundColor}"
+                               Grid.RowSpan="3">
+                        <Grid BackgroundColor="#8fc449" VerticalOptions="Start" Padding="1,-10,1,0" HorizontalOptions="Center">
+                            <ffimageloading:CachedImage Source="{Binding Image}" Aspect="AspectFit" VerticalOptions="Start"/>
+                                </Grid>
+                        </Frame>
+
+                        <ffimageloading:CachedImage Source="TourBackground"
+                               Grid.Row="1"
+                               Aspect="Fill"
+                               HorizontalOptions="FillAndExpand"
+                               VerticalOptions="FillAndExpand"/>
+
+                        <StackLayout Grid.Row="2" BackgroundColor="{StaticResource BackgroundDarkColor}"
+                                     VerticalOptions="FillAndExpand">
+                            <Label Text="{Binding Title}"
+                                   VerticalOptions="Center"
+                                   HorizontalOptions="Center"
+                                   TextColor="White"
+                                   FontAttributes="Bold"
+                                   FontSize="{StaticResource TitleFontSize}"/>
+
+                            <Label Text="{Binding Description}"
+                                Margin="{StaticResource DefaultPagePadding}"  
+                                TextColor="White"
+                                FontAttributes="Bold"
+                                FontSize="{StaticResource SubTitleFontSize}"/>
+
+                        </StackLayout>
+                    </Grid>
+                </DataTemplate>
+            </CarouselView.ItemTemplate>
+
+        </CarouselView>
+
+        <BoxView Grid.Row="2"
+                 Grid.ColumnSpan="2"
+                 x:Name="BoxView"
+                 VerticalOptions="FillAndExpand"
+                 HorizontalOptions="FillAndExpand"
+                 BackgroundColor="{StaticResource BackgroundDarkColor}"/>
+
+        <!--<Label FontSize="{StaticResource NoteFontSize}"
+               Grid.Row="2"
+               Grid.ColumnSpan="2"
+               Margin="20,0,20,80"
+               FontAttributes="Bold"
+               HorizontalTextAlignment="Center"
+               TextColor="White"
+               Text="Screenshots in other languages is available on the website: www.buildhapiness.app"
+               HorizontalOptions="Center" />-->
+
+        <IndicatorView x:Name="indicatorView"
+                   Grid.Row="2"
+                   Grid.ColumnSpan="2"
+                   IndicatorColor="White"
+                   IndicatorsShape="Square"
+                   SelectedIndicatorColor="Gray"
+                   HorizontalOptions="Center" />
+
+        <Button Text="{x:Static resource:AppResources.Close}"
+                Grid.Row="2"
+                BackgroundColor="{StaticResource BackgroundDarkColor}"
+                TextColor="White"
+                Command="{Binding GetStartedCommand}"
+                Grid.Column="1"/>
+
+    </Grid>
+
+</ContentPage>

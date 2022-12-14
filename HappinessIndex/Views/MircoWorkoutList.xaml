@@ -1,0 +1,235 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="HappinessIndex.Views.MircoWorkoutList"
+    BackgroundColor="{DynamicResource BackgroundColor}"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    ios:Page.UseSafeArea="True"
+    xmlns:resource="clr-namespace:HappinessIndex.Resx"
+    xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    xmlns:behavior="clr-namespace:HappinessIndex.Behaviors"
+    xmlns:viewModel="clr-namespace:HappinessIndex.ViewModels"
+    xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+    xmlns:local="clr-namespace:HappinessIndex.Views"
+    x:Name="SelectMircoWorkoutPage">
+
+
+    <ContentPage.BindingContext>
+        <viewModel:MircoWorkoutListViewModel/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:BoolToStringConverterMicroWorkout x:Key="boolToStringConverterMicroWorkout" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Behaviors>
+        <behavior:EventToCommandBehavior
+            EventName="Appearing"
+            Command="{Binding RefreshCommand}"/>
+         <behavior:EventToCommandBehavior
+            EventName="Disappearing"
+            Command="{Binding DisappearingCommand}"/>
+    </ContentPage.Behaviors>
+
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="Auto"/>
+
+            </Grid.RowDefinitions>
+            <!-- Micro workout -->
+            <Grid Padding="{StaticResource DefaultPagePadding}" RowSpacing="7" x:Name="MicroWorkoutView" IsVisible="true">
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <ScrollView  Grid.Row="0" Margin="0,10" >
+                    <StackLayout BindableLayout.ItemsSource="{Binding SelectedFactors}"
+                        x:Name="List">
+                        <BindableLayout.ItemTemplate>
+                            <DataTemplate>
+                                <Frame HasShadow="False" BorderColor="LightGray" Padding="8" BackgroundColor="{DynamicResource BackgroundColor}">
+                                    <Grid HeightRequest="65">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="0.32*"/>
+                                            <ColumnDefinition Width="0.48*"/>
+                                            <ColumnDefinition Width="0.2*"/>
+                                        </Grid.ColumnDefinitions>
+
+                                        <Image Source="{Binding WorkoutIcon}"
+                                         HeightRequest="40"
+                                       WidthRequest="40"
+                                       Grid.Column="0"
+                                       HorizontalOptions="Start"
+                                       VerticalOptions="Center">
+                                        </Image>
+
+                                        <Image Source="{Binding IsPlayed, Converter={StaticResource boolToStringConverterMicroWorkout}}" Margin="55,0,0,0"
+                                         HeightRequest="40"
+                                       WidthRequest="40"
+                                       Grid.Column="0"
+                                       HorizontalOptions="Start"
+                                       VerticalOptions="Center">
+                                            <Image.GestureRecognizers>
+                                                <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={Type viewModel:MircoWorkoutListViewModel}}, Path=PlayTimerCommand}" CommandParameter="{Binding ID}" NumberOfTapsRequired="1" />
+                                            </Image.GestureRecognizers>
+                                        </Image>
+
+                                        <StackLayout Grid.Column="1" Orientation="Vertical" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand">
+                                            <Label Text="{Binding Name}" />
+                                            <!--<Label Text="{Binding TimerValue, TargetNullValue='00:00', FallbackValue='00:00', StringFormat='{0:mm\\:ss}'}"
+        BindingContext="{Binding Source={x:Reference SelectMircoWorkoutPage}, Path=BindingContext}"/>-->
+
+                                            <!--<Label Text="{Binding WorkoutDurationMin,WorkoutDurationSec, StringFormat='Duration:{0}:{1}'}"/>-->
+                                         <Label>
+                                          <Label.FormattedText>
+                                               <FormattedString>
+                                                    <Span Text="Duration : " />
+                                                    <Span Text="{Binding WorkoutDurationMin}" />
+                                                    <Span Text=":" />
+                                                    <Span Text="{Binding WorkoutDurationSec}" />
+                                                </FormattedString>
+                                          </Label.FormattedText>
+                                        </Label>
+                                            <Label>
+                                          <Label.FormattedText>
+                                               <FormattedString>
+                                                    <Span Text="Sets : " />
+                                                    <Span Text="{Binding NoOfSets}" />
+                                                </FormattedString>
+                                          </Label.FormattedText>
+                                        </Label>
+                                        <!--<Label>
+                                            <Label.Text>
+                                                <MultiBinding StringFormat="{}{0} {1}">
+                                                    <Binding Path="{Binding SelectedFactors.WorkoutDurationMin}" />
+                                                    <Binding Path="{Binding SelectedFactors.WorkoutDurationSec}" />
+                                                </MultiBinding>
+                                            </Label.Text>
+                                        </Label>-->
+                                        </StackLayout>
+
+
+                                        <Image  Source="youtube"
+                                                 HeightRequest="40"
+                                       WidthRequest="40"
+                                       Grid.Column="2"
+                                       HorizontalOptions="End"
+                                       VerticalOptions="Center">
+                                            <Image.GestureRecognizers>
+                                                <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={Type viewModel:MircoWorkoutListViewModel}}, Path=PlayInYoutubeCommand}" CommandParameter="{Binding ID}" NumberOfTapsRequired="1" />
+                                            </Image.GestureRecognizers>
+                                        </Image>
+                                    </Grid>
+                                </Frame>
+                            </DataTemplate>
+                        </BindableLayout.ItemTemplate>
+                    </StackLayout>
+                </ScrollView>
+
+                <ActivityIndicator IsVisible="{Binding IsBusy}" IsRunning="{Binding IsBusy}"
+                               VerticalOptions="Center"
+                               HorizontalOptions="Center" Grid.RowSpan="3"/>
+
+            </Grid>
+
+            <!-- Existing view -->
+            <Grid VerticalOptions="FillAndExpand" x:Name="ExistingViewGrid" IsVisible="false">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <Grid Margin="0,0,0,0" Padding="{StaticResource DefaultPagePadding}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+                    <Label Margin="0,0,0,0" Text="{x:Static resource:AppResources.TheBestThingThatHappenedToday}"
+                         FontSize="{StaticResource ContentFontSize}" FontAttributes="Bold" />
+
+                    <Frame BorderColor="{StaticResource BackgroundDarkColor}"
+                                           VerticalOptions="FillAndExpand" HeightRequest="70"
+                                           Grid.Row="1" HasShadow="False" Padding="0">
+                        <Editor VerticalOptions="FillAndExpand" Text="{Binding Highlights.BestThing}"
+                        FontSize="{StaticResource ContentFontSize}"
+                        AutoSize="TextChanges"
+                        BackgroundColor="{DynamicResource BackgroundColor}"/>
+                    </Frame>
+
+                    <Label Margin="0,10,0,0" Text="{x:Static resource:AppResources.ChallengesFacedToday}"
+                         FontSize="{StaticResource ContentFontSize}" FontAttributes="Bold"
+                         Grid.Row="2"/>
+
+                    <Frame BorderColor="{StaticResource BackgroundDarkColor}"
+                       Grid.Row="3" HasShadow="False" Padding="0">
+                        <Editor
+                        Text="{Binding Highlights.Challenge}"
+                            FontSize="{StaticResource ContentFontSize}"
+                          AutoSize="TextChanges"
+                          BackgroundColor="{DynamicResource BackgroundColor}"/>
+                    </Frame>
+
+                    <Label Margin="0,10,0,0" Text="{x:Static resource:AppResources.LessonsLearntToday}"
+                         FontSize="{StaticResource ContentFontSize}" FontAttributes="Bold"
+                         Grid.Row="4"/>
+
+                    <Frame BorderColor="{StaticResource BackgroundDarkColor}"
+                       Grid.Row="5" HasShadow="False" Padding="0">
+                        <Editor
+                          Text="{Binding Highlights.Lesson}"
+                          FontSize="{StaticResource ContentFontSize}"
+                          AutoSize="TextChanges"
+                          BackgroundColor="{DynamicResource BackgroundColor}"/>
+                    </Frame>
+
+                </Grid>
+
+                <Button Text="{x:Static resource:AppResources.Save}"
+                        Command="{Binding SaveHighlightsCommand}"
+                        Grid.Row="1"
+                        HorizontalOptions="FillAndExpand" Margin="30,0,30,0"/>
+
+            </Grid>
+
+
+            <buttons:SfSegmentedControl
+                    x:Name="selector" 
+                                        Grid.Row="1"
+                                        SelectionChanged="selector_SelectionChanged"
+                                        VisibleSegmentsCount="2"
+                                        SegmentHeight="28"
+                                        Margin="20,3,20,10"
+                                        SelectionTextColor="White"
+                                        BorderColor="{DynamicResource BackgroundDarkColor}"
+                                        FontColor="Black"
+                                        CornerRadius="15">
+                <buttons:SfSegmentedControl.SelectionIndicatorSettings>
+                    <buttons:SelectionIndicatorSettings Color="{DynamicResource BackgroundDarkColor}"/>
+                </buttons:SfSegmentedControl.SelectionIndicatorSettings>
+
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>My Micro Workouts</x:String>
+                    <x:String>My Journal</x:String>
+                </x:Array>
+
+            </buttons:SfSegmentedControl>
+        </Grid>
+
+    </ContentPage.Content>
+</ContentPage>
+

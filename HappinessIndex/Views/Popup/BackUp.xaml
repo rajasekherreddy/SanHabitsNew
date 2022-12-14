@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+             xmlns:inputLayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
+             xmlns:resource="clr-namespace:HappinessIndex.Resx"
+             CloseWhenBackgroundIsClicked="False"
+             x:Class="HappinessIndex.Views.Popup.BackUp">
+
+    <Frame BackgroundColor="White" VerticalOptions="Center" HorizontalOptions="Center">
+        <Grid VerticalOptions="Center" HorizontalOptions="CenterAndExpand">
+
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Label Style="{StaticResource PageTitle}"
+               Text="Retrieving data from the server..."/>
+
+            <ActivityIndicator IsRunning="True" Grid.Row="1" Color="{StaticResource BackgroundDarkColor}"/>
+
+        </Grid>
+    </Frame>
+</pages:PopupPage>

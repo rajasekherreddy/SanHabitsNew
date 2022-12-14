@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModel="clr-namespace:HappinessIndex.ViewModels"
+             xmlns:behavior="clr-namespace:HappinessIndex.Behaviors"
+             Title="{x:Static resource:AppResources.Journal}"
+             BackgroundColor="{DynamicResource BackgroundColor}"
+
+             xmlns:resource="clr-namespace:HappinessIndex.Resx"
+             x:Class="HappinessIndex.Views.NotesPage">
+
+    <ContentPage.BindingContext>
+        <viewModel:NotesPageViewModel/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Behaviors>
+        <behavior:EventToCommandBehavior
+                EventName="Appearing"
+                Command="{Binding RefreshCommand}"/>
+    </ContentPage.Behaviors>
+    <ScrollView>
+        <Grid VerticalOptions="FillAndExpand">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Grid Margin="0,10,0,20" Padding="{StaticResource DefaultPagePadding}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <Label Margin="0,10,0,0" Text="{x:Static resource:AppResources.TheBestThingThatHappenedToday}"
+                         FontSize="{StaticResource ContentFontSize}" FontAttributes="Bold" />
+
+                <Frame BorderColor="{StaticResource BackgroundDarkColor}"
+                                           VerticalOptions="FillAndExpand" HeightRequest="70"
+                                           Grid.Row="1" HasShadow="False" Padding="0">
+                    <Editor VerticalOptions="FillAndExpand" Text="{Binding Highlights.BestThing}"
+                        FontSize="{StaticResource ContentFontSize}"
+                        AutoSize="TextChanges"
+                        BackgroundColor="{DynamicResource BackgroundColor}"/>
+                </Frame>
+
+                <Label Margin="0,10,0,0" Text="{x:Static resource:AppResources.ChallengesFacedToday}"
+                         FontSize="{StaticResource ContentFontSize}" FontAttributes="Bold"
+                         Grid.Row="2"/>
+
+                <Frame BorderColor="{StaticResource BackgroundDarkColor}"
+                       Grid.Row="3" HasShadow="False" Padding="0">
+                    <Editor
+                        Text="{Binding Highlights.Challenge}"
+                            FontSize="{StaticResource ContentFontSize}"
+                          AutoSize="TextChanges"
+                          BackgroundColor="{DynamicResource BackgroundColor}"/>
+                </Frame>
+
+                <Label Margin="0,10,0,0" Text="{x:Static resource:AppResources.LessonsLearntToday}"
+                         FontSize="{StaticResource ContentFontSize}" FontAttributes="Bold"
+                         Grid.Row="4"/>
+
+                <Frame BorderColor="{StaticResource BackgroundDarkColor}"
+                       Grid.Row="5" HasShadow="False" Padding="0">
+                    <Editor
+                          Text="{Binding Highlights.Lesson}"
+                          FontSize="{StaticResource ContentFontSize}"
+                          AutoSize="TextChanges"
+                          BackgroundColor="{DynamicResource BackgroundColor}"/>
+                </Frame>
+
+            </Grid>
+
+            <Button Text="{x:Static resource:AppResources.Save}"
+                        Command="{Binding SaveHighlightsCommand}"
+                        Grid.Row="1"
+                        HorizontalOptions="FillAndExpand" Margin="30,0,30,10"/>
+
+        </Grid>
+    </ScrollView>
+</ContentPage>

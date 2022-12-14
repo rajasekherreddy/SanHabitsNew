@@ -1,0 +1,279 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewModel="clr-namespace:HappinessIndex.ViewModels"
+             mc:Ignorable="d"
+             xmlns:resource="clr-namespace:HappinessIndex.Resx"
+             xmlns:inputLayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
+             xmlns:core="clr-namespace:BuildHappiness.Core.Constants;assembly=BuildHappiness.Core"
+             xmlns:local="clr-namespace:HappinessIndex.Behaviors"
+             Title="{Binding Title}"
+             xmlns:SfCheckBox="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+             x:Class="HappinessIndex.Views.TherapyPreferencesView">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="SfCheckBox:SfCheckBox">
+                <Setter Property="CheckedColor" Value="{d:StaticResource BackgroundDarkColor}"/>
+            </Style>
+            <Style TargetType="SfCheckBox:SfRadioButton">
+                <Setter Property="CheckedColor" Value="{d:StaticResource BackgroundDarkColor}"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.BindingContext>
+        <viewModel:TherapyPreferencesViewModel/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.ToolbarItems >
+        <ToolbarItem  Text="NEXT" Command="{Binding CmdGotoTherapists}" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Behaviors>
+        <local:EventToCommandBehavior
+            EventName="Appearing"
+            Command="{Binding RefreshCommand}"/>
+    </ContentPage.Behaviors>
+
+    <ContentPage.Content>
+        <StackLayout Style="{StaticResource StackLayoutBackgroundColor}">
+            <ScrollView VerticalOptions="FillAndExpand">
+                <StackLayout Margin="10">
+                    <Label Text="{Binding WhatAre}"
+                           Style="{StaticResource lblMainWhite}" FontSize="20" FontAttributes="Bold"/>
+
+                    <Label Text="preferences?" Style="{StaticResource lblMainWhite}" FontSize="20" FontAttributes="Bold"/>
+
+                    <Frame Margin="0,10" Padding="10">
+                        <Expander IsExpanded="True">
+                            <Expander.Header>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="Sessions" Style="{StaticResource lblMainWhite}" FontSize="20" FontAttributes="Bold"/>
+                                    <Image Source="Arrow.png" HeightRequest="20" WidthRequest="20" HorizontalOptions="EndAndExpand" VerticalOptions="Start">
+                                        <Image.Triggers>
+                                            <DataTrigger TargetType="Image" Binding="{Binding Source={RelativeSource AncestorType={x:Type Expander}}, Path=IsExpanded}" Value="True">
+                                                <Setter Property="Rotation" Value="180" />
+                                            </DataTrigger>
+                                        </Image.Triggers>
+                                    </Image>
+                                </StackLayout>
+                            </Expander.Header>
+
+                            <Expander.Content>
+                                <StackLayout Margin="0,10,0,0">
+                                    <SfCheckBox:SfRadioGroup Orientation="Vertical">
+
+                                        <SfCheckBox:SfRadioButton Text="Online" x:Name="OnlineSession" FontSize="20" IsChecked="{Binding IsChecked, Mode=OneWayToSource}" UncheckedColor="#8fc449" TextColor="#8fc449" >
+                                            <SfCheckBox:SfRadioButton.Behaviors>
+                                                <local:EventToCommandBehavior EventName="StateChanged" Command="{Binding CmdsessionType}" CommandParameter="online" />
+                                            </SfCheckBox:SfRadioButton.Behaviors>
+                                        </SfCheckBox:SfRadioButton>
+
+                                        <SfCheckBox:SfRadioButton Text="In-Person"
+                                                  IsChecked="{Binding IsChecked, Mode=OneWayToSource}"
+                                                  FontSize="20" UncheckedColor="#8fc449"
+                                                  TextColor="#8fc449" >
+                                            <SfCheckBox:SfRadioButton.Behaviors>
+                                                <local:EventToCommandBehavior EventName="StateChanged" Command="{Binding CmdsessionType}" CommandParameter="in-person" />
+                                            </SfCheckBox:SfRadioButton.Behaviors>
+                                        </SfCheckBox:SfRadioButton>
+
+                                    </SfCheckBox:SfRadioGroup>
+
+                                    <StackLayout IsEnabled="{Binding IsmilesDisplay}">
+                                        <Label Text="Please enter postal code" Style="{StaticResource lblMainWhite}" HorizontalOptions="Start" FontSize="14"/>
+                                        <Entry Text="{Binding PostCode}"/>
+
+                                        <Label Text="Please select travel distance" Style="{StaticResource lblMainWhite}" HorizontalOptions="Start" FontSize="14"/>
+                                        <Picker SelectedItem="{Binding Mile}" TextColor="{StaticResource BackgroundDarkColor}"
+                                                Title="Please select travel distance" HeightRequest="40" ItemDisplayBinding="{Binding Text}" ItemsSource="{Binding Miles}"/>
+                                    </StackLayout>
+                                </StackLayout>
+
+                            </Expander.Content>
+
+                        </Expander>
+                    </Frame>
+
+                    <Frame Margin="0,5" Padding="10">
+                        <Expander>
+                            <Expander.Header>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="Languages" Style="{StaticResource lblMainWhite}" FontSize="20" FontAttributes="Bold"/>
+                                    <Image Source="Arrow.png" HeightRequest="20" WidthRequest="20" HorizontalOptions="EndAndExpand" VerticalOptions="Start">
+                                        <Image.Triggers>
+                                            <DataTrigger TargetType="Image" Binding="{Binding Source={RelativeSource AncestorType={x:Type Expander}}, Path=IsExpanded}" Value="True">
+                                                <Setter Property="Rotation" Value="180" />
+                                            </DataTrigger>
+                                        </Image.Triggers>
+                                    </Image>
+                                </StackLayout>
+                            </Expander.Header>
+
+                            <Expander.Content>
+                                <StackLayout Margin="0,10,0,0">
+                                    <SfCheckBox:SfCheckBox IsChecked="{Binding ProviderLg.English, Mode=TwoWay}" TextColor="#8fc449" FontSize="20"   UncheckedColor="#8fc449" Text="English"/>
+
+                                    <SfCheckBox:SfCheckBox IsChecked="{Binding ProviderLg.Spanish, Mode=TwoWay}" TextColor="#8fc449" FontSize="20" Text="Spanish" UncheckedColor="#8fc449"/>
+
+                                    <SfCheckBox:SfCheckBox IsChecked="{Binding ProviderLg.French, Mode=TwoWay}" TextColor="#8fc449" FontSize="20" Text="French" UncheckedColor="#8fc449"/>
+
+                                    <SfCheckBox:SfCheckBox IsChecked="{Binding ProviderLg.Portuguese, Mode=TwoWay}" TextColor="#8fc449" FontSize="20" Text="Portuguese" UncheckedColor="#8fc449"/>
+
+                                    <SfCheckBox:SfCheckBox IsChecked="{Binding ProviderLg.Bengali, Mode=TwoWay}" TextColor="#8fc449" FontSize="20" Text="Bengali" UncheckedColor="#8fc449"/>
+
+                                    <SfCheckBox:SfCheckBox IsChecked="{Binding ProviderLg.Hindi, Mode=TwoWay}" TextColor="#8fc449" FontSize="20" Text="Hindi" UncheckedColor="#8fc449"/>
+
+                                    <SfCheckBox:SfCheckBox IsChecked="{Binding ProviderLg.Marathi, Mode=TwoWay}" TextColor="#8fc449" FontSize="20" Text="Marathi" UncheckedColor="#8fc449"/>
+
+                                    <SfCheckBox:SfCheckBox IsChecked="{Binding ProviderLg.Telugu, Mode=TwoWay}" TextColor="#8fc449" FontSize="20" Text="Telugu" UncheckedColor="#8fc449"/>
+
+                                    <SfCheckBox:SfCheckBox IsChecked="{Binding ProviderLg.Tamil, Mode=TwoWay}" TextColor="#8fc449" FontSize="20" Text="Tamil" UncheckedColor="#8fc449"/>
+
+                                    <SfCheckBox:SfCheckBox IsChecked="{Binding ProviderLg.Malayalam, Mode=TwoWay}" TextColor="#8fc449" FontSize="20" Text="Malayalam" UncheckedColor="#8fc449"/>
+                                </StackLayout>
+                            </Expander.Content>
+
+                        </Expander>
+                    </Frame>
+
+                    <Frame Margin="0,5" Padding="10">
+                        <Expander>
+                            <Expander.Header>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="Location" Style="{StaticResource lblMainWhite}" FontSize="20" FontAttributes="Bold"/>
+                                    <Label Text="(Optional)" FontSize="17" Margin="5,0,0,0" Style="{StaticResource lblMainWhite}">
+                                        <Label.Triggers>
+                                            <DataTrigger TargetType="Label" Binding="{Binding Source={Reference OnlineSession}, Path=IsChecked}" Value="False">
+                                                <Setter Property="IsVisible" Value="False" />
+                                            </DataTrigger>
+                                        </Label.Triggers>
+                                    </Label>
+                                    <Image Source="Arrow.png" HeightRequest="20" WidthRequest="20" HorizontalOptions="EndAndExpand" VerticalOptions="Start">
+                                        <Image.Triggers>
+                                            <DataTrigger TargetType="Image" Binding="{Binding Source={RelativeSource AncestorType={x:Type Expander}}, Path=IsExpanded}" Value="True">
+                                                <Setter Property="Rotation" Value="180" />
+                                            </DataTrigger>
+                                        </Image.Triggers>
+                                    </Image>
+                                </StackLayout>
+                            </Expander.Header>
+
+                            <Expander.Content>
+                                <StackLayout Margin="0,10,0,0">
+                                    <inputLayout:SfTextInputLayout
+                                        Hint="{x:Static resource:AppResources.Country}"
+                                        ContainerType="Outlined">
+                                        <Picker SelectedItem="{Binding Country}"
+                                            ItemsSource="{Binding CountryList}" ItemDisplayBinding="{Binding name}" BackgroundColor="White">
+                                            <Picker.Behaviors>
+                                                <local:EventToCommandBehavior
+                                                    EventName="SelectedIndexChanged"
+                                                    Command="{Binding CmdCountryChanged}"/>
+                                            </Picker.Behaviors>
+                                        </Picker>
+                                    </inputLayout:SfTextInputLayout>
+
+                                    <inputLayout:SfTextInputLayout
+                                        Hint="State"
+                                        ContainerType="Outlined">
+                                        <Picker SelectedItem="{Binding SelectState}"
+                                            ItemsSource="{Binding States}" x:Name="States"/>
+                                    </inputLayout:SfTextInputLayout>
+                                </StackLayout>
+
+                            </Expander.Content>
+
+                        </Expander>
+                    </Frame>
+
+                    <Frame Margin="0,5" Padding="10">
+                        <Expander>
+                            <Expander.Header>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="Gender" Style="{StaticResource lblMainWhite}" FontSize="20" FontAttributes="Bold"/>
+                                    <Image Source="Arrow.png" HeightRequest="20" WidthRequest="20" HorizontalOptions="EndAndExpand" VerticalOptions="Start">
+                                        <Image.Triggers>
+                                            <DataTrigger TargetType="Image" Binding="{Binding Source={RelativeSource AncestorType={x:Type Expander}}, Path=IsExpanded}" Value="True">
+                                                <Setter Property="Rotation" Value="180" />
+                                            </DataTrigger>
+                                        </Image.Triggers>
+                                    </Image>
+                                </StackLayout>
+                            </Expander.Header>
+
+                            <Expander.Content>
+                                <StackLayout Margin="0,10,0,0">
+                                    <SfCheckBox:SfCheckBox IsChecked="{Binding  ProviderGr.female ,Mode=TwoWay}"  TextColor="#8fc449" FontSize="20" Text="Female" UncheckedColor="#8fc449"/>
+                                    <SfCheckBox:SfCheckBox IsChecked="{Binding  ProviderGr.male ,Mode=TwoWay}"  TextColor="#8fc449" FontSize="20" Text="Male" UncheckedColor="#8fc449"/>
+                                </StackLayout>
+                            </Expander.Content>
+
+                        </Expander>
+                    </Frame>
+
+                    <Frame Margin="0,5" Padding="10"  IsVisible="{Binding IsSpecialities}">
+                        <Expander>
+                            <Expander.Header>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="Speciality" Style="{StaticResource lblMainWhite}" FontSize="20" FontAttributes="Bold"/>
+                                    <Image Source="Arrow.png" HeightRequest="20" WidthRequest="20" HorizontalOptions="EndAndExpand" VerticalOptions="Start">
+                                        <Image.Triggers>
+                                            <DataTrigger TargetType="Image" Binding="{Binding Source={RelativeSource AncestorType={x:Type Expander}}, Path=IsExpanded}" Value="True">
+                                                <Setter Property="Rotation" Value="180" />
+                                            </DataTrigger>
+                                        </Image.Triggers>
+                                    </Image>
+                                </StackLayout>
+                            </Expander.Header>
+
+                            <Expander.Content>
+                                <StackLayout Margin="0,10,0,0">
+                                    <SfCheckBox:SfCheckBox IsChecked="{Binding ProviderSpecialities.adoption, Mode=TwoWay}" TextColor="#8fc449" FontSize="20" Text="Adoption" UncheckedColor="#8fc449"/>
+
+                                    <SfCheckBox:SfCheckBox IsChecked="{Binding ProviderSpecialities.angerManagement, Mode=TwoWay}" TextColor="#8fc449" FontSize="20" Text="Anger Management" UncheckedColor="#8fc449"/>
+
+                                    <SfCheckBox:SfCheckBox IsChecked="{Binding ProviderSpecialities.anxiety, Mode=TwoWay}" TextColor="#8fc449" FontSize="20" Text="Anxiety" UncheckedColor="#8fc449"/>
+
+                                    <SfCheckBox:SfCheckBox IsChecked="{Binding ProviderSpecialities.autismSpectrum, Mode=TwoWay}" TextColor="#8fc449" FontSize="20" Text="Autism Spectrum" UncheckedColor="#8fc449"/>
+
+                                    <SfCheckBox:SfCheckBox IsChecked="{Binding ProviderSpecialities.behavioralIssues, Mode=TwoWay}" TextColor="#8fc449" FontSize="20" Text="Behavioral Issues" UncheckedColor="#8fc449"/>
+
+                                    <SfCheckBox:SfCheckBox IsChecked="{Binding ProviderSpecialities.chronicIllnessorPain, Mode=TwoWay}" TextColor="#8fc449" FontSize="20" Text="Chronic lllness or pain" UncheckedColor="#8fc449"/>
+
+                                    <SfCheckBox:SfCheckBox IsChecked="{Binding ProviderSpecialities.depression, Mode=TwoWay}" TextColor="#8fc449" FontSize="20" Text="Depression" UncheckedColor="#8fc449"/>
+
+                                    <SfCheckBox:SfCheckBox IsChecked="{Binding ProviderSpecialities.domesticAbuseorViolence, Mode=TwoWay}"  TextColor="#8fc449" FontSize="20" Text="Domestic Abuse or Violence" UncheckedColor="#8fc449"/>
+
+                                    <SfCheckBox:SfCheckBox IsChecked="{Binding ProviderSpecialities.mensIssues, Mode=TwoWay}" TextColor="#8fc449" FontSize="20" Text="Men's Issues" UncheckedColor="#8fc449"/>
+
+                                    <SfCheckBox:SfCheckBox IsChecked="{Binding ProviderSpecialities.parenting, Mode=TwoWay}" TextColor="#8fc449" FontSize="20" Text="Parenting" UncheckedColor="#8fc449"/>
+
+                                    <SfCheckBox:SfCheckBox IsChecked="{Binding ProviderSpecialities.sleepProblems, Mode=TwoWay}" TextColor="#8fc449" FontSize="20" Text="Sleep Problems or Insomnia" UncheckedColor="#8fc449"/>
+
+                                    <SfCheckBox:SfCheckBox IsChecked="{Binding ProviderSpecialities.spirituality, Mode=TwoWay}" TextColor="#8fc449" FontSize="20" Text="Spirituality" UncheckedColor="#8fc449"/>
+
+                                    <SfCheckBox:SfCheckBox IsChecked="{Binding ProviderSpecialities.stressManagement, Mode=TwoWay}" TextColor="#8fc449" FontSize="20" Text="Stress Management" UncheckedColor="#8fc449"/>
+
+                                    <SfCheckBox:SfCheckBox IsChecked="{Binding ProviderSpecialities.suicidalIdeation, Mode=TwoWay}" TextColor="#8fc449" FontSize="20" Text="Suicidal Ideation" UncheckedColor="#8fc449"/>
+
+                                    <SfCheckBox:SfCheckBox IsChecked="{Binding ProviderSpecialities.traumaandPTSD, Mode=TwoWay}" TextColor="#8fc449" FontSize="20" Text="Trauma and PTSD" UncheckedColor="#8fc449"/>
+
+                                    <SfCheckBox:SfCheckBox IsChecked="{Binding ProviderSpecialities.weightLoss, Mode=TwoWay}" TextColor="#8fc449" FontSize="20" Text="Weight Loss" UncheckedColor="#8fc449"/>
+
+                                    <SfCheckBox:SfCheckBox IsChecked="{Binding ProviderSpecialities.womensIssues, Mode=TwoWay}" TextColor="#8fc449" FontSize="20" Text="Women's Issues" UncheckedColor="#8fc449"/>
+
+                                    <SfCheckBox:SfCheckBox IsChecked="{Binding ProviderSpecialities.teenagerIssues, Mode=TwoWay}" TextColor="#8fc449" FontSize="20" Text="Teenager Issues" UncheckedColor="#8fc449"/>
+
+                                    <SfCheckBox:SfCheckBox IsChecked="{Binding ProviderSpecialities.ADHD, Mode=TwoWay}" TextColor="#8fc449" FontSize="20" Text="ADHD" UncheckedColor="#8fc449"/>
+                                </StackLayout>
+                            </Expander.Content>
+                        </Expander>
+                    </Frame>
+                </StackLayout>
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

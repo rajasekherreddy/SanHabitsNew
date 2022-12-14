@@ -1,0 +1,175 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    ios:Page.UseSafeArea="True"
+    xmlns:resource="clr-namespace:HappinessIndex.Resx"
+    xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    BackgroundColor="{DynamicResource BackgroundColor}"
+    xmlns:controls="clr-namespace:HappinessIndex.Controls"
+    xmlns:behavior="clr-namespace:HappinessIndex.Behaviors"
+    xmlns:viewModel="clr-namespace:HappinessIndex.ViewModels"
+    xmlns:inputLayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
+    x:Class="HappinessIndex.Views.LoginPage">
+
+    <ContentPage.BindingContext>
+        <viewModel:LoginPageViewModel/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Behaviors>
+        <behavior:EventToCommandBehavior
+                EventName="Appearing"
+                Command="{Binding RefreshCommand}"/>
+    </ContentPage.Behaviors>
+
+    <ScrollView>
+        <Grid Padding="20" RowSpacing="0">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Label Text="{x:Static resource:AppResources.QuickTour}"
+                    HorizontalOptions="End"
+                   FontAttributes="Bold"
+                    VerticalOptions="Start"
+                   TextDecorations="Underline"
+                   IsVisible="False"
+                   FontSize="{StaticResource ContentFontSize}"
+                    TextColor="{StaticResource TransparentButtonText}"
+                    Grid.ColumnSpan="2">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding ShowAppTourCommand}"/>
+                </Label.GestureRecognizers>
+            </Label>
+
+            <ffimageloading:CachedImage
+            Style="{StaticResource LogoImage}"
+            Grid.ColumnSpan="2"/>
+
+            <!--<Label
+            Style="{StaticResource PageTitle}"
+            Text="{x:Static resource:AppResources.Login}"
+            Grid.ColumnSpan="2"
+            Margin="0, 20"
+            Grid.Row="1"/>-->
+
+            <inputLayout:SfTextInputLayout
+            HasError="{Binding IsInValidEmail}"
+            Hint="{x:Static resource:AppResources.Email}"
+            Grid.Row="6"
+            Grid.ColumnSpan="2"
+            ContainerType="Outlined">
+
+                <controls:SfAutoCompleteExt
+                    Text="{Binding Email, Mode=OneWayToSource}"
+                    AutoCompleteMode="Suggest"
+                    TextSize="{StaticResource ContentFontSize}"
+                    HeightRequest="18"
+                    DropDownBackgroundColor="{DynamicResource BackgroundColor}"
+                    AutoCompleteSource="{Binding EmailList}"
+                    Keyboard="Email">
+
+                    <controls:SfAutoCompleteExt.HeightRequest>
+                        <OnPlatform x:TypeArguments="x:Double">
+                            <On Platform="Android" Value="45"/>
+                            <On Platform="iOS" Value="17"/>
+                        </OnPlatform>
+                    </controls:SfAutoCompleteExt.HeightRequest>
+                </controls:SfAutoCompleteExt>
+
+            </inputLayout:SfTextInputLayout>
+
+            <inputLayout:SfTextInputLayout
+            Hint="{x:Static resource:AppResources.Password}"
+            Grid.Row="7"
+            IsVisible="{Binding IsRegisteredUser}"
+            EnablePasswordVisibilityToggle="True"
+            Grid.ColumnSpan="2"
+            ContainerType="Outlined">
+
+                <Entry Text="{Binding Password}"
+                       FontSize="{StaticResource ContentFontSize}"
+                       IsPassword="True"/>
+
+            </inputLayout:SfTextInputLayout>
+
+            <Button
+            Grid.Row="8"
+            Margin="10"
+            HorizontalOptions="FillAndExpand"
+            Command="{Binding SignupCommand}"
+            Text="{x:Static resource:AppResources.Signup}"/>
+
+            <Button
+            Grid.Row="8"
+            Grid.Column="1"
+            Margin="10"
+            Command="{Binding LoginCommand}"
+            HorizontalOptions="FillAndExpand"
+            Text="{x:Static resource:AppResources.Login}"/>
+
+            <Label
+            Text="{x:Static resource:AppResources.ForgotPassword}"
+            VerticalOptions="Start"
+            TextDecorations="Underline"
+            Grid.Row="9"
+            HorizontalOptions="Center"
+            Margin="0,20"
+            IsVisible="False"
+            FontSize="{StaticResource ContentFontSize}"
+            Grid.ColumnSpan="2">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding ResetPasswordCommand}"/>
+                </Label.GestureRecognizers>
+            </Label>
+
+            <Label FontSize="{StaticResource ContentFontSize}" Grid.ColumnSpan="2"
+                   Margin="0,0,0,20"
+                   Grid.Row="5" Text="Or" HorizontalOptions="Center" IsVisible="False"/>
+
+            <ImageButton HeightRequest="45" Margin="0,0,0,20" Command="{Binding LoginWithGoogleCommand}"
+                Grid.Row="2" Source="Google.png" Grid.ColumnSpan="2" HorizontalOptions="Center"  IsVisible="False"/>
+
+            <ImageButton HeightRequest="45" Margin="0,0,0,20" Command="{Binding LoginWithFacebookCommand}"
+                Grid.Row="3" Source="FacebookLogin.png" Grid.ColumnSpan="2" HorizontalOptions="Center" IsVisible="False"/>
+
+            <controls:AppleSignInButton
+                Command="{Binding SignInWithAppleCommand}"
+                ButtonStyle="Black" HorizontalOptions="CenterAndExpand"
+                VerticalOptions="CenterAndExpand"
+                Grid.Row="4"
+                HeightRequest="45"
+                WidthRequest="275"
+                Grid.ColumnSpan="2"
+                Margin="0,0,0,20">
+                <controls:AppleSignInButton.IsVisible>
+                    <OnPlatform x:TypeArguments="x:Boolean">
+                        <On Platform="iOS" Value="False"/>
+                        <On Platform="Android" Value="False"/>
+                    </OnPlatform>
+                </controls:AppleSignInButton.IsVisible>
+            </controls:AppleSignInButton>
+
+            <ActivityIndicator VerticalOptions="Center" HorizontalOptions="Center"
+                               Grid.ColumnSpan="2" Grid.RowSpan="6"
+                               IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}"/>
+
+        </Grid>
+    </ScrollView>
+</ContentPage>

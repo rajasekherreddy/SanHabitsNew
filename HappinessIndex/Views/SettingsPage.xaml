@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModel="clr-namespace:HappinessIndex.ViewModels"
+             Title="{x:Static resource:AppResources.Settings}"
+             xmlns:control="clr-namespace:HappinessIndex.Controls"
+             BackgroundColor="{DynamicResource BackgroundColor}"
+             xmlns:resource="clr-namespace:HappinessIndex.Resx" xmlns:controls="clr-namespace:HappinessIndex.Controls"
+             x:Class="HappinessIndex.Views.SettingsPage">
+
+    <ContentPage.BindingContext>
+        <viewModel:SettingsPageViewModel/>
+    </ContentPage.BindingContext>
+
+    <StackLayout Orientation="Vertical"  Margin="{StaticResource DefaultPagePadding}">
+
+        <TableView x:Name="SettingsTable" Intent="Settings" BackgroundColor="{DynamicResource BackgroundColor}" VerticalOptions="Start" HeightRequest="350">
+            <TableRoot>
+                <!--<TableSection>
+                    <SwitchCell OnColor="{StaticResource TransparentButtonText}" x:Name="LightThemeSwitch" Text="{x:Static resource:AppResources.EnableLightTheme}" OnChanged="LightTheme"/>
+                </TableSection>-->
+
+                <TableSection>
+                    <SwitchCell OnColor="{StaticResource TransparentButtonText}" x:Name="BackupSwitch" Text="{x:Static resource:AppResources.EnableBackup}" OnChanged="Backup"/>
+                    <!--<TextCell Text="Delete Backup" Tapped="DeleteBackup"/>-->
+                </TableSection>
+
+                <!--<TableSection>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal" Margin="20,0,20,0">
+                            <Label
+                                Text="{x:Static resource:AppResources.Reminders}"
+                                VerticalOptions="Center"/>
+                            <controls:BorderlessTimePicker
+                                x:Name="Reminder"
+                                FontSize="{StaticResource ContentFontSize}"
+                                PropertyChanged="Reminder_PropertyChanged"
+                                HorizontalOptions="EndAndExpand"/>
+                        </StackLayout>
+                    </ViewCell>
+                </TableSection>-->
+
+                <!--<TableSection>
+                    <ViewCell>
+                        <ViewCell.View>
+                            <StackLayout Orientation="Horizontal" Padding="13, 0">
+                                <Label Text="Language" VerticalOptions="Center"></Label>
+                                <control:BorderlessPicker
+                                    SelectedIndex="0"
+                                    x:Name="Picker"
+                                    HorizontalOptions="EndAndExpand">
+                                    <control:BorderlessPicker.Items>
+                                        <x:String>English</x:String>
+                                        <x:String>Portuguese</x:String>
+                                        <x:String>Hindi</x:String>
+                                        <x:String>French</x:String>
+                                    </control:BorderlessPicker.Items>
+                                </control:BorderlessPicker>
+                            </StackLayout>
+                        </ViewCell.View>
+                    </ViewCell>
+                </TableSection>-->
+
+            </TableRoot>
+        </TableView>
+
+        <Label Text="{x:Static resource:AppResources.BacupFeatureMessage}"
+               FontSize="{StaticResource ContentFontSize}"/>
+
+    </StackLayout>
+</ContentPage>

@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<popupPage:PopupBasePage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+             xmlns:inputLayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
+             xmlns:resource="clr-namespace:HappinessIndex.Resx"
+             xmlns:popupPage="clr-namespace:HappinessIndex.Views.Popup"
+             x:Class="HappinessIndex.Views.Popup.AddFactorMicroWorkout"
+              xmlns:controls="clr-namespace:HappinessIndex.Controls">
+    <Grid HorizontalOptions="FillAndExpand"
+          VerticalOptions="End"
+          Padding="20,0, 20, 20"
+          RowSpacing="20"
+          BackgroundColor="{StaticResource BackgroundColor}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="35"/>
+             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <StackLayout Orientation="Horizontal" Margin="-20,0"
+                     BackgroundColor="{StaticResource BackgroundDarkColor}">
+            <Label Style="{StaticResource PageTitle}" TextColor="White"
+                   HorizontalOptions="StartAndExpand"
+                   Margin="20,0"
+                   Text="Add Custom Micro Workout"/>
+            <Button ImageSource="CloseFilled.png" Clicked="ClosePopup"
+                    HorizontalOptions="End"
+                HeightRequest="40" WidthRequest="40" Margin="0,0,7,0"
+                    BackgroundColor="Transparent"/>
+        </StackLayout>
+
+        <Entry Text="{Binding AddNewMicroWorkout.Name}" Grid.Row="1" Placeholder="{x:Static resource:AppResources.Name}"
+                FontSize="{StaticResource ContentFontSize}"/>
+
+        <Entry Text="{Binding AddNewMicroWorkout.Description}" FontSize="{StaticResource ContentFontSize}"
+               Grid.Row="2" Placeholder="{x:Static resource:AppResources.Description}"/>
+
+         <Entry Text="{Binding AddNewMicroWorkout.YoutubeLink}" FontSize="{StaticResource ContentFontSize}" Unfocused="YoutubeEntry_Unfocused"
+               Grid.Row="3" Placeholder="Youtube Link"/>
+
+         
+        <StackLayout    Grid.Row="4" Orientation="Horizontal" Margin="0,-10,0,0">
+            <Label Text="Select  Duration:" HorizontalOptions="Start" VerticalOptions="CenterAndExpand"/>
+            <Picker Title="Min" HorizontalOptions="Start" VerticalOptions="CenterAndExpand" ItemsSource="{Binding DurationPickerMinutes}" SelectedItem="{Binding AddNewMicroWorkout.WorkoutDurationMin}" />
+            <Picker Title="Sec"  HorizontalOptions="Start" VerticalOptions="CenterAndExpand" ItemsSource="{Binding DurationPickerSeconds}" SelectedItem="{Binding AddNewMicroWorkout.WorkoutDurationSec}" />  
+        </StackLayout>
+
+
+        <StackLayout Grid.Row="5" Orientation="Horizontal" Padding="0">
+                <CheckBox WidthRequest="30" HeightRequest="25" />
+                <Label Text="Set Remainder"
+                         FontSize="{StaticResource ContentFontSize}" FontAttributes="Bold"
+                         VerticalOptions="Center" HorizontalOptions="Start"/>
+                <controls:BorderlessTimePicker
+                              Margin="110,0,0,0"
+                                x:Name="Reminder"
+                                FontSize="{StaticResource ContentFontSize}"
+                                HorizontalOptions="End"
+                                Time="{Binding AddNewMicroWorkout.WorkoutReminder}"/>
+
+        </StackLayout>
+
+         
+        <Button Text="{x:Static resource:AppResources.Add}" Command="{Binding AddFactorCommand}" CommandParameter="Popup"
+                VerticalOptions="Center" Grid.Row="6" HorizontalOptions="FillAndExpand" Margin="50,0" Clicked="ClosePopup"/>
+
+    </Grid>
+</popupPage:PopupBasePage>

@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             BackgroundColor="{DynamicResource BackgroundColor}"
+             xmlns:viewModel="clr-namespace:HappinessIndex.ViewModels"
+             xmlns:converter="clr-namespace:BuildHappiness.Core.Converters;assembly=BuildHappiness.Core"
+             x:Class="HappinessIndex.Views.TherapySesstionView">
+    <ContentPage.BindingContext>
+        <viewModel:TherapySesstionViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+
+        <Grid RowDefinitions="*, Auto, Auto, 20, Auto, 20, Auto, Auto, *, *" Padding="20">
+
+            <Label Style="{StaticResource PageTitleWhite}" Grid.Row="1" Text="Great news!" FontSize="22" Margin="0,0,0,10"/>
+            <Label Grid.Row="2" Style="{StaticResource PageTitleWhite}" Text="Therapists are available in your area."/>
+            <Label Grid.Row="4" Style="{StaticResource PageTitleWhite}" Text="How would you like to pay for your session?"/>
+
+            <Frame BackgroundColor="White" CornerRadius="10" Grid.Row="6" Padding="0" Margin="5,0,5,18">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding CmdGotoTherapyInsurance}" NumberOfTapsRequired="1" />
+                </Frame.GestureRecognizers>
+                <Button Text="I have insurance" Command="{Binding CmdGotoTherapyInsurance}"
+                        BackgroundColor="White" FontSize="20"
+                        TextColor="{StaticResource BackgroundDarkColor}"
+                        FontAttributes="Bold"/>
+            </Frame>
+
+            <Frame BackgroundColor="{StaticResource BackgroundDarkColor}" CornerRadius="10" Grid.Row="7" Margin="5,0" Padding="0">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding CmdGotoTherapyPreferences}" NumberOfTapsRequired="1" />
+                </Frame.GestureRecognizers>
+                <Button BackgroundColor="Transparent"
+                        Command="{Binding CmdGotoTherapyPreferences}"
+                        Text="I will be doing self-pay" FontSize="20"
+                        TextColor="White" FontAttributes="Bold"/>
+            </Frame>
+
+        </Grid>
+
+    </ContentPage.Content>
+</ContentPage>

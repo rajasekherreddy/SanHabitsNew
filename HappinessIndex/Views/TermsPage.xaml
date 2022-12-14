@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:behavior="clr-namespace:HappinessIndex.Behaviors"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:resource="clr-namespace:HappinessIndex.Resx"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    ios:Page.UseSafeArea="True"
+    xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    BackgroundColor="{DynamicResource BackgroundColor}"
+    xmlns:viewModel="clr-namespace:HappinessIndex.ViewModels"
+    x:Class="HappinessIndex.Views.TermsPage">
+
+    <ContentPage.BindingContext>
+        <viewModel:TermsPageViewModel/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Behaviors>
+        <behavior:EventToCommandBehavior
+                EventName="Appearing"
+                Command="{Binding RefreshCommand}"/>
+    </ContentPage.Behaviors>
+
+    <Grid RowSpacing="0" Padding="{StaticResource DefaultPagePadding}">
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+         <ffimageloading:CachedImage
+            Style="{StaticResource LogoImage}"
+            Grid.ColumnSpan="2"
+            Grid.Row="1"/>
+
+        <Label
+            Style="{StaticResource PageTitle}"
+            Text="TERMS AND PRIVACY"
+            Grid.ColumnSpan="2"
+            Grid.Row="3"
+            Margin="0, 20"/>
+
+        <Label
+             FontSize="{StaticResource ContentFontSize}"
+             HorizontalTextAlignment="Center"
+             Text="In order to use San Habits you will need to read and accept out Terms of Service and Privacy Policy."
+             Grid.ColumnSpan="2"
+             Grid.Row="5"/>
+
+        <Button Text="READ"
+                HorizontalOptions="FillAndExpand"
+                Command="{Binding ShowTermsCommand}"
+                Margin="10, 20, 10,0"
+                Grid.Row="6"/>
+
+        <Button  Text="ACCEPT"
+                 IsEnabled="{Binding EnableAcceptButton}"
+                 HorizontalOptions="FillAndExpand"
+                 Margin="10, 20, 10,0"
+                 Command="{Binding TermsAcceptedCommand}"
+                 VerticalOptions="Center"
+                 Grid.Column="1"
+                 Grid.Row="6"/>
+    </Grid>
+
+</ContentPage>

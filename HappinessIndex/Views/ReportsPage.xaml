@@ -1,0 +1,336 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    BackgroundColor="{DynamicResource BackgroundColor}"
+    xmlns:behavior="clr-namespace:HappinessIndex.Behaviors"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    ios:Page.UseSafeArea="True"
+    xmlns:local="clr-namespace:HappinessIndex.Views"
+    xmlns:helper="clr-namespace:HappinessIndex.Helpers"
+    xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+    Title="{x:Static resource:AppResources.YourHappinessScore}"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib"
+    xmlns:resource="clr-namespace:HappinessIndex.Resx"
+    xmlns:chart="clr-namespace:Syncfusion.SfChart.XForms;assembly=Syncfusion.SfChart.XForms"
+    xmlns:viewModel="clr-namespace:HappinessIndex.ViewModels"
+    x:Class="HappinessIndex.Views.ReportsPage">
+
+    <ContentPage.BindingContext>
+        <viewModel:ReportPageViewModel/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Behaviors>
+        <behavior:EventToCommandBehavior
+            EventName="Appearing"
+            Command="{Binding RefreshCommand}"/>
+    </ContentPage.Behaviors>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:ChartTitleStringConverter x:Key="ChartTitleStringConverter"/>
+            <DataTemplate x:Key="TooltipTemplate">
+                <StackLayout>
+                    <Label Text="{Binding ExpectedValue, StringFormat='Expectation: {0:#}'}"
+                                       FontSize="{StaticResource ContentFontSize}" TextColor="White"  />
+                    <Label Text="{Binding ActualValue, StringFormat='Reality:  {0:#}'}"
+                                       HorizontalTextAlignment="End"
+                                       FontSize="{StaticResource ContentFontSize}" TextColor="White"/>
+                </StackLayout>
+            </DataTemplate>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="SendEmail.png" Clicked="SnedReport"/>
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <Grid RowSpacing="7" ColumnSpacing="2" Margin="{StaticResource DefaultPagePadding}">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="60" x:Name="OverallRow"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <!--<Label Text="{x:Static resource:AppResources.YourHappinessScore}"
+                   Style="{StaticResource PageTitle}"
+                   Grid.ColumnSpan="7"
+                   HorizontalOptions="CenterAndExpand"/>-->
+
+            <!--<Button Grid.ColumnSpan="2"
+                    ImageSource="Back.png"
+                    Style="{StaticResource BackButton}"/>-->
+
+            <Label Text="{x:Static resource:AppResources.From}"
+                   x:Name="FromLabel"
+                   FontSize="{StaticResource ContentFontSize}"
+                   Grid.Column="1"
+                   LineBreakMode="TailTruncation"
+                   VerticalOptions="Center"/>
+
+            <DatePicker Grid.Column="2"
+                        FontSize="{StaticResource ContentFontSize}"
+                        Date="{Binding StartDate, Mode=TwoWay}"
+                        MaximumDate="{Binding Source={x:Static sys:DateTime.Now}}"
+                        BackgroundColor="{DynamicResource BackgroundColor}"
+                        VerticalOptions="Center"/>
+
+            <Label Text="{x:Static resource:AppResources.To}"
+                   x:Name="ToLabel"
+                   LineBreakMode="TailTruncation"
+                   Margin="10,0,0,0"
+                   FontSize="{StaticResource ContentFontSize}"
+                   Grid.Column="3"
+                   VerticalOptions="Center"/>
+
+            <DatePicker Grid.Column="4"
+                        FontSize="{StaticResource ContentFontSize}"
+                        MinimumDate="{Binding StartDate}"
+                        MaximumDate="{Binding Source={x:Static sys:DateTime.Now}}"
+                        Date="{Binding EndDate, Mode=TwoWay}"
+                        BackgroundColor="{DynamicResource BackgroundColor}"
+                        VerticalOptions="Center"/>
+
+            <Button ImageSource="Download.png"
+                    BackgroundColor="{DynamicResource BackgroundColor}"
+                    HeightRequest="45"
+                    Margin="7,0"
+                    WidthRequest="45"
+                    Grid.Column="5"
+                    HorizontalOptions="Center"
+                    FontSize="{StaticResource ContentFontSize}"
+                    VerticalOptions="Center"
+                    Command="{Binding GenerateRecordsCommand}"/>
+
+            <Label IsVisible="{Binding CanDisplayChart}"
+                   Text="{Binding ResultDisplayText, Converter={StaticResource ChartTitleStringConverter}}"
+                   Grid.ColumnSpan="7"
+                   FontSize="14"
+                   x:Name="Header"
+                   HorizontalTextAlignment="Center"
+                   HorizontalOptions="Center"
+                   Grid.Row="1"/>
+
+            <Grid IsVisible="{Binding CanDisplayChart}" Grid.Row="2" Grid.ColumnSpan="7">
+                <chart:SfChart x:Name="OverallChart"
+                           VerticalOptions="FillAndExpand"
+                           ChartPadding="40, 0, 0, 0"
+                           BackgroundColor="Transparent">
+
+                    <!--<chart:SfChart.Title>
+                        <chart:ChartTitle TextAlignment="End"
+                                          BackgroundColor="Transparent"
+                                          Text="{x:Static resource:AppResources.OverallHappinessScore}" FontSize="{StaticResource ChartTitleFontSize}"/>
+                    </chart:SfChart.Title>-->
+
+                    <chart:SfChart.PrimaryAxis>
+                        <chart:CategoryAxis ShowMajorGridLines="False"
+                                            IsVisible="True"
+                                            LabelCreated="CategoryAxis_LabelCreated_1">
+                            <chart:CategoryAxis.MajorTickStyle>
+                                <chart:ChartAxisTickStyle TickSize="0"/>
+                            </chart:CategoryAxis.MajorTickStyle>
+                            <chart:CategoryAxis.LabelStyle>
+                                <chart:ChartAxisLabelStyle LabelsPosition="Inside"
+                                                           FontSize="14"
+                                                           TextColor="Black"/>
+                            </chart:CategoryAxis.LabelStyle>
+                        </chart:CategoryAxis>
+                    </chart:SfChart.PrimaryAxis>
+
+                    <chart:SfChart.SecondaryAxis>
+                        <chart:NumericalAxis ShowMajorGridLines="False" EdgeLabelsDrawingMode="Shift">
+                            <chart:NumericalAxis.LabelStyle>
+                                <chart:ChartAxisLabelStyle FontSize="14"/>
+                            </chart:NumericalAxis.LabelStyle>
+                        </chart:NumericalAxis>
+                    </chart:SfChart.SecondaryAxis>
+
+                    <chart:BarSeries EnableTooltip="False"
+                                 LegendIcon="Rectangle"
+                                 ItemsSource="{Binding OverallSource}"
+                                 XBindingPath="ActualValue"
+                                 YBindingPath="ActualValue"
+                                 TooltipTemplate="{StaticResource TooltipTemplate}"
+                                 Color="#a1de87"
+                                 Spacing="0.3"
+                                 EnableAnimation="True"
+                                 CornerRadius="5, 5, 0, 0">
+                    </chart:BarSeries>
+
+                </chart:SfChart>
+            </Grid>
+
+            <Grid Grid.Row="3" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Grid.ColumnSpan="7" Margin="0,10,0,0"
+                  IsVisible="{Binding CanDisplayChart}">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <chart:SfChart BackgroundColor="Transparent"
+                               ChartPadding="0" x:Name="BarChart">
+
+                    <chart:SfChart.PrimaryAxis>
+                        <chart:CategoryAxis ShowMajorGridLines="False"
+                                            TickPosition="Inside"
+                                            LabelRotationAngle="270"
+                                            LabelsIntersectAction="None">
+                            <chart:CategoryAxis.MajorTickStyle>
+                                <chart:ChartAxisTickStyle StrokeColor="Transparent"/>
+                            </chart:CategoryAxis.MajorTickStyle>
+                            <chart:CategoryAxis.LabelStyle>
+                                <chart:ChartAxisLabelStyle LabelsPosition="Inside" TextColor="Black"
+                                                           FontSize="14"/>
+                            </chart:CategoryAxis.LabelStyle>
+                        </chart:CategoryAxis>
+                    </chart:SfChart.PrimaryAxis>
+
+                    <chart:SfChart.SecondaryAxis>
+                        <chart:NumericalAxis Minimum="0" Maximum="10"
+                                         ShowMajorGridLines="False"
+                                         EdgeLabelsDrawingMode="Shift">
+
+                            <chart:NumericalAxis.Title>
+                                <chart:ChartAxisTitle Text="{x:Static resource:AppResources.HappinessScore}" FontSize="15"/>
+                            </chart:NumericalAxis.Title>
+
+                            <chart:NumericalAxis.LabelStyle>
+                                <chart:ChartAxisLabelStyle FontSize="14"/>
+                            </chart:NumericalAxis.LabelStyle>
+                        </chart:NumericalAxis>
+                    </chart:SfChart.SecondaryAxis>
+
+                    <chart:ColumnSeries EnableTooltip="False"
+                                        EnableAnimation="True"
+                                        LegendIcon="Rectangle"
+                                        Width="0.6"
+                                        Spacing="0.1"
+                                        ItemsSource="{Binding ChartSource}"
+                                        TooltipTemplate="{StaticResource TooltipTemplate}"
+                                        DataMarkerPosition="Center"
+                                        XBindingPath="Factor.DisplayName"
+                                        YBindingPath="ActualValue"
+                                        CornerRadius="5, 5, 0, 0">
+                        <chart:ColumnSeries.ColorModel>
+                            <chart:ChartColorModel Palette="Custom" CustomBrushes="{Binding Colors}"/>
+                        </chart:ColumnSeries.ColorModel>
+
+                    </chart:ColumnSeries>
+
+                </chart:SfChart>
+
+                <chart:SfChart BackgroundColor="Transparent"
+                    x:Name="Inhibitors"
+                    IsVisible="False" Series="{Binding InhibitorsLine}">
+
+                    <!--<chart:SfChart.ChartAnnotations>
+                        <chart:HorizontalLineAnnotation Y1="5" StrokeColor="Orange"
+                                                        CoordinateUnit="Axis"
+                                                        Text="Alert Threshold">
+                            <chart:HorizontalLineAnnotation.LabelStyle>
+                                <chart:ChartAnnotationLabelStyle TextColor="Orange"
+                                                                 VerticalTextAlignment="Start"
+                                                                 HorizontalTextAlignment="Start"/>
+                            </chart:HorizontalLineAnnotation.LabelStyle>
+                        </chart:HorizontalLineAnnotation>
+                        <chart:HorizontalLineAnnotation Y1="7" StrokeColor="Red"
+                                                        CoordinateUnit="Axis"
+                                                        Text="Serious Concern Threshold">
+                             <chart:HorizontalLineAnnotation.LabelStyle>
+                                <chart:ChartAnnotationLabelStyle TextColor="Red"
+                                                                 VerticalTextAlignment="Start"
+                                                                 HorizontalTextAlignment="Start"/>
+                            </chart:HorizontalLineAnnotation.LabelStyle>
+                        </chart:HorizontalLineAnnotation>
+                    </chart:SfChart.ChartAnnotations>-->
+
+                    <chart:SfChart.ChartBehaviors>
+                        <!--<chart:ChartZoomPanBehavior ZoomMode="X"/>-->
+                        <chart:ChartTooltipBehavior/>
+                    </chart:SfChart.ChartBehaviors>
+
+                    <chart:SfChart.ColorModel>
+                        <chart:ChartColorModel Palette="Custom" CustomBrushes="{x:Static helper:ColorHelper.DefaultColors}"/>
+                    </chart:SfChart.ColorModel>
+
+                    <!--<chart:SfChart.Title>
+                        <chart:ChartTitle BackgroundColor="Transparent"
+                                          Text="{x:Static resource:AppResources.LevelOfEffect}"
+                                          FontSize="{StaticResource ChartTitleFontSize}"/>
+                    </chart:SfChart.Title>-->
+
+                    <chart:SfChart.Legend>
+                        <chart:ChartLegend DockPosition="Top"
+                                           ToggleSeriesVisibility="True"
+                                           
+                                           OverflowMode="Wrap">
+                            <!--<chart:ChartLegend.Title>
+                                <chart:ChartTitle Text="{x:Static resource:AppResources.ClickOnTheDotsToHideShowTheRespectiveGraphLines}"
+                                                  FontSize="10"/>
+                            </chart:ChartLegend.Title>-->
+                        </chart:ChartLegend>
+                    </chart:SfChart.Legend>
+
+                    <chart:SfChart.PrimaryAxis>
+                        <local:DateTimeAxisExt LabelCreated="InhibitorsAxisLabelCreated"
+                                            ActualRangeChanged="DateTimeCategoryAxis_ActualRangeChanged"
+                                            EdgeLabelsDrawingMode="Center"
+                                            LabelsIntersectAction="Hide"
+                                            MaximumLabels="5"
+                                            LabelRotationAngle="-45"
+                                            PlotOffset="20">
+                            <chart:DateTimeAxis.LabelStyle>
+                                <chart:ChartAxisLabelStyle LabelFormat="MMM-dd HH:mm"/>
+                            </chart:DateTimeAxis.LabelStyle>
+                        </local:DateTimeAxisExt>
+                    </chart:SfChart.PrimaryAxis>
+
+                    <chart:SfChart.SecondaryAxis>
+                        <chart:NumericalAxis Minimum="0" Maximum="10" PlotOffset="30"/>
+                    </chart:SfChart.SecondaryAxis>
+                </chart:SfChart>
+
+                <buttons:SfSegmentedControl
+                    x:Name="selector"
+                                        Grid.Row="1"
+                                        SelectionChanged="SfSegmentedControl_SelectionChanged"
+                                        VisibleSegmentsCount="2"
+                                        SegmentHeight="28"
+                                        Margin="20,3,20,10"
+                                        SelectionTextColor="White"
+                                        BorderColor="{DynamicResource BackgroundDarkColor}"
+                                        FontColor="Black"
+                                        CornerRadius="15">
+                    <buttons:SfSegmentedControl.SelectionIndicatorSettings>
+                        <buttons:SelectionIndicatorSettings Color="{DynamicResource BackgroundDarkColor}"/>
+                    </buttons:SfSegmentedControl.SelectionIndicatorSettings>
+
+                    <x:Array Type="{x:Type x:String}">
+                        <x:Static Member="resource:AppResources.Enablers"/>
+                        <x:Static Member="resource:AppResources.Inhibitors"/>
+                    </x:Array>
+
+                </buttons:SfSegmentedControl>
+
+            </Grid>
+            <ActivityIndicator VerticalOptions="Center" HorizontalOptions="Center"
+                               Grid.ColumnSpan="7" Grid.RowSpan="4"
+                               IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

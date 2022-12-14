@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:viewModel="clr-namespace:HappinessIndex.ViewModels"
+    xmlns:resource="clr-namespace:HappinessIndex.Resx"
+    xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    BackgroundColor="{DynamicResource BackgroundColor}"
+    Title="{x:Static resource:AppResources.Feedback}"
+    x:Class="HappinessIndex.Views.LogoutPage">
+
+    <ContentPage.BindingContext>
+        <viewModel:LogoutPageViewModel/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <Grid Padding="{StaticResource DefaultPagePadding}">
+
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <ffimageloading:CachedImage
+            Style="{StaticResource LogoImage}"
+            Grid.Row="2"/>
+
+            <Label
+                Grid.Row="4"
+                Style="{StaticResource PageTitle}"
+                VerticalOptions="Center"
+                HorizontalOptions="Center">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="{x:Static resource:AppResources.FeedbackContent}"/>
+                        <Span Text="feedback@buildhappiness.app" TextDecorations="Underline" TextColor="#4f5bff">
+                            <Span.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding SendEmailCommand}"/>
+                            </Span.GestureRecognizers>
+                        </Span>
+                        <Span Text="."/>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+
+            <!--<Button Text="{x:Static resource:AppResources.Logout}"
+                    Grid.Row="6"
+                    Margin="12"
+                    TextColor="{StaticResource TransparentButtonText}"
+                    BackgroundColor="{DynamicResource BackgroundColor}"
+                    ImageSource="Logout.png"
+                    Command="{Binding LogoutCommand}"
+                    HorizontalOptions="Center"
+                    />-->
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
+        

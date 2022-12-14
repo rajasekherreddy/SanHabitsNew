@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<popupPage:PopupBasePage xmlns="http://xamarin.com/schemas/2014/forms"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                 FlowDirection="MatchParent"
+                 xmlns:resource="clr-namespace:HappinessIndex.Resx"
+                 CloseWhenBackgroundIsClicked="False"
+                 xmlns:popupPage="clr-namespace:HappinessIndex.Views.Popup"
+                 x:Class="HappinessIndex.Views.Popup.CommonMessage">
+    <Grid HorizontalOptions="FillAndExpand"
+          VerticalOptions="End"
+          Padding="20,0, 20, 20"
+          RowSpacing="20"
+          BackgroundColor="{StaticResource BackgroundColor}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <StackLayout Orientation="Horizontal" Margin="-20,0"
+                     BackgroundColor="{StaticResource BackgroundDarkColor}">
+            <Label Style="{StaticResource PageTitle}" TextColor="White"
+                   HorizontalOptions="StartAndExpand"
+                   x:Name="TitleXt"
+                   Margin="20,0"/>
+        </StackLayout>
+
+        <Label x:Name="Content" FontSize="{StaticResource ContentFontSize}" Grid.Row="1"/>
+
+        <StackLayout Orientation="Horizontal" Grid.Row="2">
+            <Button x:Name="Option1" HorizontalOptions="FillAndExpand"
+                        VerticalOptions="Center"
+                        Clicked="Opetion1Clicked"/>
+             <Button x:Name="Option2" HorizontalOptions="FillAndExpand"
+                        VerticalOptions="Center" Clicked="Opetion2Clicked"/>
+        </StackLayout>
+        
+
+    </Grid>
+
+</popupPage:PopupBasePage>

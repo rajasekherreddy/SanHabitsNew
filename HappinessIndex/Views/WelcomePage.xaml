@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    ios:Page.UseSafeArea="True"
+    xmlns:behavior="clr-namespace:HappinessIndex.Behaviors"
+    xmlns:resource="clr-namespace:HappinessIndex.Resx"
+    xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    xmlns:viewModel="clr-namespace:HappinessIndex.ViewModels"
+    BackgroundColor="{DynamicResource BackgroundColor}"
+    x:Class="HappinessIndex.Views.WelcomePage">
+
+    <ContentPage.BindingContext>
+        <viewModel:WelcomePageViewModel/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Behaviors>
+        <behavior:EventToCommandBehavior
+                EventName="Appearing"
+                Command="{Binding RefreshCommand}"/>
+    </ContentPage.Behaviors>
+
+    <ScrollView>
+        <Grid Padding="{StaticResource DefaultPagePadding}" RowSpacing="15">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <ffimageloading:CachedImage
+                Grid.Row="1"
+            Style="{StaticResource LogoImage}"
+            Grid.ColumnSpan="2"/>
+
+            <Label
+                Grid.Row="3"
+                Grid.ColumnSpan="2"
+                Text="{x:Static resource:AppResources.BuildMeasureLearn}"
+                Style="{StaticResource PageTitle}"
+                HorizontalTextAlignment="Center"/>
+
+            <Label FontSize="{StaticResource ContentFontSize}"
+                   Grid.Row="5" Grid.ColumnSpan="2"
+                Text="{x:Static resource:AppResources.BuildMeasureLearnP1}"/>
+
+            <Label FontSize="{StaticResource ContentFontSize}"
+                    Grid.Row="6" Grid.ColumnSpan="2"
+                Text="{x:Static resource:AppResources.BuildMeasureLearnP2}"/>
+
+            <Label FontSize="{StaticResource ContentFontSize}"
+                    Grid.Row="7" Grid.ColumnSpan="2"
+                Text="{x:Static resource:AppResources.BuildMeasureLearnP3}"/>
+
+            <Label FontSize="{StaticResource ContentFontSize}"
+                    Grid.Row="8" Grid.ColumnSpan="2"
+                Text="{x:Static resource:AppResources.BuildMeasureLearnP4}"/>
+
+            <Label FontSize="{StaticResource ContentFontSize}"
+                    Grid.Row="9" Grid.ColumnSpan="2"
+                Text="{x:Static resource:AppResources.BuildMeasureLearnP5}"/>
+
+            <Button
+                 Grid.Row="10"
+                Margin="10"
+                Grid.Column="1"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="CenterAndExpand"
+                Command="{Binding NavigateCommand}"
+                Text="{x:Static resource:AppResources.GetStarted}"/>
+
+            <Button
+                Margin="10"
+                HorizontalOptions="FillAndExpand"
+                Grid.Row="10" 
+                VerticalOptions="StartAndExpand"
+                IsVisible="False"
+                Text="{x:Static resource:AppResources.QuickTour}"
+                Command="{Binding ShowAppTourCommand}"/>
+
+        </Grid>
+    </ScrollView>
+</ContentPage>

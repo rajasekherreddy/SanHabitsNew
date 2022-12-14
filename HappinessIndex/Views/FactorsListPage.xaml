@@ -1,0 +1,188 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             BackgroundColor="{DynamicResource BackgroundColor}"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:Page.UseSafeArea="True"
+             Title="{x:Static resource:AppResources.happinessEnablersSetup}"
+             xmlns:resource="clr-namespace:HappinessIndex.Resx"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:behavior="clr-namespace:HappinessIndex.Behaviors"
+             xmlns:viewModel="clr-namespace:HappinessIndex.ViewModels"
+             x:Class="HappinessIndex.Views.FactorsListPage">
+
+    <ContentPage.BindingContext>
+        <viewModel:FactorsListPageViewModel/>
+    </ContentPage.BindingContext>
+   
+    <ContentPage.Behaviors>
+        <behavior:EventToCommandBehavior
+            EventName="Appearing"
+            Command="{Binding RefreshCommand}"/>
+    </ContentPage.Behaviors>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="HOME" Order="Secondary" Command="{Binding HomeCommand}"/>
+        <ToolbarItem Text="{x:Static resource:AppResources.Add}" Command="{Binding AddFactorCommand}"/>
+    </ContentPage.ToolbarItems>
+
+    <Grid Padding="{StaticResource DefaultPagePadding}" RowSpacing="7">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+
+        <!--<Button Style="{StaticResource BackButton}" ImageSource="Back.png"/>-->
+
+        <Label FontSize="{StaticResource ContentFontSize}"
+               HorizontalOptions="CenterAndExpand"
+               Grid.ColumnSpan="2"
+               FontAttributes="Bold"
+               TextColor="{StaticResource TransparentButtonText}"
+               Text="{x:Static resource:AppResources.YourPersonalHappinessDeterminingFactors}"/>
+
+        <Label Grid.Row="1"
+               FontAttributes="Bold"
+               TextColor="{StaticResource TransparentButtonText}"
+               Text="{Binding EditDate}"
+               FontSize="{StaticResource ContentFontSize}" HorizontalOptions="EndAndExpand"/>
+
+        <ScrollView  Grid.Row="2" Margin="0,10"
+                        Grid.ColumnSpan="2">
+            <StackLayout BindableLayout.ItemsSource="{Binding Factors}"
+                        x:Name="List">
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate>
+                        <Frame HasShadow="False" BorderColor="LightGray" Padding="8" BackgroundColor="{DynamicResource BackgroundColor}">
+                            <Expander>
+                                <Expander.Header>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="70"/>
+                                            <ColumnDefinition/>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                        </Grid.ColumnDefinitions>
+
+                                        <ffimageloading:CachedImage Source="{Binding Icon}" HeightRequest="70" Margin="0,0,15,0"/>
+
+                                        <StackLayout Grid.Column="1" VerticalOptions="CenterAndExpand" Orientation="Vertical">
+                                            <Label Text="{Binding DisplayName}"
+                                   FontSize="{StaticResource ContentFontSize}"
+                                   VerticalOptions="Center"/>
+                                            <Label Text="{Binding DisplayDescription}"
+                                   VerticalOptions="Start"
+                                   FontSize="{StaticResource NoteFontSize}"/>
+                                        </StackLayout>
+
+                                        <Switch Grid.Column="2"
+                                    VerticalOptions="Center"
+                                    IsToggled="{Binding IsSelected}"
+                                    OnColor="{StaticResource BackgroundDarkColor}">
+                                            <Switch.Behaviors>
+                                                <behavior:EventToCommandBehavior
+                                            EventName="Toggled"
+                                            Command="{Binding Source={x:Reference List}, Path=BindingContext.ValidateFactorsCommand}"
+                                        CommandParameter="{Binding}"/>
+                                            </Switch.Behaviors>
+                                        </Switch>
+
+                                        <Image Source="Arrow.png"
+                                       HeightRequest="30"
+                                       WidthRequest="30"
+                                       Margin="10,0,0,0"
+                                       Grid.Column="3"
+                                       HorizontalOptions="End"
+                                       VerticalOptions="Center">
+                                            <Image.Triggers>
+                                                <DataTrigger TargetType="Image"
+                                            Binding="{Binding Source={RelativeSource AncestorType={x:Type Expander}}, Path=IsExpanded}"
+                                            Value="True">
+                                                    <Setter Property="Rotation"
+                                                Value="180" />
+                                                </DataTrigger>
+                                            </Image.Triggers>
+                                        </Image>
+
+                                    </Grid>
+                                </Expander.Header>
+
+                                <Expander.ContentTemplate>
+                                    <DataTemplate>
+                                        <Grid Margin="0,5,0,0">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto"/>
+                                            </Grid.RowDefinitions>
+
+                                            <StackLayout BindableLayout.ItemsSource="{Binding Wishlist}">
+                                                <BindableLayout.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <StackLayout>
+                                                            <Label Text="{Binding Name}" FontSize="{StaticResource ContentFontSize}"/>
+                                                            <Entry Text="{Binding Description}" FontSize="{StaticResource ContentFontSize}"/>
+                                                        </StackLayout>
+                                                    </DataTemplate>
+                                                </BindableLayout.ItemTemplate>
+                                            </StackLayout>
+
+
+                                            <Button BackgroundColor="{StaticResource TransparentButtonText}"
+                                                    Grid.Row="1"
+                                                    HorizontalOptions="End"
+                                                    Command="{Binding ShareCommand}"
+                                                    Text="SHARE"/>
+
+                                        </Grid>
+                                    </DataTemplate>
+                                </Expander.ContentTemplate>
+
+                            </Expander>
+                        </Frame>
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+
+            </StackLayout>
+        </ScrollView>
+
+        <Button Text="{x:Static resource:AppResources.Save}"
+                Grid.Row="3"
+                Command="{Binding SaveCommand}"
+                Clicked="Button_Clicked"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="Center"
+                Margin="30,0,30,10"/>
+
+        <!--<StackLayout VerticalOptions="Center"
+                         Spacing="0"
+                         Grid.Row="2"
+                         Grid.Column="1"
+                         Margin="0,0,0,10"
+                         HorizontalOptions="End">
+
+                <Button HeightRequest="40"
+                        WidthRequest="40"
+                        HorizontalOptions="Center"
+                        Command="{Binding AddFactorCommand}"
+                        BackgroundColor="{DynamicResource BackgroundColor}"
+                        ImageSource="Add.png"/>
+
+                <Label Text="{x:Static resource:AppResources.AddFactor}"
+                       FontSize="{StaticResource ContentFontSize}"
+                       HorizontalTextAlignment="Center"
+                       TextColor="{StaticResource TransparentButtonText}"/>
+            </StackLayout>-->
+
+        <ActivityIndicator IsVisible="{Binding IsBusy}" IsRunning="{Binding IsBusy}"
+                               VerticalOptions="Center"
+                               HorizontalOptions="Center" Grid.ColumnSpan="2" Grid.RowSpan="3"/>
+
+    </Grid>
+</ContentPage>

@@ -1,0 +1,419 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E47141B0-3681-47E3-ADE9-D449F9ACD0A0}</ProjectGuid>
+    <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <TemplateGuid>{6143fdea-f3c2-4a09-aafa-6e230626515e}</TemplateGuid>
+    <OutputType>Exe</OutputType>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <RootNamespace>HappinessIndex.iOS</RootNamespace>
+    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+    <AssemblyName>HappinessIndex.iOS</AssemblyName>
+    <MtouchEnableSGenConc>true</MtouchEnableSGenConc>
+    <MtouchHttpClientHandler>NSUrlSessionHandler</MtouchHttpClientHandler>
+    <ProvisioningType>automatic</ProvisioningType>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Debug</OutputPath>
+    <DefineConstants>DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <MtouchArch>x86_64</MtouchArch>
+    <MtouchLink>None</MtouchLink>
+    <MtouchDebug>true</MtouchDebug>
+    <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
+    <CodesignKey>iPhone Distribution</CodesignKey>
+    <CodesignProvision>Distribution Prabakaran</CodesignProvision>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <MtouchLink>Full</MtouchLink>
+    <MtouchArch>x86_64</MtouchArch>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <CodesignEntitlements></CodesignEntitlements>
+    <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
+    <CodesignProvision></CodesignProvision>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhone\Debug</OutputPath>
+    <DefineConstants>DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <MtouchArch>ARM64</MtouchArch>
+    <MtouchDebug>true</MtouchDebug>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <MtouchLink>None</MtouchLink>
+    <MtouchInterpreter>-all</MtouchInterpreter>
+    <CodesignKey>iPhone Distribution</CodesignKey>
+    <CodesignProvision>Distribution Prabakaran</CodesignProvision>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhone\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <MtouchArch>ARM64</MtouchArch>
+    <CodesignEntitlements></CodesignEntitlements>
+    <MtouchLink>SdkOnly</MtouchLink>
+    <MtouchExtraArgs>--optimize=experimental-xforms-product-type</MtouchExtraArgs>
+    <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
+    <CodesignProvision>Distribution Prabakaran</CodesignProvision>
+    <CodesignKey>iPhone Distribution</CodesignKey>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Main.cs" />
+    <Compile Include="AppDelegate.cs" />
+    <None Include="Entitlements.plist" />
+    <None Include="Info.plist" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Renderers\SliderRenderer.cs" />
+    <Compile Include="Renderers\SfAutoCompleteRendererExt.cs" />
+    <Compile Include="Renderers\SfMaskedEditRendererExt.cs" />
+    <Compile Include="DependencyService\Toast.cs" />
+    <Compile Include="Renderers\WrappedButtonRenderer.cs" />
+    <Compile Include="DependencyService\BackUp.cs" />
+    <Compile Include="DependencyService\AppRatiing.cs" />
+    <Compile Include="Renderers\BorderlessTimePickerRenderer.cs" />
+    <Compile Include="Renderers\BorderlessPickerRenderer.cs" />
+    <Compile Include="DependencyService\ImageCompressor.cs" />
+    <Compile Include="DependencyService\AppleSignInService.cs" />
+    <Compile Include="Renderers\AppleSignInButtonRenderer.cs" />
+    <Compile Include="Renderers\BoxViewExtRenderer.cs" />
+    <Compile Include="Resources\Factor.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
+  </ItemGroup>
+  <ItemGroup>
+    <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\1024.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\76.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\60.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\58.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\167.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\120-1.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\29.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\120.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\40-1.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\80-1.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\20.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\40-2.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\180.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\80.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\40.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\58-1.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\87.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\152.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="Xamarin.iOS" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Acr.UserDialogs">
+      <Version>7.1.0.466</Version>
+    </PackageReference>
+    <PackageReference Include="Plugin.Permissions">
+      <Version>6.0.1</Version>
+    </PackageReference>
+    <PackageReference Include="Syncfusion.Xamarin.SfComboBox">
+      <Version>18.3.0.44</Version>
+    </PackageReference>
+    <PackageReference Include="Syncfusion.Xamarin.SfListView">
+      <Version>18.3.0.44</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Forms" Version="4.8.0.1560" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.6.0-pre2" />
+    <PackageReference Include="Syncfusion.Xamarin.Core">
+      <Version>18.3.0.44</Version>
+    </PackageReference>
+    <PackageReference Include="Syncfusion.Xamarin.SfMaskedEdit">
+      <Version>18.3.0.44</Version>
+    </PackageReference>
+    <PackageReference Include="Syncfusion.Xamarin.Buttons">
+      <Version>18.3.0.44</Version>
+    </PackageReference>
+    <PackageReference Include="Syncfusion.Xamarin.SfRangeSlider">
+      <Version>18.3.0.44</Version>
+    </PackageReference>
+    <PackageReference Include="Syncfusion.Xamarin.SfAutoComplete">
+      <Version>18.3.0.44</Version>
+    </PackageReference>
+    <PackageReference Include="Syncfusion.Xamarin.SfChart">
+      <Version>18.3.0.44</Version>
+    </PackageReference>
+    <PackageReference Include="Xam.Plugin.Media">
+      <Version>5.0.1</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.FFImageLoading.Forms">
+      <Version>2.4.11.982</Version>
+    </PackageReference>
+    <PackageReference Include="Rg.Plugins.Popup">
+      <Version>2.0.0.6</Version>
+    </PackageReference>
+    <PackageReference Include="Plugin.LocalNotification">
+      <Version>5.1.0</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.AppCenter.Crashes">
+      <Version>3.4.3</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.AppCenter.Analytics">
+      <Version>3.4.3</Version>
+    </PackageReference>
+    <PackageReference Include="Syncfusion.Xamarin.SfRadialMenu">
+      <Version>18.3.0.44</Version>
+    </PackageReference>
+    <PackageReference Include="Plugin.FacebookClient">
+      <Version>2.2.1</Version>
+    </PackageReference>
+    <PackageReference Include="Syncfusion.Xamarin.SfCarousel">
+      <Version>18.3.0.44</Version>
+    </PackageReference>
+    <PackageReference Include="Plugin.GoogleClient">
+      <Version>2.1.12</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Google.iOS.SignIn">
+      <Version>5.0.2.1</Version>
+    </PackageReference>
+    <PackageReference Include="Xam.Plugins.Forms.ImageCircle">
+      <Version>3.0.0.5</Version>
+    </PackageReference>
+    <PackageReference Include="FirebaseDatabase.net">
+      <Version>4.0.4</Version>
+    </PackageReference>
+    <PackageReference Include="FirebaseAuthentication.net">
+      <Version>3.4.0</Version>
+    </PackageReference>
+    <PackageReference Include="Plugin.FirebasePushNotification">
+      <Version>3.3.10</Version>
+    </PackageReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
+  <ItemGroup>
+    <ProjectReference Include="..\HappinessIndex\HappinessIndex.csproj">
+      <Project>{DFFD7D0A-C7D1-4494-AEED-AD9B7A1A98D3}</Project>
+      <Name>HappinessIndex</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\MenuFactors.png" />
+    <BundleResource Include="Resources\MenuFactors%402x.png" />
+    <BundleResource Include="Resources\MenuFactors%403x.png" />
+    <BundleResource Include="Resources\MenuJournal.png" />
+    <BundleResource Include="Resources\MenuMyProfile.png" />
+    <BundleResource Include="Resources\MenuMyProfile%402x.png" />
+    <BundleResource Include="Resources\MenuMyProfile%403x.png" />
+    <BundleResource Include="Resources\MenuReport.png" />
+    <BundleResource Include="Resources\MenuReport%402x.png" />
+    <BundleResource Include="Resources\MenuReport%403x.png" />
+    <BundleResource Include="Resources\Accept.png" />
+    <BundleResource Include="Resources\Curiosity.png" />
+    <BundleResource Include="Resources\Exercise.png" />
+    <BundleResource Include="Resources\Family.png" />
+    <BundleResource Include="Resources\Food.png" />
+    <BundleResource Include="Resources\Order.png" />
+    <BundleResource Include="Resources\Romance.png" />
+    <BundleResource Include="Resources\Social.png" />
+    <BundleResource Include="Resources\Tranquility.png" />
+    <BundleResource Include="Resources\Work.png" />
+    <BundleResource Include="Resources\UpArrow.png" />
+    <BundleResource Include="Resources\Download.png" />
+    <BundleResource Include="Resources\Upload.png" />
+    <BundleResource Include="Resources\Logout.png" />
+    <BundleResource Include="Resources\Tick.png" />
+    <BundleResource Include="Resources\Close.png" />
+    <BundleResource Include="Resources\MenuJournal%402x.png" />
+    <BundleResource Include="Resources\MenuJournal%403x.png" />
+    <BundleResource Include="Resources\DayScore.png" />
+    <BundleResource Include="Resources\Back.png" />
+    <BundleResource Include="Resources\Mandatory.png" />
+    <BundleResource Include="Resources\Factors.png" />
+    <BundleResource Include="Resources\Highlights.png" />
+    <BundleResource Include="Resources\Journal.png" />
+    <BundleResource Include="Resources\Phase2_1.png" />
+    <BundleResource Include="Resources\Profile.png" />
+    <BundleResource Include="Resources\Report.png" />
+    <BundleResource Include="Resources\ResetPassword.png" />
+    <BundleResource Include="Resources\Logo1.png" />
+    <BundleResource Include="Resources\Money.png" />
+    <BundleResource Include="Resources\MenuFeedback.png" />
+    <BundleResource Include="Resources\MenuFeedback%402x.png" />
+    <BundleResource Include="Resources\MenuFeedback%403x.png" />
+    <BundleResource Include="Resources\TourBackground.png" />
+    <BundleResource Include="Resources\Dashboard.png" />
+    <BundleResource Include="Resources\Movie.png" />
+    <BundleResource Include="Resources\Travelling.png" />
+    <BundleResource Include="Resources\en.lproj\InfoPlist.strings" />
+    <BundleResource Include="Resources\en.lproj\InfoPlist.Designer.cs" />
+    <BundleResource Include="Resources\pt.lproj\InfoPlist.strings" />
+    <BundleResource Include="Resources\pt.lproj\InfoPlist.Designer.cs" />
+    <BundleResource Include="Resources\FlyoutIcon.png" />
+    <BundleResource Include="Resources\Add.png" />
+    <BundleResource Include="Resources\CloseFilled.png" />
+    <BundleResource Include="Resources\CF1.png" />
+    <BundleResource Include="Resources\CF2.png" />
+    <BundleResource Include="Resources\CF3.png" />
+    <BundleResource Include="Resources\CF4.png" />
+    <BundleResource Include="Resources\CF5.png" />
+    <BundleResource Include="Resources\CF6.png" />
+    <BundleResource Include="Resources\CF7.png" />
+    <BundleResource Include="Resources\CF8.png" />
+    <BundleResource Include="Resources\CF9.png" />
+    <BundleResource Include="Resources\CF10.png" />
+    <BundleResource Include="Resources\Arrow.png" />
+    <BundleResource Include="Resources\MenuPersonalNote.png" />
+    <BundleResource Include="Resources\MenuDashboard.png" />
+    <BundleResource Include="Resources\MenuDashboard%402x.png" />
+    <BundleResource Include="Resources\MenuDashboard%403x.png" />
+    <BundleResource Include="Resources\Default-568h%402x.png" />
+    <BundleResource Include="Resources\Default-Portrait.png" />
+    <BundleResource Include="Resources\Default-Portrait%402x.png" />
+    <BundleResource Include="Resources\Default.png" />
+    <BundleResource Include="Resources\Default%402x.png" />
+    <BundleResource Include="Resources\UserMenuIcon.png" />
+    <BundleResource Include="Resources\Loading.png" />
+    <BundleResource Include="Resources\PersonalNote.png" />
+    <BundleResource Include="Resources\Settings.png" />
+    <BundleResource Include="Resources\BarChart.png" />
+    <BundleResource Include="Resources\PieChart.png" />
+    <BundleResource Include="Resources\Pets.png" />
+    <BundleResource Include="Resources\FacebookLogin.png" />
+    <BundleResource Include="Resources\MenuAppTour.png" />
+    <BundleResource Include="Resources\Edit.png" />
+    <BundleResource Include="Resources\View.png" />
+    <BundleResource Include="GoogleService-Info.plist" />
+    <BundleResource Include="Resources\Google.png" />
+    <BundleResource Include="Resources\SendEmail.png" />
+    <BundleResource Include="Resources\MenuDaysScore.png" />
+    <BundleResource Include="Resources\MenuInhibitors.png" />
+    <BundleResource Include="Resources\MenuDaysScore%402x.png" />
+    <BundleResource Include="Resources\MenuDaysScore%403x.png" />
+    <BundleResource Include="Resources\MenuInhibitors%402x.png" />
+    <BundleResource Include="Resources\MenuInhibitors%403x.png" />
+    <BundleResource Include="Resources\Language.png" />
+    <BundleResource Include="Resources\AffirmationPopupWhiteBg.jpeg" />
+    <BundleResource Include="Resources\AffirmationPopupGreenBg.jpeg" />
+    <BundleResource Include="Resources\Notes.png" />
+    <BundleResource Include="Resources\AppTourInhibitors.png" />
+    <BundleResource Include="Resources\AppTourInhibitorsReport.png" />
+    <BundleResource Include="Resources\next.png" />
+    <BundleResource Include="Resources\camera.png" />
+    <BundleResource Include="Resources\test.jpg" />
+    <BundleResource Include="Resources\fitness1.png" />
+    <BundleResource Include="Resources\fitness2.png" />
+    <BundleResource Include="Resources\youtube.png" />
+    <BundleResource Include="Resources\video-pause-button.png" />
+    <BundleResource Include="Resources\completed.png" />
+    <BundleResource Include="Resources\Workout1.png" />
+    <BundleResource Include="Resources\Workout2.png" />
+    <BundleResource Include="Resources\Workout3.png" />
+    <BundleResource Include="Resources\Workout4.png" />
+    <BundleResource Include="Resources\Workout5.png" />
+    <BundleResource Include="Resources\Workout6.png" />
+    <BundleResource Include="Resources\Workout7.png" />
+    <BundleResource Include="Resources\Workout8.png" />
+    <BundleResource Include="Resources\Workout9.png" />
+    <BundleResource Include="Resources\Workout10.png" />
+    <BundleResource Include="Resources\CW9.png" />
+    <BundleResource Include="Resources\CW8.png" />
+    <BundleResource Include="Resources\CW7.png" />
+    <BundleResource Include="Resources\CW6.png" />
+    <BundleResource Include="Resources\CW5.png" />
+    <BundleResource Include="Resources\CW4.png" />
+    <BundleResource Include="Resources\CW3.png" />
+    <BundleResource Include="Resources\CW2.png" />
+    <BundleResource Include="Resources\CW1.png" />
+    <BundleResource Include="Resources\CW10.png" />
+    <BundleResource Include="Resources\squats.png" />
+    <BundleResource Include="Resources\pushups.png" />
+    <BundleResource Include="Resources\lunges.png" />
+    <BundleResource Include="Resources\chinups.png" />
+    <BundleResource Include="Resources\halfcrunch.png" />
+    <BundleResource Include="Resources\calmshells.png" />
+    <BundleResource Include="Resources\hydrate.png" />
+    <BundleResource Include="Resources\meditation.png" />
+    <BundleResource Include="Resources\Icon.png" />
+    <BundleResource Include="Resources\LogoNew.png" />
+    <BundleResource Include="Resources\playButton.png" />
+    <BundleResource Include="Resources\delete.png" />
+    <BundleResource Include="Resources\home.png" />
+    <BundleResource Include="Resources\home%402x.png" />
+    <BundleResource Include="Resources\home%403x.png" />
+    <BundleResource Include="Resources\Boat.png" />
+    <BundleResource Include="Resources\BothToes.png" />
+    <BundleResource Include="Resources\BoundAngle.png" />
+    <BundleResource Include="Resources\Bow.png" />
+    <BundleResource Include="Resources\Bridge.png" />
+    <BundleResource Include="Resources\Buddhist.png" />
+    <BundleResource Include="Resources\CamelI.png" />
+    <BundleResource Include="Resources\CamelII.png" />
+    <BundleResource Include="Resources\Cat.png" />
+    <BundleResource Include="Resources\Chair.png" />
+    <BundleResource Include="Resources\ChairStraightArms.png" />
+    <BundleResource Include="Resources\Cobra.png" />
+    <BundleResource Include="Resources\CowPose.png" />
+    <BundleResource Include="Resources\DownwardFacingDog.png" />
+    <BundleResource Include="Resources\Extended.png" />
+    <BundleResource Include="Resources\Fish.png" />
+    <BundleResource Include="Resources\ForwardBendPose.png" />
+    <BundleResource Include="Resources\Greeting.png" />
+    <BundleResource Include="Resources\HalfBoat.png" />
+    <BundleResource Include="Resources\HalfMoonPose.png" />
+    <BundleResource Include="Resources\HalfMoonPoseRight.png" />
+    <BundleResource Include="Resources\Hare.png" />
+    <BundleResource Include="Resources\KneePress.png" />
+    <BundleResource Include="Resources\LordofDancePose.png" />
+    <BundleResource Include="Resources\LowBoat.png" />
+    <BundleResource Include="Resources\LowLungeLeft.png" />
+    <BundleResource Include="Resources\LowLungeRight.png" />
+    <BundleResource Include="Resources\MoonLeft.png" />
+    <BundleResource Include="Resources\MountainPoseUpward.png" />
+    <BundleResource Include="Resources\OneArmBendLeft.png" />
+    <BundleResource Include="Resources\OneArmBendRight.png" />
+    <BundleResource Include="Resources\PerfectPose.png" />
+    <BundleResource Include="Resources\PlankPose.png" />
+    <BundleResource Include="Resources\PlowPose.png" />
+    <BundleResource Include="Resources\SupportedShoulderstand.png" />
+    <BundleResource Include="Resources\SupportHeadstand.png" />
+    <BundleResource Include="Resources\TablePose.png" />
+    <BundleResource Include="Resources\TreePoseLeft.png" />
+    <BundleResource Include="Resources\TreePoseRight.png" />
+    <BundleResource Include="Resources\TriangleLeft.png" />
+    <BundleResource Include="Resources\TriangleRight.png" />
+    <BundleResource Include="Resources\UpwardBowPose.png" />
+    <BundleResource Include="Resources\UpwardExtendedFeet.png" />
+    <BundleResource Include="Resources\UpwardFacingDog.png" />
+    <BundleResource Include="Resources\UpwardPlankPose.png" />
+    <BundleResource Include="Resources\UpwardTablePose.png" />
+    <BundleResource Include="Resources\WarriorPose.png" />
+    <BundleResource Include="Resources\WarriorPoseLeft.png" />
+    <BundleResource Include="Resources\WarriorPoseRight.png" />
+    <BundleResource Include="Resources\SupportedShoulderstand1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\User.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\unnamed.jpg" />
+  </ItemGroup>
+</Project>

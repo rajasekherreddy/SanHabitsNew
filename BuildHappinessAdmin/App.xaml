@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="BuildHappinessAdmin.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <Color x:Key="BackgroundColor">#fff6a3</Color>
+            <!--<Color x:Key="BackgroundColor">White</Color>-->
+            <Color x:Key="BackgroundDarkColor">#8fc449</Color>
+            <Color x:Key="TransparentButtonText">#8fc449</Color>
+            <Color x:Key="TextColor">White</Color>
+            <x:Double x:Key="ContentFontSize">13</x:Double>
+
+            <Style TargetType="Button">
+                <Setter Property="TextColor" Value="{StaticResource TextColor}" />
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="BackgroundColor" Value="{StaticResource BackgroundDarkColor}" />
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="FontSize" Value="{StaticResource ContentFontSize}"/>
+
+                <Setter Property="CornerRadius">
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="x:Int32">
+                            <On Platform="Android" Value="5"/>
+                            <On Platform="iOS" Value="10"/>
+                        </OnPlatform>
+                    </Setter.Value>
+                </Setter>
+
+                <Setter Property="Padding">
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="Thickness">
+                            <On Platform="Android" Value="7,0"/>
+                            <On Platform="iOS" Value="7,0"/>
+                        </OnPlatform>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

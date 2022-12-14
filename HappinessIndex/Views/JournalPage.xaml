@@ -1,0 +1,278 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+        xmlns:behavior="clr-namespace:HappinessIndex.Behaviors"
+        xmlns="http://xamarin.com/schemas/2014/forms"
+        BackgroundColor="{DynamicResource BackgroundColor}"
+        xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+        ios:Page.UseSafeArea="True"
+        xmlns:resource="clr-namespace:HappinessIndex.Resx"
+        xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+        xmlns:controls="clr-namespace:HappinessIndex.Controls"
+        xmlns:viewModel="clr-namespace:HappinessIndex.ViewModels"
+        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+        x:Class="HappinessIndex.Views.JournalPage">
+
+    <ContentPage.BindingContext>
+        <viewModel:JournalPageViewModel/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Behaviors>
+        <behavior:EventToCommandBehavior
+                EventName="Appearing"
+                Command="{Binding RefreshCommand}"/>
+    </ContentPage.Behaviors>
+
+    
+    <ContentPage.Resources>
+        <ResourceDictionary>
+
+            <!--<DataTemplate x:Key="journalInputViewOld">
+
+                <Frame HasShadow="False" Padding="7" Margin="0, 8" BorderColor="LightGray" BackgroundColor="{DynamicResource BackgroundColor}">
+                    <Grid RowSpacing="0" HeightRequest="85" VerticalOptions="FillAndExpand">
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="80"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="20"/>
+                        </Grid.ColumnDefinitions>
+
+                        <StackLayout Orientation="Vertical" Grid.RowSpan="2" Margin="0,5,0,0" >
+                            <ffimageloading:CachedImage Source="{Binding Icon}" HeightRequest="50"/>
+                            <Label Text="{Binding FactorName}"
+                                   HorizontalTextAlignment="Center"
+                                   HorizontalOptions="Center"
+                                   FontSize="{StaticResource ContentFontSize}"
+                                   LineBreakMode="TailTruncation"/>
+                        </StackLayout>
+
+                        <Label Text="{x:Static resource:AppResources.Expectation}"
+                                   Grid.Column="1"
+                                   FontSize="{StaticResource ContentFontSize}"
+                                   VerticalOptions="Center" HorizontalOptions="EndAndExpand"/>
+                        <Label Text="{x:Static resource:AppResources.Reality}"
+                                   Grid.Column="1"
+                                   Grid.Row="1"
+                                   FontSize="{StaticResource ContentFontSize}"
+                                   VerticalOptions="Center"
+                                   HorizontalOptions="EndAndExpand"/>
+
+                        <controls:SliderExt Grid.Column="2"
+                                    x:Name="ExpectationSlider"
+                                    Maximum="10"
+                                    ShowLabel="False"
+                                    ThumbColor="{StaticResource BackgroundDarkColor}"
+                                    Value="{Binding ExpectedValue}"
+                                    MaximumTrackColor="Gray"
+                                    MinimumTrackColor="{StaticResource BackgroundDarkColor}"/>
+
+                        <controls:SliderExt Grid.Column="2"
+                                    ShowLabel="True"
+                                    Grid.Row="1"
+                                    x:Name="RealitySlider"
+                                    Maximum="10"
+                                    ThumbColor="{StaticResource BackgroundDarkColor}"
+                                    Value="{Binding ActualValue}"
+                                    MaximumTrackColor="Gray"
+                                    MinimumTrackColor="{StaticResource BackgroundDarkColor}"/>
+
+                        <Label Text="{Binding Source={Reference ExpectationSlider}, Path=Value, StringFormat='{0:F0}'}"
+                                   Grid.Column="3"
+                                   FontSize="{StaticResource ContentFontSize}"
+                                   VerticalOptions="Center"
+                                   HorizontalOptions="CenterAndExpand"/>
+
+                        <Label Text="{Binding Source={Reference RealitySlider},
+                                   Path=Value, StringFormat='{0:F0}'}"
+                                   Grid.Column="3"
+                                   Grid.Row="1"
+                                   FontSize="{StaticResource ContentFontSize}"
+                                   VerticalOptions="Center"
+                                   HorizontalOptions="CenterAndExpand"/>
+
+                    </Grid>
+                </Frame>
+
+            </DataTemplate>-->
+
+            <DataTemplate x:Key="journalInputView">
+
+                <Grid RowSpacing="0" VerticalOptions="Center" HeightRequest="90">
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="80"/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="30"/>
+                    </Grid.ColumnDefinitions>
+
+                    <StackLayout Orientation="Vertical" VerticalOptions="Center" Grid.RowSpan="2" Margin="0,5,0,0">
+                        <ffimageloading:CachedImage Source="{Binding Icon}" HeightRequest="50"/>
+                        <Label Text="{Binding FactorName}"
+                                   HorizontalTextAlignment="Center"
+                                   HorizontalOptions="Center"
+                                   FontAttributes="Bold"
+                                   FontSize="{StaticResource ContentFontSize}"
+                                   LineBreakMode="TailTruncation"/>
+                    </StackLayout>
+
+                    <Label x:Name="Display" IsVisible="{Binding CanDisplaySliderLabel}"
+                                   Text="{Binding Source={Reference RealitySlider}, Path=TooltipDisplay}"
+                                   HorizontalOptions="EndAndExpand"
+                                   Grid.Column="1"
+                                   FontAttributes="Bold"
+                                   TextColor="{Binding Source={Reference RealitySlider}, Path=TooltipColor}"
+                                   FontSize="{StaticResource NoteFontSize}">
+                        <Label.Margin>
+                            <OnPlatform x:TypeArguments="Thickness">
+                                <On Platform="Android" Value="0,10,15,0"/>
+                                <On Platform="iOS" Value="0,10,0,0"/>
+                            </OnPlatform>
+                        </Label.Margin>
+                    </Label>
+
+                    <controls:SliderExt Grid.Column="1"
+                                    ShowLabel="True"
+                                    x:Name="RealitySlider"
+                                    Maximum="10"
+                                    Grid.RowSpan="2"
+                                    VerticalOptions="Center"
+                                    ThumbColor="{StaticResource BackgroundDarkColor}"
+                                    Value="{Binding ActualValue}"
+                                    MaximumTrackColor="Gray"
+                                    MinimumTrackColor="{StaticResource BackgroundDarkColor}"/>
+
+                    <Label Text="{Binding Source={Reference RealitySlider},
+                                   Path=Value, StringFormat='{0:F0}'}"
+                                   Grid.Column="2"
+                                   Grid.RowSpan="2"
+                                   Margin="0,0,10,0"
+                                   FontSize="{StaticResource ContentFontSize}"
+                                   VerticalOptions="CenterAndExpand"
+                                   HorizontalOptions="CenterAndExpand"/>
+
+                    <!--<StackLayout Grid.Column="1" Spacing="0" VerticalOptions="CenterAndExpand" Grid.RowSpan="2">
+
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+
+                            <Label Text="{x:Static resource:AppResources.SatisfactionScore}"
+                          FontSize="{StaticResource NoteFontSize}"/>
+
+                           </StackLayout>
+
+                        </StackLayout>-->
+
+                </Grid>
+
+            </DataTemplate>
+
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid Padding="{StaticResource DefaultPagePadding}">
+        <!--Page 1-->
+        <Grid x:Name="Page1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <!--<Button Style="{StaticResource BackButton}" ImageSource="Back.png"/>-->
+
+            <!--<Label
+                   Grid.ColumnSpan="3"
+                    x:Name="TitleLabel"
+                    HorizontalOptions="CenterAndExpand"
+                    Style="{StaticResource PageTitle}"/>-->
+
+            <Label HorizontalOptions="Center"
+                   Grid.ColumnSpan="2"
+                       Text="{x:Static resource:AppResources.HowWasYourDay}"
+                       Style="{StaticResource PageTitle}"/>
+
+            <!--<Label Grid.Row="1" Grid.ColumnSpan="2"
+                   TextColor="{StaticResource TransparentButtonText}"
+                   HorizontalOptions="End" FontAttributes="Bold"
+                   Text="{x:Static resource:AppResources.SatisfactionScore}" Margin="0,10,40,0" FontSize="{StaticResource ContentFontSize}"/>-->
+
+            <ScrollView x:Name="FactorList" Grid.Row="3" Grid.ColumnSpan="2">
+                <StackLayout Spacing="0"
+                    VerticalOptions="FillAndExpand"
+                    BindableLayout.ItemTemplate="{StaticResource journalInputView}"
+                    BindableLayout.ItemsSource="{Binding Records}">
+                </StackLayout>
+            </ScrollView>
+
+            <Grid BindableLayout.ItemsSource="{Binding Overall}"
+                  Grid.ColumnSpan="2"
+                  Padding="0,-10,0,0"
+                  BindableLayout.ItemTemplate="{StaticResource journalInputView}"
+                  HeightRequest="80"
+                  Grid.Row="2"/>
+
+            <Button Text="{x:Static resource:AppResources.AddOrRemove}"
+                    Grid.Row="4"
+                    FontSize="{StaticResource ContentFontSize}"
+                    VerticalOptions="Start"
+                    Command="{Binding ShowFactorsListCommand}"
+                    HorizontalOptions="Start"
+                    TextColor="{StaticResource TransparentButtonText}"
+                    BackgroundColor="{DynamicResource BackgroundColor}"/>
+
+            <Button Text="{x:Static resource:AppResources.UploadImage}"
+                    Grid.Row="4"
+                    Grid.Column="1"
+                    FontSize="{StaticResource ContentFontSize}"
+                    VerticalOptions="Start"
+                    Command="{Binding UploadImageCommand}"
+                    HorizontalOptions="End"
+                    TextColor="{StaticResource TransparentButtonText}"
+                    BackgroundColor="{DynamicResource BackgroundColor}"/>
+
+            <Button Text="{x:Static resource:AppResources.Save}"
+                    Grid.ColumnSpan="2"
+                    HorizontalOptions="FillAndExpand"
+                    Margin="10,0,10,10"
+                        Command="{Binding SubmitCommand}"
+                        VerticalOptions="Center"
+                        FontSize="{StaticResource ContentFontSize}"
+                        Grid.Row="5"/>
+
+            <!--<StackLayout VerticalOptions="Center" Grid.ColumnSpan="2"
+                         Grid.Row="5"
+                         Spacing="-4"
+                         Margin="0,0,0,10"
+                         HorizontalOptions="End">
+                <Button
+                        HeightRequest="40"
+                        WidthRequest="40"
+                        HorizontalOptions="Center"
+                        BackgroundColor="{DynamicResource BackgroundColor}"
+                        ImageSource="UpArrow.png"
+                        Clicked="ShowPage2"/>
+                <Label Text="{x:Static resource:AppResources.More}" FontSize="{StaticResource ContentFontSize}" HorizontalTextAlignment="Center" TextColor="{StaticResource TransparentButtonText}"/>
+            </StackLayout>-->
+        </Grid>
+
+        <ActivityIndicator IsVisible="{Binding IsBusy}" IsRunning="{Binding IsBusy}" VerticalOptions="Center" HorizontalOptions="Center"/>
+    </Grid>
+</ContentPage>

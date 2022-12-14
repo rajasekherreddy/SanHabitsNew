@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModel="clr-namespace:HappinessIndex.ViewModels"
+             xmlns:behavior="clr-namespace:HappinessIndex.Behaviors"
+             Title="{x:Static resource:AppResources.Journal}"
+             BackgroundColor="{DynamicResource BackgroundColor}"
+             xmlns:resource="clr-namespace:HappinessIndex.Resx"
+             xmlns:controls="clr-namespace:HappinessIndex.Controls"
+             x:Class="HappinessIndex.Views.MicroWorkout">
+
+    <ContentPage.BindingContext>
+        <viewModel:MicroWorkoutPageViewModel/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Behaviors>
+        <behavior:EventToCommandBehavior
+                EventName="Appearing"
+                Command="{Binding RefreshCommand}"/>
+    </ContentPage.Behaviors>
+        <Grid VerticalOptions="FillAndExpand">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <ScrollView Grid.Row="0">
+
+            <Grid Margin="0,10,0,20" Padding="{StaticResource DefaultPagePadding}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.1*"/>
+                     <ColumnDefinition Width="0.9*"/>
+
+                </Grid.ColumnDefinitions>
+
+                <Label Margin="0,10,0,0" Text="{x:Static resource:AppResources.MicroWorkoutName}"
+                         FontSize="{StaticResource ContentFontSize}" FontAttributes="Bold" Grid.ColumnSpan="2" />
+
+                <Frame BorderColor="{StaticResource BackgroundDarkColor}"
+                                           VerticalOptions="FillAndExpand" HeightRequest="70"
+                                           Grid.Row="1" HasShadow="False" Padding="0" Grid.ColumnSpan="2">
+                    <Editor VerticalOptions="FillAndExpand" Text="{Binding Highlights.BestThing}"
+                        FontSize="{StaticResource ContentFontSize}"
+                        AutoSize="TextChanges"
+                        BackgroundColor="{DynamicResource BackgroundColor}"/>
+                </Frame>
+
+                <Label Margin="0,10,0,0" Text="{x:Static resource:AppResources.MicroWorkoutDescription}"
+                         FontSize="{StaticResource ContentFontSize}" FontAttributes="Bold"
+                         Grid.Row="2" Grid.ColumnSpan="2"/>
+
+                <Frame BorderColor="{StaticResource BackgroundDarkColor}"
+                       Grid.Row="3" HasShadow="False" Padding="0" Grid.ColumnSpan="2">
+                    <Editor
+                        Text="{Binding Highlights.Challenge}"
+                            FontSize="{StaticResource ContentFontSize}"
+                          AutoSize="TextChanges"
+                          BackgroundColor="{DynamicResource BackgroundColor}"/>
+                </Frame>
+
+                <Label Margin="0,10,0,0" Text="{x:Static resource:AppResources.MicroWorkoutDuration}"
+                         FontSize="{StaticResource ContentFontSize}" FontAttributes="Bold"
+                         Grid.Row="4" Grid.ColumnSpan="2"/>
+
+                <Frame BorderColor="{StaticResource BackgroundDarkColor}"
+                       Grid.Row="5" HasShadow="False" Padding="0" Grid.ColumnSpan="2">
+                    <Editor
+                          Text="{Binding Highlights.Lesson}"
+                          FontSize="{StaticResource ContentFontSize}"
+                          AutoSize="TextChanges"
+                          BackgroundColor="{DynamicResource BackgroundColor}" />
+                </Frame>
+
+                <Label Margin="0,10,0,0" Text="{x:Static resource:AppResources.YoutubeLink}"
+                         FontSize="{StaticResource ContentFontSize}" FontAttributes="Bold"
+                         Grid.Row="6" Grid.ColumnSpan="2"/>
+
+                <Frame BorderColor="{StaticResource BackgroundDarkColor}"
+                       Grid.Row="7" HasShadow="False" Padding="0" Grid.ColumnSpan="2">
+                    <Editor
+                          Text="{Binding Highlights.Lesson}"
+                          FontSize="{StaticResource ContentFontSize}"
+                          AutoSize="TextChanges"
+                          BackgroundColor="{DynamicResource BackgroundColor}"/>
+                </Frame>
+
+
+                <CheckBox Margin="0,0,0,0" Grid.Row="8"
+                          Grid.Column="0"/>
+                <Label Margin="0,0,0,0" Text="Set Remainder"
+                         FontSize="{StaticResource ContentFontSize}" FontAttributes="Bold"
+                         Grid.Row="8" Grid.Column="1" VerticalOptions="Center"/>
+                <controls:BorderlessTimePicker
+                    Margin="100,0,0,0"
+                                x:Name="Reminder"
+                                FontSize="{StaticResource ContentFontSize}"
+                                
+                                HorizontalOptions="End"
+                                Grid.Row="8" Grid.Column="1" />
+
+            </Grid>
+                            </ScrollView>
+
+            <Button Text="{x:Static resource:AppResources.Save}"
+                        Command="{Binding SaveHighlightsCommand}"
+                        Grid.Row="1"
+                        HorizontalOptions="FillAndExpand" Margin="30,0,30,10"/>
+
+
+        </Grid>
+</ContentPage>

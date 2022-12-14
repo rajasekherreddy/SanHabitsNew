@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:viewModel="clr-namespace:HappinessIndex.ViewModels"
+             x:Class="HappinessIndex.Views.TherapyView" 
+             Title="{Binding Title}">
+    <ContentPage.BindingContext>
+        <viewModel:TherapyViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <ScrollView VerticalOptions="FillAndExpand" BackgroundColor="White">
+
+            <Grid RowDefinitions="*,Auto,*,Auto,Auto,*,Auto,*" Margin="5,0">
+
+                <Label IsVisible="false"
+                       Text="THERAPY"
+                       HorizontalOptions="CenterAndExpand"
+                       Grid.Row="1"
+                       Style="{StaticResource PageTitleWhite}"/>
+
+                <Button Grid.Row="1" IsVisible="false" HorizontalOptions="Start"
+                        Command="{Binding GetStartedCommand}" Text="X"/>
+
+                <Label Grid.Row="1"
+                       Style="{StaticResource PageTitleWhite}"
+                       FontSize="20" Text="{Binding MainTitle}"/>
+
+                <Label Grid.Row="3" Grid.Column="0"
+                       Margin="10" Style="{StaticResource PageTitleWhite}"
+                       Text="Easily choose your payment method"
+                       FontSize="20" IsVisible="{Binding IsTherapist}"/>
+
+                <Label Style="{StaticResource PageTitleWhite}" Grid.Row="4" Text="Insurance or Self-Pay" FontSize="20"/>
+
+                <Button Text="Get Started"
+                        HorizontalOptions="FillAndExpand"
+                        Margin="40,0"
+                        Command="{Binding CmdGotoTherapyLocation}"
+                        Grid.Row="6"/>
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

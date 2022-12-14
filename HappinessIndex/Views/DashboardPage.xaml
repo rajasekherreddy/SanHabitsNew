@@ -1,0 +1,210 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    ios:Page.UseSafeArea="True"
+    xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    xmlns:behavior="clr-namespace:HappinessIndex.Behaviors"
+    BackgroundColor="{DynamicResource BackgroundColor}"
+    xmlns:resource="clr-namespace:HappinessIndex.Resx"
+    xmlns:viewModel="clr-namespace:HappinessIndex.ViewModels"
+    xmlns:local="clr-namespace:HappinessIndex.Views"
+    xmlns:converters="clr-namespace:BuildHappiness.Core.Converters;assembly=BuildHappiness.Core"
+    Title="{x:Static resource:AppResources.Dashboard}"
+    xmlns:carousel="clr-namespace:Syncfusion.SfCarousel.XForms;assembly=Syncfusion.SfCarousel.XForms"
+    NavigationPage.HasNavigationBar="False"
+    x:Class="HappinessIndex.Views.DashboardPage">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label">
+                <Setter Property="HorizontalTextAlignment" Value="Center"/>
+                <Setter Property="FontSize" Value="{StaticResource TitleFontSize}"/>
+                <Setter Property="TextColor" Value="{StaticResource TransparentButtonText}"/>
+            </Style>
+            <local:GreetingUserWithTimeConverter x:Key="greetingUserWithTimeConverter"/>
+            <converters:ByteArrayToImageSourceConverter x:Key="byteToImageConverter" />
+            <local:BoolToStringConverter x:Key="boolToStringConverter" />
+            <local:ImageToBoolConverter x:Key="imageToBoolConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Behaviors>
+        <behavior:EventToCommandBehavior
+                EventName="Appearing"
+                Command="{Binding RefreshCommand}"/>
+    </ContentPage.Behaviors>
+
+    <ContentPage.BindingContext>
+        <viewModel:DashboardPageViewModel/>
+    </ContentPage.BindingContext>
+
+    <Grid
+         RowSpacing="10"
+         Margin="{StaticResource DefaultPagePadding}"
+         VerticalOptions="FillAndExpand"
+         HorizontalOptions="Center">
+
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!--<Label
+            Text="{x:Static resource:AppResources.QuickTour}"
+                        Grid.Row="1"
+
+            HorizontalOptions="End"
+            VerticalOptions="Start"
+            TextDecorations="Underline"
+            FontAttributes="Bold"
+            FontSize="{StaticResource ContentFontSize}"
+            TextColor="{StaticResource TransparentButtonText}">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding ShowAppTourCommand}"/>
+                </Label.GestureRecognizers>
+        </Label>-->
+
+        <Image Source="Icon.png"
+               Aspect="AspectFit"
+               Grid.Row="1"
+               HeightRequest="100"
+               VerticalOptions="Center"
+               HorizontalOptions="Center">
+        </Image>
+
+        <Label
+            Grid.Row="2"
+            Style="{StaticResource PageTitle}"
+            FontSize="23"
+            Text="{Binding Name, Converter={StaticResource greetingUserWithTimeConverter}}"
+            VerticalOptions="CenterAndExpand"/>
+
+        <Label
+            Grid.Row="3"
+            Style="{StaticResource PageTitle}"
+            FontSize="20"
+            Text="{x:Static resource:AppResources.LetsGetStarted}"
+            VerticalOptions="CenterAndExpand"/>
+
+        <!--<Label
+             Grid.Row="2"
+             FontSize="18"
+             x:Name="DateLabel"
+             Style="{StaticResource PageTitle}"
+             VerticalOptions="StartAndExpand"/>-->
+
+        <!--<Label Text="{x:Static resource:AppResources.Today}" Grid.Row="3" FontSize="13" Margin="0,-10,0,0"/>-->
+
+        <!--<Button
+            Text="{x:Static resource:AppResources.ReadyButton}"
+            Grid.Row="4"
+            Command="{Binding NavigateCommand}"
+            HorizontalOptions="FillAndExpand"
+            Margin="40,0"
+            VerticalOptions="CenterAndExpand"/>-->
+
+        <StackLayout Grid.Row="6" Orientation="Horizontal" HorizontalOptions="Center">
+            <Label Text="{x:Static resource:AppResources.SearchForPastJournal}" FontSize="{StaticResource ContentFontSize}"
+                   FontAttributes="Bold"
+                   VerticalOptions="Center"/>
+            <DatePicker TextColor="{StaticResource BackgroundDarkColor}"
+                    HorizontalOptions="CenterAndExpand"
+                    MinimumDate="{Binding MinimumDate}"
+                    Format="MMM-dd"
+                    BackgroundColor="{DynamicResource BackgroundColor}"
+                    MaximumDate="{Binding MaximumDate}"
+                    Date="{Binding SelectedDate}"
+                    DateSelected="DatePicker_DateSelected"/>
+        </StackLayout>
+
+        <CollectionView
+             Grid.Row="7"
+             x:Name="List"
+             VerticalOptions="End"
+             ItemsSource="{Binding Highlights}"
+             HeightRequest="350"
+             HorizontalOptions="EndAndExpand"
+             Margin="0,0,0,0">
+
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout Orientation="Horizontal"/>
+            </CollectionView.ItemsLayout>
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout>
+                        <Frame HasShadow="False"
+                               BackgroundColor="{StaticResource BackgroundDarkColor}"
+                               CornerRadius="15"
+                               WidthRequest="250"
+                               HeightRequest="250"
+                               Padding="6"
+                               Margin="6"
+                               HorizontalOptions="Center"
+                               VerticalOptions="CenterAndExpand">
+
+                            <Grid VerticalOptions="FillAndExpand" BackgroundColor="{StaticResource BackgroundDarkColor}">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Label Text="{Binding Date, StringFormat='{0:MMM-dd}'}" TextColor="White"
+                                       FontAttributes="Bold"
+                                       FontSize="Large"
+                                       HorizontalOptions="Center"
+                                       VerticalOptions="Start" />
+
+                                <!--<ffimageloading:CachedImage Source="{Binding Photo, Converter={StaticResource byteToImageConverter}}"
+                                       Aspect="AspectFit"
+                                       Grid.Row="1"
+                                       LoadingPlaceholder="Loading.png"
+                                       LoadingPriority="Normal"
+                                       DownsampleToViewSize="True"
+                                       TransformPlaceholders="False" 
+                                       VerticalOptions="Center"
+                                       HorizontalOptions="FillAndExpand">
+                                </ffimageloading:CachedImage>-->
+
+                                 <Image Source="{Binding Photo, Converter={StaticResource byteToImageConverter}}"
+                                       Aspect="AspectFit"
+                                       Grid.Row="1"
+                                     
+                                       VerticalOptions="Center"
+                                       HorizontalOptions="FillAndExpand">
+                                </Image>
+
+                                <Button Text="{x:Static resource:AppResources.UploadImage}" TextColor="Gray" Grid.Row="1" VerticalOptions="CenterAndExpand"
+                                        IsVisible="{Binding Photo, Converter={StaticResource imageToBoolConverter}}" Command="{Binding Source={Reference List}, Path=BindingContext.AttachImageCommand}" BackgroundColor="{StaticResource TransparentButtonText}"
+                                        CommandParameter="{Binding}"/>
+
+                                <Button Text="{Binding CanEdit, Converter={StaticResource boolToStringConverter}}"
+                                        Grid.Row="2"
+                                        Command="{Binding Source={x:Reference List}, Path=BindingContext.NavigateCommand}"
+                                        BackgroundColor="{StaticResource BackgroundDarkColor}"
+                                        CommandParameter="{Binding}"/>
+
+                            </Grid>
+                        </Frame>
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <!--<IndicatorView x:Name="indicatorView"
+                   IndicatorColor="LightGray"
+                        Grid.Row="7"
+                        Margin="0,0,0,10"
+                   SelectedIndicatorColor="DarkGray"
+                   HorizontalOptions="Center" />-->
+    </Grid>
+
+</ContentPage>

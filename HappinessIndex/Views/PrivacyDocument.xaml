@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:viewModel="clr-namespace:HappinessIndex.ViewModels"
+    x:Class="HappinessIndex.Views.PrivacyDocument">
+
+    <ContentPage.BindingContext>
+        <viewModel:PrivacyDocumentViewModel/>
+    </ContentPage.BindingContext>
+
+    <Grid>
+
+        <!--<pdf:SfPdfViewer ShowPageNumber="False" x:Name="documentViwer" PageChanged="documentViwer_PageChanged">
+            <pdf:SfPdfViewer.Toolbar>
+                <pdf:Toolbar Enabled="False"/>
+            </pdf:SfPdfViewer.Toolbar>
+        </pdf:SfPdfViewer>-->
+
+        <Button ImageSource="Tick.png"
+                x:Name="AcceptButton"
+                BackgroundColor="Transparent"
+                HeightRequest="80"
+                WidthRequest="80"
+                IsVisible="False"
+                Command="{Binding TermsAcceptedCommand}"
+                VerticalOptions="EndAndExpand"
+                HorizontalOptions="EndAndExpand"
+                Margin="20"/>
+
+    </Grid>
+</ContentPage>

@@ -1,0 +1,669 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>2.0</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <data name="AppName" xml:space="preserve">
+        <value> San Habits (हिन्दी)</value>
+    </data>
+    <data name="GoodMorning" xml:space="preserve">
+        <value>नमस्ते! </value>
+    </data>
+    <data name="GoodAfternoon" xml:space="preserve">
+        <value> नमस्ते! </value>
+    </data>
+    <data name="GoodEvening" xml:space="preserve">
+        <value> नमस्ते! </value>
+    </data>
+    <data name="ReadyMessage" xml:space="preserve">
+        <value> क्या आप अपने विचारो को पत्रिका में रिकॉर्ड करने के लिए तैयार है? </value>
+    </data>
+    <data name="Today" xml:space="preserve">
+        <value>आज</value>
+    </data>
+    <data name="ReadyButton" xml:space="preserve">
+        <value>मैं तैयार हूँ</value>
+    </data>            <data name="Enablers" xml:space="preserve">        <value>खुशियों के सहायक </value>    </data>
+    <data name="Edit" xml:space="preserve">
+        <value> पत्रिका में बदलाव करे</value>
+    </data>
+    <data name="View" xml:space="preserve">
+        <value> पत्रिका जोड़े </value>
+    </data>
+    <data name="QuickTour" xml:space="preserve">
+        <value> एप्लीकेशन का दौरा करे </value>
+    </data>
+    <data name="Expectation" xml:space="preserve">
+        <value> अपेक्षा </value>
+    </data>
+    <data name="Reality" xml:space="preserve">
+        <value> वास्त्विकता </value>
+    </data>
+    <data name="Reality" xml:space="preserve">
+        <value> वास्त्विकता </value>
+    </data>
+    <data name="AddOrRemove" xml:space="preserve">
+        <value> सहायको को बदले </value>
+    </data>
+    <data name="Exercise" xml:space="preserve">
+        <value>व्यायाम</value>
+    </data>
+    <data name="Family" xml:space="preserve">
+        <value>परिवार</value>
+    </data>
+    <data name="Food" xml:space="preserve">
+        <value> भोजन </value>
+    </data>
+    <data name="Social Contact" xml:space="preserve">
+        <value>सामाजिक संपर्क</value>
+    </data>
+    <data name="Love" xml:space="preserve">
+        <value> प्रेम </value>
+    </data>
+    <data name="Work" xml:space="preserve">
+        <value> कार्य </value>
+    </data>
+    <data name="Tranquility" xml:space="preserve">
+        <value> शान्ति </value>
+    </data>
+    <data name="Money" xml:space="preserve">
+        <value> धन </value>
+    </data>
+    <data name="Travelling" xml:space="preserve">
+        <value>यात्रा</value>
+    </data>
+    <data name="Curiosity" xml:space="preserve">
+        <value>जिज्ञासा</value>
+    </data>
+    <data name="Order" xml:space="preserve">
+        <value> अनुशासन </value>
+    </data>
+    <data name="Music/Movies" xml:space="preserve">
+        <value>संगीत/फिल्म</value>
+    </data>
+    <data name="YourDay" xml:space="preserve">
+        <value>आपका दिन</value>
+    </data>
+    <data name="More" xml:space="preserve">
+        <value> अधिक देखे </value>
+    </data>
+    <data name="Save" xml:space="preserve">
+        <value> सुरक्षित करे </value>
+    </data>
+    <data name="Journal" xml:space="preserve">
+        <value>पत्रिका</value>
+    </data>
+    <data name="Journals" xml:space="preserve">
+        <value>पत्रिका</value>
+    </data>
+    <data name="Reports" xml:space="preserve">
+        <value> विवरण </value>
+    </data>
+    <data name="ReportsAppTourTitle" xml:space="preserve">
+        <value>ख़ुशी के सहायकों की रिपोर्ट</value>
+    </data>
+    <data name="Factors" xml:space="preserve">
+        <value> खुशियों के सहायक </value>
+    </data>
+    <data name="Profile" xml:space="preserve">
+        <value> प्रोफाइल </value>
+    </data>
+    <data name="Feedback" xml:space="preserve">
+        <value> टिप्पणी </value>
+    </data>
+    <data name="HappinessJournalFor" xml:space="preserve">
+        <value> पत्रिका </value>
+    </data>
+    <data name="HowWasYourDay" xml:space="preserve">
+        <value>आज आपका दिन कैसा था?</value>
+    </data>
+    <data name="YourHappinessScore" xml:space="preserve">
+        <value> आपका संतुष्टि परिणाम </value>
+    </data>
+    <data name="From" xml:space="preserve">
+        <value> कब से:  </value>
+    </data>
+    <data name="To" xml:space="preserve">
+        <value> कब तक: </value>
+    </data>
+    <data name="OverallHappinessScore" xml:space="preserve">
+        <value>रिपोर्टिंग अवधि के लिए संतुष्टि परिणाम </value>
+    </data>
+    <data name="HappinessScorebyFactor" xml:space="preserve">
+        <value> वजह अनुसार संतुष्टि परिणाम </value>
+    </data>
+    <data name="HappinessFactors" xml:space="preserve">
+        <value> खुशियों के सहायक </value>
+    </data>
+    <data name="HappinessScore" xml:space="preserve">
+        <value> संतुष्टि परिणाम </value>
+    </data>
+    <data name="ReportFor" xml:space="preserve">
+        <value> रिपोर्ट बनाई गयी: </value>
+    </data>
+    <data name="ReportGeneratedFrom" xml:space="preserve">
+        <value> रिपोर्ट की अवधि: - </value>
+    </data>
+    <data name="To1" xml:space="preserve">
+        <value> तक : </value>
+    </data>
+    <data name="AvgValues" xml:space="preserve">
+        <value> (औसत मान)</value>
+    </data>
+    <data name="CleanlinessOrganization" xml:space="preserve">
+        <value>(स्वच्छता, व्यवस्था)</value>
+    </data>
+    <data name="SearchForKnowledgeIntellectual" xml:space="preserve">
+        <value>(ज्ञान की खोज, कल्पना)</value>
+    </data>
+    <data name="SelectYourFactors" xml:space="preserve">
+        <value> खुशियों के सहायक </value>
+    </data>
+    <data name="YourPersonalHappinessDeterminingFactors" xml:space="preserve">
+        <value>(आपकी खुशियाँ निर्धारित करने वाले कारक)</value>
+    </data>
+    <data name="PleaseSelectAMaximumOf6Factors" xml:space="preserve">
+        <value> कृपया अधिकतम 7 सहायको को चुनें</value>
+    </data>
+    <data name="PleaseSelectAMinimumOf2Factors" xml:space="preserve">
+        <value> कृपया न्यूनतम 2 सहायको को चुने </value>
+    </data>
+    <data name="Ok" xml:space="preserve">
+        <value> ठीक है </value>
+    </data>
+    <data name="SavedSuccessfully" xml:space="preserve">
+        <value> सुरक्षित किया </value>
+    </data>
+    <data name="Cancel" xml:space="preserve">
+        <value> रद्द करे </value>
+    </data>
+    <data name="UploadImage" xml:space="preserve">
+        <value> तस्वीर जोड़े </value>
+    </data>
+    <data name="TakeAPicture" xml:space="preserve">
+        <value> तस्वीर ले </value>
+    </data>
+    <data name="PickAPhotoFromAlbum" xml:space="preserve">
+        <value> एल्बम से तस्वीर चुने </value>
+    </data>
+    <data name="HighlightsOfTheDay" xml:space="preserve">
+        <value> पत्रिका रिकॉर्ड </value>
+    </data>
+    <data name="TheBestThingThatHappenedToday" xml:space="preserve">
+        <value>आज आप किस के लिए आभारी हैं?</value>
+    </data>
+    <data name="ChallengesFacedToday" xml:space="preserve">
+        <value> आज की चुनौती </value>
+    </data>
+    <data name="LessonsLearntToday" xml:space="preserve">
+        <value> आज का सबक </value>
+    </data>
+    <data name="PleaseSelectAnImageForTodaysJournal" xml:space="preserve">
+        <value> कृपया आज की पत्रिका के लिए एक तस्वीर चुनें</value>
+    </data>
+    <data name="Name" xml:space="preserve">
+        <value> नाम </value>
+    </data>
+    <data name="Email" xml:space="preserve">
+        <value> इ-मेल </value>
+    </data>
+    <data name="Country" xml:space="preserve">
+        <value> देश </value>
+    </data>
+    <data name="Phone" xml:space="preserve">
+        <value> फ़ोन </value>
+    </data>
+    <data name="Age" xml:space="preserve">
+        <value> उम्र </value>
+    </data>
+    <data name="Gender" xml:space="preserve">
+        <value> लिंग </value>
+    </data>
+    <data name="Password" xml:space="preserve">
+        <value> पासवर्ड </value>
+    </data>
+    <data name="ConfirmPassword" xml:space="preserve">
+        <value> पासवर्ड दोहराये </value>
+    </data>
+    <data name="SecurityQuestion" xml:space="preserve">
+        <value> सुरक्षा प्रश्न </value>
+    </data>
+    <data name="SecurityAnswer" xml:space="preserve">
+        <value> सुरक्षा उत्तर </value>
+    </data>
+    <data name="Personal Information" xml:space="preserve">
+        <value> निजी जानकारी </value>
+    </data>
+    <data name="FeedbackOnBuildHappinessApp" xml:space="preserve">
+        <value> San Habits (हिन्दी) ऐप् पर टिप्पणी </value>
+    </data>
+    <data name="EmailIsNotSupportedOnThisDevice" xml:space="preserve">
+        <value> इस उपकरण के लिए ई-मेल सही नहीं है </value>
+    </data>
+    <data name="FeedbackContent" xml:space="preserve">
+        <value> हम एप्लीकेशन को और बेहतर बनाने की कोशिश कर रहे है, कृपया ई-मेल के माध्यम से अपनी परिक्रिया दे:</value>
+    </data>
+    <data name="Logout" xml:space="preserve">
+        <value> लोग आउट </value>
+    </data>
+    <data name="CloseAppAndStayLogged-in" xml:space="preserve">
+        <value> ऐप बंद करे किन्तु लोग इन रहे </value>
+    </data>
+    <data name="NoLogMeOut" xml:space="preserve">
+        <value> नहीं, मुझे लॉग आउट करें </value>
+    </data>
+    <data name="Login" xml:space="preserve">
+        <value> लोग इन </value>
+    </data>
+    <data name="Signup" xml:space="preserve">
+        <value> रजिस्टर करे </value>
+    </data>
+    <data name="ForgotPassword" xml:space="preserve">
+        <value> पासवर्ड भूल गए </value>
+    </data>
+    <data name="EnterYourNameAndEmail" xml:space="preserve">
+        <value> जारी रखने के लिए नाम व् ई-मेल डाले </value>
+    </data>
+    <data name="AlreadyHaveAnAccount" xml:space="preserve">
+        <value> क्या आपका अकाउंट पहले से रजिस्टर है? </value>
+    </data>
+    <data name="SuccessfullyRegistered" xml:space="preserve">
+        <value> पंजीकरण सफल हुआ</value>
+    </data>
+    <data name="GoToJournals" xml:space="preserve">
+        <value> पत्रिका पर जाये </value>
+    </data>
+    <data name="EditProfile" xml:space="preserve">
+        <value> प्रोफाइल में बदलाव करे </value>
+    </data>
+    <data name="EmailAlreadyRegistered" xml:space="preserve">
+        <value> क्षमा करें, ईमेल आईडी पहले से इस्तेमाल में है, कृपया लॉगिन करें</value>
+    </data>
+    <data name="NoUserFound" xml:space="preserve">
+        <value> इस उपकरण पर कोई उपयोगकर्ता नहीं मिला, जारी रखने के लिए नाम व् ई-मेल प्रदान करे </value>
+    </data>
+    <data name="InvalidUserName" xml:space="preserve">
+        <value> अमान्य यूजरनाम या पासवर्ड </value>
+    </data>
+    <data name="EnterYourEmailToReset" xml:space="preserve">
+        <value> कृपया पासवर्ड रिसेट करने के लिए ई-मेल दर्ज करें </value>
+    </data>
+    <data name="EmailNotRegistered" xml:space="preserve">
+        <value> यह ई-मेल रजिस्टर नहीं है, कृपया ई-मेल रजिस्टर करें </value>
+    </data>
+    <data name="InvalidAnswer" xml:space="preserve">
+        <value> पासवर्ड रिसेट करने हेतु सही उत्तर दर्ज करें</value>
+    </data>
+    <data name="InvalidPassword" xml:space="preserve">
+        <value> पासवर्ड मैच नहीं कर रहा है </value>
+    </data>
+    <data name="InvalidInputPassword" xml:space="preserve">
+        <value> अमान्य पासवर्ड</value>
+    </data>
+    <data name="PasswordResetSuccessfully" xml:space="preserve">
+        <value> पासवर्ड सफलतापूर्वक बदल दिया गया है </value>
+    </data>
+    <data name="BuildMeasureLearn" xml:space="preserve">
+        <value> रचना करो - परिणाम देखो और - सीखो!</value>
+    </data>
+    <data name="BuildMeasureLearnP1" xml:space="preserve">
+        <value> हम, मनुष्य, बहुत सी आदतें रखते हैं। </value>
+    </data>
+    <data name="BuildMeasureLearnP2" xml:space="preserve">
+        <value> हमारा लक्ष्य आपको आपकी खुशियाँ बनाने/ढूंढ़ने में मदद करना है, San Habits ऐप के माध्यम से हम आपका ध्यान सबसे महत्वपूर्ण आदतों की तरफ केंद्रित करते है|</value>
+    </data>
+    <data name="BuildMeasureLearnP3" xml:space="preserve">
+        <value> रिसर्च के अनुसार, हमारी अशंतुष्टि का मुख्या कारण  है: उमीदो और वाश्त्विकताओ में  दूरी|</value>
+    </data>
+    <data name="BuildMeasureLearnP4" xml:space="preserve">
+        <value>यह ऐप आपको अपने व्यक्तिगत खुशी कारणों को प्राथमिकता देने में मदद करता है। इन कारकों को रोजाना ट्रैक कर के आप अपनी उम्मीदों और वास्तविकता के बीच की दूरी को ख़त्म कर सकते है, जो जीवन में सबसे ज्यादा मायने रखता है|</value>
+    </data>
+    <data name="BuildMeasureLearnP5" xml:space="preserve">
+        <value> यदि आप खुशिओ का निर्माण करना जानते है तो आप ज़िन्दगी के हर पल का आनंद ले सकते है, और San Habits आपकी खुशियों का निर्माण करने में मदद करता है | </value>
+    </data>
+    <data name="GetStarted" xml:space="preserve">
+        <value> शुरू करे </value>
+    </data>
+    <data name="HappinessJournalEntry" xml:space="preserve">
+        <value> संतुष्टि पत्रिका रिकार्ड </value>
+    </data>
+    <data name="JournalAppTourTitle" xml:space="preserve">
+        <value>दिन का स्कोर</value>
+    </data>        <data name="NotesAppTourTitle" xml:space="preserve">        <value> पत्रिका </value>    </data>    <data name="NotesAppTourContent" xml:space="preserve">        <value>एक स्थान जहा आप अपना रोजमर्रा का आभार पत्र लिखते हैं, इसके साथ-साथ यह भी लिखते है की दिन के दौरान क्या सबक सीखा और किन-किन चुनौतियों का सामना किया।</value>    </data>    <data name="InhibitorsReportAppTourTitle" xml:space="preserve">        <value>ख़ुशी के अवरोधकों की रिपोर्ट</value>    </data>    <data name="InhibitorsReportAppTourContent" xml:space="preserve">        <value>प्रत्येक ख़ुशी के अवरोधक के प्रभाव के स्तर के साथ-साथ, दिन के दौरान, दर्ज किए गए प्रभाव का एक चित्रात्मक वर्णन। विवरण में भावनाओं और कारको पर लिखे हुए नोट्स भी दर्शाये जाते हैं, और किस चीज़ ने भावनाओं को सुधारने में मदद की। विवरण के साथ सभी परिणाम, दूसरों के साथ ईमेल के माध्यम से साझा किये जा सकते हैं।</value>    </data>    
+    <data name="HappinessJournalEntryContent" xml:space="preserve">
+        <value> यह आपका हर रोज़ का पत्रिका रिकॉर्ड पेज है, जहाँ आप अपने दिन के लिए संतुष्टि परिणाम और चुनी हुए खुशियों को चिह्नित करते हैं|</value>
+    </data>
+    <data name="HappinessJournalHighlights" xml:space="preserve">
+        <value>सुख के अवरोधक</value>
+    </data>        <data name="PleaseEnterYourName" xml:space="preserve">        <value>अपना नाम दर्ज करें</value>    </data>    
+    <data name="HappinessJournalHighlightsContent" xml:space="preserve">
+        <value> एक भाग जो आपके खुशियों के सहायकों का विवरण करें और बताये की ये आपकी खुशिओ को कैसे प्रभावित कर रहे है | </value>
+    </data>
+    <data name="FactorsList" xml:space="preserve">
+        <value> खुशियों के सहायक </value>
+    </data>
+    <data name="FactorsListContent" xml:space="preserve">
+        <value> आप अपनी ख़ुशी के सहायकों का चयन दी गयी सूची में से कर सकते है | अपने खुद के सहायक बनाने के लिए ऊपर दिए गए बटन "जोड़े" पर क्लिक करें| आप प्रत्येक ख़ुशी के सहायक के नीचे  इच्छा-सूची बना सकते हैं और उन्हें दूसरों के साथ साझा भी कर सकते हैं।</value>
+    </data>
+    <data name="ReportsContent" xml:space="preserve">
+        <value> आपकी रोजाना की खुशियों का चित्रात्मक वर्णन द्वारा परिणाम | तिथि का उपयोग करके आप साप्ताहिक और मासिक औसत भी प्राप्त कर सकते है | </value>
+    </data>
+    <data name="Dashboard" xml:space="preserve">
+        <value> मुख्य मेनू  </value>
+    </data>
+    <data name="HomeAppTour" xml:space="preserve">
+        <value> मुख्य मेनू  </value>
+    </data>
+    <data name="DashboardContent" xml:space="preserve">
+        <value> यहाँ से आप आज की पत्रिका को जोड़ सकते है और पुराणी बचाई हुई पत्रिका को देखकर उसमे बदलाव कर सकते है |</value>
+    </data>
+    <data name="Profile" xml:space="preserve">
+        <value> प्रोफाइल</value>
+    </data>
+    <data name="PersonalNoteAppTour" xml:space="preserve">
+        <value> निजी नोट्स </value>
+    </data>
+    <data name="PersonalNoteAppTourContent" xml:space="preserve">
+        <value> एक छुपा हुआ भाग जो की पासवर्ड की मदद से खुलता है, जिसके अंदर आप अपनी निजी बातों का विवरण रख सकते है |</value>
+    </data>
+    <data name="SettingsAppTour" xml:space="preserve">
+        <value> सेटिंग्स </value>
+    </data>
+    <data name="SettingsAppTourContent" xml:space="preserve">
+        <value> विभिन्न प्रकार की निजी सेटिंग्स, जैसे की पीछे का रंग, डाटा का बैकअप (iCloud या Google Drive में), निजी प्रोफाइल की जानकारी, इत्यादि | </value>
+    </data>
+    <data name="ComingSoon" xml:space="preserve">
+        <value> जल्द आ रहा है...</value>
+    </data>
+    <data name="ComingSoonContent" xml:space="preserve">
+        <value>1. एप्लिकेशन उपयोगकर्ताओं के साथ समूहों का निर्माण
+2. आर्टिफिशियल इंटेलिजेंस का उपयोग करके वाक्य विश्लेषण
+3. खुशियों में अवरोधकों के कारण होने वाली भावनात्मक परेशानी को दूर करने के उपाय4. आपकी मन-स्थति  को ठीक करने के लिए सकारात्मक बातें5. आपकी देखभाल के लिए मनोवैज्ञानिको और चिकित्सको को जोड़ना</value>
+    </data>
+    <data name="NoRecordsFound" xml:space="preserve">
+        <value> उल्लेखित तारीखों में कोई रिकॉर्ड नहीं मिला|</value>
+    </data>
+    <data name="Yes" xml:space="preserve">
+        <value> हां </value>
+    </data>
+    <data name="No" xml:space="preserve">
+        <value> नहीं </value>
+    </data>
+    <data name="Top" xml:space="preserve">
+        <value> ऊपर ले जाये </value>
+    </data>
+    <data name="ResetPassword" xml:space="preserve">
+        <value> पासवर्ड फिर से लगाए </value>
+    </data>
+    <data name="Answer" xml:space="preserve">
+        <value> उत्तर </value>
+    </data>
+    <data name="ConfirmPassword" xml:space="preserve">
+        <value> पासवर्ड दोहराये </value>
+    </data>
+    <data name="NewPassword" xml:space="preserve">
+        <value> नया पासवर्ड दर्ज करे </value>
+    </data>
+    <data name="Reset" xml:space="preserve">
+        <value> रिसेट </value>
+    </data>
+    <data name="DoYouKNowYourPassword" xml:space="preserve">
+        <value> क्या आप अपना पासवर्ड जानते है? </value>
+    </data>
+    <data name="Male" xml:space="preserve">
+        <value> पुरुष </value>
+    </data>
+    <data name="Female" xml:space="preserve">
+        <value> महिला </value>
+    </data>
+    <data name="WhatWasYourFirstCar" xml:space="preserve">
+        <value> आपकी पहली कार कौन सी थी?</value>
+    </data>
+    <data name="WhatWasYourChildhoodNickname" xml:space="preserve">
+        <value> आपका बचपन में उपनाम (मुँह बोला नाम) क्या था?</value>
+    </data>
+    <data name="WhatIsTheNameOfYourFaVoriteChildhoodFriend" xml:space="preserve">
+        <value> आपके बचपन के पसंदीदा दोस्त का नाम क्या है?</value>
+    </data>
+    <data name="InWhatCityOrTownWasYourFirstJob" xml:space="preserve">
+        <value> किस शहर या कस्बे में आपका पहला काम था?</value>
+    </data>
+    <data name="WhatWasYourDreamJobAsAChild" xml:space="preserve">
+        <value> एक बच्चे के रूप में आपका सपना क्या था?</value>
+    </data>
+    <data name="WhatIsTheNameOfTheFirstSchoolYouAttended" xml:space="preserve">
+        <value> आपने पहले स्कूल का नाम क्या है?</value>
+    </data>
+    <data name="WhatIsYourGrandmothersFirstName" xml:space="preserve">
+        <value> आपकी दादी का पहला नाम क्या है?</value>
+    </data>
+    <data name="Excellent" xml:space="preserve">
+        <value> उत्तम!</value>
+    </data>
+    <data name="Good" xml:space="preserve">
+        <value> अच्छा!</value>
+    </data>
+    <data name="Fair" xml:space="preserve">
+        <value> ठीक!</value>
+    </data>
+    <data name="Terrible" xml:space="preserve">
+        <value> चिंताजनक!</value>
+    </data>
+    <data name="UploadedSuccessfully" xml:space="preserve">
+        <value> सफलतापूर्वक अपलोड  किये गए</value>
+    </data>
+    <data name="NegativeThoughtsToday" xml:space="preserve">
+        <value> खुशिओ में अवरोध करनेवाले </value>
+    </data>
+    <data name="Greed" xml:space="preserve">
+        <value> लालच </value>
+    </data>
+    <data name="Envy" xml:space="preserve">
+        <value> ईर्ष्या </value>
+    </data>
+    <data name="Anger" xml:space="preserve">
+        <value> गुस्सा </value>
+    </data>
+    <data name="Greed" xml:space="preserve">
+        <value> लालच </value>
+    </data>
+    <data name="Jealousy" xml:space="preserve">
+        <value> जलन </value>
+    </data>
+    <data name="Anger" xml:space="preserve">
+        <value> गुस्सा </value>
+    </data>
+    <data name="Guilt" xml:space="preserve">
+        <value> अपराध/गलती  </value>
+    </data>
+    <data name="Negativity" xml:space="preserve">
+        <value> नकारात्मकता </value>
+    </data>
+    <data name="None" xml:space="preserve">
+        <value> कोई नहीं </value>
+    </data>
+    <data name="Low" xml:space="preserve">
+        <value> कम </value>
+    </data>
+    <data name="Medium" xml:space="preserve">
+        <value> मध्यम </value>
+    </data>
+    <data name="High" xml:space="preserve">
+        <value> उच्च </value>
+    </data>
+    <data name="Extreme" xml:space="preserve">
+        <value> अधिकतम </value>
+    </data>
+    <data name="PersonalNote" xml:space="preserve">
+        <value> निजी नोटस </value>
+    </data>
+    <data name="Add" xml:space="preserve">
+        <value> जोड़े </value>
+    </data>
+    <data name="AddCustomEnabler" xml:space="preserve">
+        <value> अपने संतुष्टि सहायक जोड़े </value>
+    </data>
+    <data name="SatisfactionScore" xml:space="preserve">
+        <value> संतुष्टि परिणाम </value>
+    </data>
+    <data name="AddedSuccessfully" xml:space="preserve">
+        <value> सफलतापूर्वक जोड़ा गया</value>
+    </data>
+    <data name="SelectTheDate" xml:space="preserve">
+        <value> पत्रिका की तिथि: </value>
+    </data>
+    <data name="PersonalNoteLower" xml:space="preserve">
+        <value> निजी नोट्स: </value>
+    </data>
+    <data name="SetYourPassword" xml:space="preserve">
+        <value> अपने लॉगिन प्रोफ़ाइल के लिए अपना पासवर्ड सेट करें ताकि आप अपने व्यक्तिगत नोटस तक सुरक्षित पहुंच सके |.</value>
+    </data>
+    <data name="SetPassword" xml:space="preserve">
+        <value> पासवर्ड सेट करें </value>
+    </data>
+    <data name="Hi" xml:space="preserve">
+        <value> नमस्ते! </value>
+    </data>
+    <data name="NotificationMessage" xml:space="preserve">
+        <value> पत्रिका के लिए कोई नोट्स? </value>
+    </data>
+    <data name="TheirEffectOnYourHappiness" xml:space="preserve">
+        <value> उनका आपकी खुशिओ पर प्रभाव </value>
+    </data>
+    <data name="Description" xml:space="preserve">
+        <value> वर्णन </value>
+    </data>
+    <data name="EnterYourProfilePassword" xml:space="preserve">
+        <value> अपनी प्रोफाइल का पासवर्ड दर्ज करे </value>
+    </data>
+    <data name="CouldBeBetter" xml:space="preserve">
+        <value> बेहतर हो सकता था!</value>
+    </data>
+    <data name="Reminders" xml:space="preserve">
+        <value> स्मरणपत्र </value>
+    </data>
+    <data name="EnableLightTheme" xml:space="preserve">
+        <value> लाइट बैकग्राउंड सक्षम करे </value>
+    </data>
+    <data name="FactorChangeWarning" xml:space="preserve">
+        <value> कोई भी जोड़े या हटाए गए कारण पत्रिका को केवल आज प्रभावित करेंगे| पत्रिका में बदलाव करके परिवर्तनों को सुरक्षित करे। </value>
+    </data>
+    <data name="iCloucBackupPermission" xml:space="preserve">
+        <value> क्या आप ऐप से डेटा बैकअप को अपने iCloud में सक्षम करना चाहते हैं?</value>
+    </data>
+    <data name="TheJournalEntryFor" xml:space="preserve">
+        <value> पत्रिका रिकॉर्ड </value>
+    </data>
+    <data name="IsMissing" xml:space="preserve">
+        <value>  गुम है </value>
+    </data>
+    <data name="Settings" xml:space="preserve">
+        <value> सेटिंग्स </value>
+    </data>        <data name="EnablersReport" xml:space="preserve">        <value>सहायकों की</value>    </data>        <data name="InhibitorsReport" xml:space="preserve">        <value>अवरोधकों की</value>    </data>    
+    <data name="EditFactorsFor" xml:space="preserve">
+        <value> कारकों में बदलाव करे </value>
+    </data>
+    <data name="PleaseSigningUsingYouriCloudAccount" xml:space="preserve">
+        <value> कृपया सेटिंग्स में जाकर अपने iCloud अकाउंट द्वारा लॉगिन करे, जिससे आपकी संतुष्टि पत्रिका का बैकअप लिया जा सके।</value>
+    </data>
+    <data name="DisableBackup" xml:space="preserve">
+        <value> बैकअप अक्षम करें </value>
+    </data>
+    <data name="BackupFailed" xml:space="preserve">
+        <value> बैकअप विफल रहा </value>
+    </data>
+    <data name="House Pets" xml:space="preserve">
+        <value> घर के पालतू जानवर </value>
+    </data>
+    <data name="BacupFeatureMessage" xml:space="preserve">
+        <value> वर्तमान में मैन्युअल बैकअप सुविधा केवल iOS उपकरणों पर काम करती है। एंड्रॉइड डिवाइस पर, डिफ़ॉल्ट ऑटो बैकअप सुविधा जर्नल डेटा और छवियों का बैकअप लेने के लिए काम करेगी।.</value>
+    </data>
+    <data name="Inhibitors" xml:space="preserve">
+        <value> खुशियों के अवरोधक </value>
+    </data>
+    <data name="Journal" xml:space="preserve">
+        <value> पत्रिका </value>
+    </data>
+    <data name="Fear" xml:space="preserve">
+        <value> डर </value>
+    </data>
+    <data name="Sadness" xml:space="preserve">
+        <value> उदासी </value>
+    </data>
+    <data name="Loneliness" xml:space="preserve">
+        <value> अकेलापन </value>
+    </data>
+    <data name="Anxiety" xml:space="preserve">
+        <value> चिंता </value>
+    </data>
+    <data name="LevelOfEffect" xml:space="preserve">
+        <value> प्रभाव का स्तर </value>
+    </data>
+    <data name="YourInhibitorEffectScore" xml:space="preserve">
+        <value> आपके अवरोध करने वाले प्रभावों का परिणाम </value>
+    </data>
+    <data name="InhibitorTooltipForNewUser" xml:space="preserve">
+        <value> अवरोधक की दृश्यता को दिखाने / छिपाने के लिए किंवदंती पर क्लिक करें। </value>
+    </data>
+    <data name="EnableBackup" xml:space="preserve">
+        <value> बैकअप सक्षम करें</value>
+    </data>
+    <data name="Close" xml:space="preserve">
+        <value> बंद करे </value>
+    </data>
+    <data name="ClickOnTheDotsToHideShowTheRespectiveGraphLines" xml:space="preserve">
+        <value>(संबंधित ग्राफ़ लाइनों को छिपाने/दिखाने के लिए डॉट्स पर क्लिक करें)</value>
+    </data>
+    <data name="DaysScore" xml:space="preserve">        <value>दिन का परिणाम</value>    </data>
+    <data name="ForgotPasswordMenuGuide" xml:space="preserve">
+        <value>(पासवर्ड भूल गए? 'पासवर्ड भूल गए' लिंक को खोजने के लिए साइड मेनू से लॉग आउट करें)</value>
+    </data>
+    <data name="Language" xml:space="preserve">
+        <value>भाषा</value>
+    </data>
+     <data name="ChooseYourAppLanguage" xml:space="preserve">
+        <value>अपनी भाषा चुने</value>
+    </data>
+     <data name="LetsGetStarted" xml:space="preserve">
+        <value>चलिए, आपकी संतुष्टि पत्रिका के साथ शुरू करते है!!</value>
+    </data>
+    <data name="SearchForPastJournal" xml:space="preserve">
+        <value>पुरानी पत्रिका खोजे : </value>
+    </data>
+    <data name="Notes" xml:space="preserve">
+        <value>भावना</value>
+    </data>
+    <data name="Causes" xml:space="preserve">
+        <value>कारण</value>
+    </data>    <data name="OverallDaysScore" xml:space="preserve">        <value>दिन की संतुष्टि का स्कोर</value>    </data>    <data name="JournalDeleteWarning" xml:space="preserve">        <value>{1} पर {0} के लिए दर्ज किया गया "दिन का स्कोर" हटा दिया जाएगा</value>    </data>    
+    <data name="WhatHelped" xml:space="preserve">
+        <value>क्या मदद की</value>
+    </data>
+    <data name="NotesFor" xml:space="preserve">
+        <value>___ के लिए नोट्स </value>
+    </data>        <data name="HomeMenu" xml:space="preserve">        <value>होम</value>    </data>        <data name="DaysScore" xml:space="preserve">            <value>दिन का स्कोर</value>        </data>        <data name="Inhibitors" xml:space="preserve">        <value> खुशियों के अवरोधक </value>    </data>
+    <data name="MeditationPeaceSpirituality" xml:space="preserve">
+        <value>(ध्यान, शांति, आध्यात्मिकता)</value>
+    </data>
+    <data name="SearchForKnowledgeIntellectual" xml:space="preserve">
+        <value>(ज्ञान की खोज, बौद्धिक)</value>
+    </data>
+    <data name="OrganizationCleanliness" xml:space="preserve">
+        <value>(व्यवस्था, स्वच्छता)</value>
+    </data>
+    <data name="ResetPassword" xml:space="preserve">
+        <value>पासवर्ड फिर से लगाए </value>
+    </data>
+    <data name="AppInfo" xml:space="preserve">
+        <value>अनुप्रयोग की जानकारी</value>
+    </data>        <data name="Wishlist1" xml:space="preserve">        <value>च्छा-सूची 1 </value>    </data>    <data name="Wishlist2" xml:space="preserve">        <value>इच्छा-सूची 2</value>    </data>    <data name="Wishlist3" xml:space="preserve">        <value>इच्छा-सूची  3</value>    </data>    
+</root> 

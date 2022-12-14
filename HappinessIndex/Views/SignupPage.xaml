@@ -1,0 +1,396 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    ios:Page.UseSafeArea="True"
+    xmlns:controls="clr-namespace:HappinessIndex.Controls"
+    BackgroundColor="{DynamicResource BackgroundColor}"
+    xmlns:resource="clr-namespace:HappinessIndex.Resx"
+    xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    xmlns:local="clr-namespace:HappinessIndex.Views"
+    xmlns:viewModel="clr-namespace:HappinessIndex.ViewModels"
+    xmlns:inputLayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
+    x:Class="HappinessIndex.Views.SignupPage">
+
+    <ContentPage.Resources>
+        <local:DefaultAgeToEmptyConverter x:Key="defaultAgeToEmptyConverter"/>
+    </ContentPage.Resources>
+
+    <ContentPage.BindingContext>
+        <viewModel:SignupPageViewModel/>
+    </ContentPage.BindingContext>
+
+    <ScrollView x:Name="MainContent">
+        <Grid Padding="20" RowSpacing="0">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Label Text="{x:Static resource:AppResources.QuickTour}"
+                   FontAttributes="Bold"
+                   HorizontalOptions="End"
+                   VerticalOptions="Start"
+                   TextDecorations="Underline"
+                   IsVisible="False"
+                   FontSize="{StaticResource ContentFontSize}"
+                   TextColor="{StaticResource TransparentButtonText}"
+                   Grid.RowSpan="2"
+                   Grid.ColumnSpan="2">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding ShowAppTourCommand}"/>
+                </Label.GestureRecognizers>
+            </Label>
+
+            <ffimageloading:CachedImage
+            Grid.ColumnSpan="2"
+            Style="{StaticResource LogoImage}"/>
+
+            <!--<Label
+            Style="{StaticResource PageTitle}"
+            Text="{x:Static resource:AppResources.Signup}"
+            Grid.ColumnSpan="2"
+            Margin="0, 20"
+            Grid.Row="1"/>-->
+
+            <!--<StackLayout Orientation="Horizontal" Grid.Row="2" Grid.ColumnSpan="2" HorizontalOptions="End">
+                <ffimageloading:CachedImage Source="Mandatory.png" HeightRequest="13" Margin="0,0,-2,1"  WidthRequest="13" VerticalOptions="Center"/>
+                <Label Text="Mandatory" FontSize="{StaticResource NoteFontSize}" VerticalOptions="Center"/>
+            </StackLayout>-->
+
+            <inputLayout:SfTextInputLayout
+            Hint="{x:Static resource:AppResources.Name}"
+            Grid.Row="7"
+            Grid.ColumnSpan="2"
+            TrailingViewPosition="Inside"
+            HasError="{Binding User.IsInvalidName}"
+            ContainerType="Outlined">
+                <Entry Text="{Binding User.Name}" FontSize="{StaticResource ContentFontSize}"/>
+
+                <!--<inputLayout:SfTextInputLayout.TrailingView>
+                    <Grid>
+                        <ffimageloading:CachedImage Margin="10,0,0,0" Source="Mandatory.png" HeightRequest="13" WidthRequest="13"/>
+                    </Grid>
+                </inputLayout:SfTextInputLayout.TrailingView>-->
+
+            </inputLayout:SfTextInputLayout>
+
+            <inputLayout:SfTextInputLayout
+            Hint="{x:Static resource:AppResources.Email}"
+            Grid.Row="8"
+            Grid.ColumnSpan="2"
+            HasError="{Binding User.IsInvalidEmail}"
+            ContainerType="Outlined">
+                <Entry Text="{Binding User.Email}" Keyboard="Email" FontSize="{StaticResource ContentFontSize}"/>
+
+                <!--<inputLayout:SfTextInputLayout.TrailingView>
+                    <Grid>
+                        <ffimageloading:CachedImage Margin="10,0,0,0" Source="Mandatory.png" HeightRequest="13" WidthRequest="13"/>
+                    </Grid>
+                </inputLayout:SfTextInputLayout.TrailingView>-->
+
+            </inputLayout:SfTextInputLayout>
+
+            <!--<inputLayout:SfTextInputLayout
+            Hint="Country"
+            Grid.Row="5"
+            Grid.ColumnSpan="2"
+            ContainerType="Outlined">
+                <contros:SfAutoCompleteExt
+                    Text="{Binding User.Country, Mode=OneWayToSource}"
+                    AutoCompleteMode="SuggestAppend"
+                     HeightRequest="17"
+                    TextSize="{StaticResource ContentFontSize}"
+                    DropDownBackgroundColor="{DynamicResource BackgroundColor}"
+                    AutoCompleteSource="{x:Static app:App.CountryNames}"
+                    Keyboard="Email"/>
+            </inputLayout:SfTextInputLayout>-->
+
+            <!--<inputLayout:SfTextInputLayout
+            Hint="Phone"
+            Grid.Row="6"
+            Grid.ColumnSpan="2"
+            ContainerType="Outlined">
+                <contros:SfMaskedEditExt Mask="(000-000-0000)" Value="{Binding User.Phone}" FontSize="{StaticResource ContentFontSize}"/>
+            </inputLayout:SfTextInputLayout>-->
+
+            <!--<inputLayout:SfTextInputLayout
+            Hint="Age"
+            Grid.Row="7"
+            Margin="0,0,0,4"
+            HasError="{Binding User.IsInvalidAge}"
+            Grid.ColumnSpan="2"
+            ContainerType="Outlined">
+                <Picker SelectedItem="{Binding User.Age}" FontSize="{StaticResource ContentFontSize}">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>12</x:String>
+                            <x:String>13</x:String>
+                            <x:String>14</x:String>
+                            <x:String>15</x:String>
+                            <x:String>16</x:String>
+                            <x:String>17</x:String>
+                            <x:String>18</x:String>
+                            <x:String>19</x:String>
+                            <x:String>20</x:String>
+                            <x:String>21</x:String>
+                            <x:String>22</x:String>
+                            <x:String>23</x:String>
+                            <x:String>24</x:String>
+                            <x:String>25</x:String>
+                            <x:String>26</x:String>
+                            <x:String>27</x:String>
+                            <x:String>28</x:String>
+                            <x:String>29</x:String>
+                            <x:String>30</x:String>
+                            <x:String>31</x:String>
+                            <x:String>32</x:String>
+                            <x:String>33</x:String>
+                            <x:String>34</x:String>
+                            <x:String>35</x:String>
+                            <x:String>36</x:String>
+                            <x:String>37</x:String>
+                            <x:String>38</x:String>
+                            <x:String>39</x:String>
+                            <x:String>40</x:String>
+                            <x:String>41</x:String>
+                            <x:String>42</x:String>
+                            <x:String>43</x:String>
+                            <x:String>44</x:String>
+                            <x:String>45</x:String>
+                            <x:String>46</x:String>
+                            <x:String>47</x:String>
+                            <x:String>48</x:String>
+                            <x:String>49</x:String>
+                            <x:String>50</x:String>
+                            <x:String>51</x:String>
+                            <x:String>52</x:String>
+                            <x:String>53</x:String>
+                            <x:String>54</x:String>
+                            <x:String>55</x:String>
+                            <x:String>56</x:String>
+                            <x:String>57</x:String>
+                            <x:String>58</x:String>
+                            <x:String>59</x:String>
+                            <x:String>60</x:String>
+                            <x:String>61</x:String>
+                            <x:String>62</x:String>
+                            <x:String>63</x:String>
+                            <x:String>64</x:String>
+                            <x:String>65</x:String>
+                            <x:String>66</x:String>
+                            <x:String>67</x:String>
+                            <x:String>68</x:String>
+                            <x:String>69</x:String>
+                            <x:String>70</x:String>
+                            <x:String>71</x:String>
+                            <x:String>72</x:String>
+                            <x:String>73</x:String>
+                            <x:String>74</x:String>
+                            <x:String>75</x:String>
+                            <x:String>76</x:String>
+                            <x:String>77</x:String>
+                            <x:String>78</x:String>
+                            <x:String>79</x:String>
+                            <x:String>80</x:String>
+                            <x:String>81</x:String>
+                            <x:String>82</x:String>
+                            <x:String>83</x:String>
+                            <x:String>84</x:String>
+                            <x:String>85</x:String>
+                            <x:String>86</x:String>
+                            <x:String>87</x:String>
+                            <x:String>88</x:String>
+                            <x:String>89</x:String>
+                            <x:String>90</x:String>
+                            <x:String>91</x:String>
+                            <x:String>92</x:String>
+                            <x:String>93</x:String>
+                            <x:String>94</x:String>
+                            <x:String>95</x:String>
+                            <x:String>96</x:String>
+                            <x:String>97</x:String>
+                            <x:String>98</x:String>
+                            <x:String>99</x:String>
+                            <x:String>100</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+            </inputLayout:SfTextInputLayout>-->
+
+            <!--<inputLayout:SfTextInputLayout
+            Hint="Password"
+            Grid.Row="8"
+            EnablePasswordVisibilityToggle="False"
+            Grid.ColumnSpan="2"
+            ContainerType="Outlined">
+                <Entry Text="{Binding User.Password}" IsPassword="True" FontSize="{StaticResource ContentFontSize}"/>
+
+                <inputLayout:SfTextInputLayout.TrailingView>
+                    <Grid>
+                        <ffimageloading:CachedImage Margin="10,0,0,0" Source="Mandatory.png" HeightRequest="13" WidthRequest="13"/>
+                    </Grid>
+                </inputLayout:SfTextInputLayout.TrailingView>
+
+            </inputLayout:SfTextInputLayout>-->
+
+            <!--<inputLayout:SfTextInputLayout
+            Hint="Confirm Password"
+            HasError="{Binding User.IsInvalidConfirmPassword}"
+            Grid.Row="9"
+            EnablePasswordVisibilityToggle="False"
+            Grid.ColumnSpan="2"
+            ContainerType="Outlined">
+                <Entry Text="{Binding User.ConfirmPassword}" IsPassword="True" FontSize="{StaticResource ContentFontSize}"/>
+
+                <inputLayout:SfTextInputLayout.TrailingView>
+                    <Grid>
+                        <ffimageloading:CachedImage Margin="10,0,0,0" Source="Mandatory.png" HeightRequest="13" WidthRequest="13"/>
+                    </Grid>
+                </inputLayout:SfTextInputLayout.TrailingView>
+
+            </inputLayout:SfTextInputLayout>-->
+
+            <!--<inputLayout:SfTextInputLayout
+            Hint="Gender"
+            Grid.Row="10"
+            Grid.ColumnSpan="2"
+            ContainerType="Outlined">
+                <Picker SelectedItem="{Binding User.Gender}" FontSize="{StaticResource ContentFontSize}">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Male</x:String>
+                            <x:String>Female</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+            </inputLayout:SfTextInputLayout>-->
+
+            <!--<inputLayout:SfTextInputLayout
+            Hint="Security Question"
+            Grid.Row="11"
+            Grid.ColumnSpan="2"
+            ContainerType="Outlined">
+                <Picker SelectedItem="{Binding User.SecurityQuestion}" FontSize="{StaticResource ContentFontSize}">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>What was your first car?</x:String>
+                            <x:String>What was your childhood nickname?</x:String>
+                            <x:String>What is the name of your favorite childhood friend?</x:String>
+                            <x:String>In what city or town was your first job?</x:String>
+                            <x:String>What was your dream job as a child?</x:String>
+                            <x:String>What is the name of the first school you attended?</x:String>
+                            <x:String>What is your grandmother's first name?</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+
+                <inputLayout:SfTextInputLayout.TrailingView>
+                    <Grid>
+                        <ffimageloading:CachedImage Margin="10,0,0,0" Source="Mandatory.png" HeightRequest="13" WidthRequest="13"/>
+                    </Grid>
+                </inputLayout:SfTextInputLayout.TrailingView>
+
+            </inputLayout:SfTextInputLayout>-->
+
+            <!--<inputLayout:SfTextInputLayout
+            Hint="Security Answer"
+            Grid.Row="12"
+            Grid.ColumnSpan="2"
+            ContainerType="Outlined">
+                <Entry Text="{Binding User.SecurityAnswer}" FontSize="{StaticResource ContentFontSize}"/>
+
+                <inputLayout:SfTextInputLayout.TrailingView>
+                    <Grid>
+                        <ffimageloading:CachedImage Margin="10,0,0,0" Source="Mandatory.png" HeightRequest="13" WidthRequest="13"/>
+                    </Grid>
+                </inputLayout:SfTextInputLayout.TrailingView>
+
+            </inputLayout:SfTextInputLayout>-->
+
+            <Button
+            Grid.Row="9"
+            Grid.Column="0"
+            Grid.ColumnSpan="2"
+            Margin="12"
+            HorizontalOptions="FillAndExpand"
+            Command="{Binding SignupCommand}"
+            Text="{x:Static resource:AppResources.Signup}"/>
+
+            <Label
+            TextDecorations="Underline"
+            Grid.Row="6"
+            HorizontalOptions="Center"
+            Margin="0,20"
+            FontSize="{StaticResource ContentFontSize}"
+            Grid.ColumnSpan="2">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span
+                        Text="{x:Static resource:AppResources.AlreadyHaveAnAccount}"/>
+                        <Span
+                        Text="{x:Static resource:AppResources.Login}"
+                        TextDecorations="Underline">
+                            <Span.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding LoginCommand}"/>
+                            </Span.GestureRecognizers>
+                        </Span>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+
+            <Label FontSize="{StaticResource ContentFontSize}" Grid.ColumnSpan="2"
+                   Grid.Row="6" Text="Or" HorizontalOptions="Center" Margin="0,0,0,0"  IsVisible="False"/>
+
+            <ImageButton HeightRequest="45" Margin="0,20,0,0" Command="{Binding LoginWithFacebookCommand}"
+                Grid.Row="4" Source="FacebookLogin.png" Grid.ColumnSpan="2" HorizontalOptions="Center" IsVisible="False"/>
+
+            <ImageButton HeightRequest="45" Margin="0,20,0,0" Command="{Binding LoginWithGoogleCommand}"
+                Grid.Row="3" Source="Google.png" Grid.ColumnSpan="2" HorizontalOptions="Center" IsVisible="False"/>
+
+            <controls:AppleSignInButton
+                Command="{Binding SignInWithAppleCommand}"
+                ButtonStyle="Black" HorizontalOptions="CenterAndExpand"
+                VerticalOptions="CenterAndExpand"
+                Grid.Row="5"
+                Grid.ColumnSpan="2"
+                HeightRequest="45"
+                WidthRequest="275"
+                Margin="0,20,0,20">
+                <controls:AppleSignInButton.IsVisible>
+                    <OnPlatform x:TypeArguments="x:Boolean">
+                        <On Platform="iOS" Value="False"/>
+                        <On Platform="Android" Value="False"/>
+                    </OnPlatform>
+                </controls:AppleSignInButton.IsVisible>
+            </controls:AppleSignInButton>
+
+
+            <ActivityIndicator VerticalOptions="Center" HorizontalOptions="Center"
+                               Grid.ColumnSpan="2" Grid.RowSpan="8"
+                               IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}"/>
+
+        </Grid>
+    </ScrollView>
+</ContentPage>

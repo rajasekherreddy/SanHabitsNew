@@ -1,0 +1,290 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:BuildHappinessAdmin.ViewModels"
+             Padding="20,50,20,50"
+             xmlns:converters="clr-namespace:BuildHappiness.Core.Converters;assembly=BuildHappiness.Core"
+             x:Class="BuildHappinessAdmin.Views.ServiceProviderRequestPage">
+    <ContentPage.BindingContext>
+        <local:SPRequestPageViewModel/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:ByteArrayToImageSourceConverter x:Key="ByteArrayToImageSourceConverter"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <Grid>
+            <RefreshView Command="{Binding RefreshCommand}" IsRefreshing="{Binding IsRefreshing}">
+                <ScrollView>
+                    <CollectionView ItemsSource="{Binding Requests}" VerticalScrollBarVisibility="Never" x:Name="list">
+                        <CollectionView.ItemsLayout>
+                            <LinearItemsLayout Orientation="Vertical" ItemSpacing="20"/>
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Frame HasShadow="False" BorderColor="{StaticResource BackgroundDarkColor}"
+                                   Padding="15" CornerRadius="20">
+
+                                    <Expander>
+                                        <Expander.Header>
+                                            <Grid HeightRequest="100" ColumnDefinitions="Auto,10,*" RowDefinitions="Auto,Auto,Auto,Auto">
+
+                                                <Frame Grid.RowSpan="4" HasShadow="False" Padding="0" HeightRequest="90" WidthRequest="90"
+                                           CornerRadius="20" BackgroundColor="LightCoral" IsClippedToBounds="True">
+                                                    <Image Aspect="Fill" VerticalOptions="CenterAndExpand"
+                                   Source="{Binding ProfilePhotoStream, Converter={StaticResource ByteArrayToImageSourceConverter}}"/>
+                                                </Frame>
+
+                                                <Label Grid.Column="2"
+                                                   TextColor="{StaticResource BackgroundDarkColor}">
+                                                    <Label.FormattedText>
+                                                        <FormattedString>
+                                                            <Span Text="Name: "/>
+                                                            <Span Text="{Binding Name}" FontAttributes="Bold"/>
+                                                        </FormattedString>
+                                                    </Label.FormattedText>
+                                                </Label>
+
+                                                <Label Grid.Column="2" Grid.Row="1" LineBreakMode="TailTruncation"
+                                                   TextColor="{StaticResource BackgroundDarkColor}">
+                                                    <Label.FormattedText>
+                                                        <FormattedString>
+                                                            <Span Text="Email: "/>
+                                                            <Span Text="{Binding Email}" FontAttributes="Bold"/>
+                                                        </FormattedString>
+                                                    </Label.FormattedText>
+                                                </Label>
+
+                                                <Label Grid.Column="2" Grid.Row="2"
+                                                   TextColor="{StaticResource BackgroundDarkColor}">
+                                                    <Label.FormattedText>
+                                                        <FormattedString>
+                                                            <Span Text="Country: "/>
+                                                            <Span Text="{Binding Country}" FontAttributes="Bold"/>
+                                                        </FormattedString>
+                                                    </Label.FormattedText>
+                                                </Label>
+
+                                                <Label Grid.Column="2" Grid.Row="3"
+                                                   TextColor="{StaticResource BackgroundDarkColor}">
+                                                    <Label.FormattedText>
+                                                        <FormattedString>
+                                                            <Span Text="City: "/>
+                                                            <Span Text="{Binding City}" FontAttributes="Bold"/>
+                                                        </FormattedString>
+                                                    </Label.FormattedText>
+                                                </Label>
+                                            </Grid>
+                                        </Expander.Header>
+                                        <Expander.Content>
+                                            <Grid RowDefinitions="Auto,Auto" ColumnDefinitions="*,*">
+                                                <StackLayout Grid.ColumnSpan="2" Spacing="13">
+                                                    <BoxView HeightRequest="1" Color="{StaticResource BackgroundDarkColor}" Margin="0,20,0,5"/>
+
+                                                    <Label Grid.Row="1"
+                                                   TextColor="{StaticResource BackgroundDarkColor}">
+                                                        <Label.FormattedText>
+                                                            <FormattedString>
+                                                                <Span Text="Address: "/>
+                                                                <Span Text="{Binding Address}" FontAttributes="Bold"/>
+                                                            </FormattedString>
+                                                        </Label.FormattedText>
+                                                    </Label>
+
+                                                    <Label Grid.Row="2"
+                                                   TextColor="{StaticResource BackgroundDarkColor}">
+                                                        <Label.FormattedText>
+                                                            <FormattedString>
+                                                                <Span Text="State: "/>
+                                                                <Span Text="{Binding State}" FontAttributes="Bold"/>
+                                                            </FormattedString>
+                                                        </Label.FormattedText>
+                                                    </Label>
+
+                                                    <Label Grid.Row="3"
+                                                   TextColor="{StaticResource BackgroundDarkColor}">
+                                                        <Label.FormattedText>
+                                                            <FormattedString>
+                                                                <Span Text="Zip: "/>
+                                                                <Span Text="{Binding PostalCode}" FontAttributes="Bold"/>
+                                                            </FormattedString>
+                                                        </Label.FormattedText>
+                                                    </Label>
+
+                                                    <Label Grid.Row="4"
+                                                   TextColor="{StaticResource BackgroundDarkColor}">
+                                                        <Label.FormattedText>
+                                                            <FormattedString>
+                                                                <Span Text="Business Number: "/>
+                                                                <Span Text="{Binding BusinessNumber}" FontAttributes="Bold" TextDecorations="Underline">
+                                                                    <Span.GestureRecognizers>
+                                                                        <TapGestureRecognizer Tapped="PhoneTapped"/>
+                                                                    </Span.GestureRecognizers>
+                                                                </Span>
+                                                            </FormattedString>
+                                                        </Label.FormattedText>
+                                                    </Label>
+
+                                                    <Label Grid.Row="5"
+                                                   TextColor="{StaticResource BackgroundDarkColor}">
+                                                        <Label.FormattedText>
+                                                            <FormattedString>
+                                                                <Span Text="Mobile Number: "/>
+                                                                <Span Text="{Binding MobileNumber}" FontAttributes="Bold" TextDecorations="Underline">
+                                                                    <Span.GestureRecognizers>
+                                                                        <TapGestureRecognizer Tapped="PhoneTapped"/>
+                                                                    </Span.GestureRecognizers>
+                                                                </Span>
+                                                            </FormattedString>
+                                                        </Label.FormattedText>
+                                                    </Label>
+
+                                                    <Label Grid.Row="6"
+                                                   TextColor="{StaticResource BackgroundDarkColor}">
+                                                        <Label.FormattedText>
+                                                            <FormattedString>
+                                                                <Span Text="Fax: "/>
+                                                                <Span Text="{Binding Fax}" FontAttributes="Bold"/>
+                                                            </FormattedString>
+                                                        </Label.FormattedText>
+                                                    </Label>
+
+                                                    <Label Grid.Row="7"
+                                                   TextColor="{StaticResource BackgroundDarkColor}">
+                                                        <Label.FormattedText>
+                                                            <FormattedString>
+                                                                <Span Text="Website: "/>
+                                                                <Span Text="{Binding Website}" FontAttributes="Bold" TextDecorations="Underline">
+                                                                    <Span.GestureRecognizers>
+                                                                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                                                                    </Span.GestureRecognizers>
+                                                                </Span>
+                                                            </FormattedString>
+                                                        </Label.FormattedText>
+                                                    </Label>
+
+                                                    <Label Grid.Row="8"
+                                                   TextColor="{StaticResource BackgroundDarkColor}">
+                                                        <Label.FormattedText>
+                                                            <FormattedString>
+                                                                <Span Text="Insurances Accepted: "/>
+                                                                <Span Text="{Binding Insurance}" FontAttributes="Bold"/>
+                                                            </FormattedString>
+                                                        </Label.FormattedText>
+                                                    </Label>
+
+                                                    <Label Grid.Row="9"
+                                                   TextColor="{StaticResource BackgroundDarkColor}">
+                                                        <Label.FormattedText>
+                                                            <FormattedString>
+                                                                <Span Text="Gender: "/>
+                                                                <Span Text="{Binding Gender}" FontAttributes="Bold"/>
+                                                            </FormattedString>
+                                                        </Label.FormattedText>
+                                                    </Label>
+
+                                                    <Label Grid.Row="10"
+                                                   TextColor="{StaticResource BackgroundDarkColor}">
+                                                        <Label.FormattedText>
+                                                            <FormattedString>
+                                                                <Span Text="Type: "/>
+                                                                <Span Text="{Binding TypeWithCategory}" FontAttributes="Bold"/>
+                                                            </FormattedString>
+                                                        </Label.FormattedText>
+                                                    </Label>
+
+                                                    <Label Grid.Row="11"
+                                                   TextColor="{StaticResource BackgroundDarkColor}">
+                                                        <Label.FormattedText>
+                                                            <FormattedString>
+                                                                <Span Text="Language: "/>
+                                                                <Span Text="{Binding Language}" FontAttributes="Bold"/>
+                                                            </FormattedString>
+                                                        </Label.FormattedText>
+                                                    </Label>
+
+                                                    <Label Grid.Row="12"
+                                                   TextColor="{StaticResource BackgroundDarkColor}">
+                                                        <Label.FormattedText>
+                                                            <FormattedString>
+                                                                <Span Text="Video Chat: "/>
+                                                                <Span Text="{Binding VideoChat}" FontAttributes="Bold"/>
+                                                            </FormattedString>
+                                                        </Label.FormattedText>
+                                                    </Label>
+
+                                                    <Frame Grid.Row="13" HasShadow="False" BorderColor="Green" Padding="0">
+                                                        <Editor Placeholder="Admin Comments" HeightRequest="70" Text="{Binding Comments}"
+                                                        TextColor="{StaticResource BackgroundDarkColor}"/>
+                                                    </Frame>
+                                                </StackLayout>
+
+                                                <Button Text="Approve" Grid.Row="1" HorizontalOptions="FillAndExpand"
+                                                Margin="10,5" Grid.Column="1"
+                                                Command="{Binding BindingContext.ApproveCommand, Source={x:Reference list}}"
+                                                CommandParameter="{Binding}"
+                                                />
+                                                <Button Text="Decline"
+                                                HorizontalOptions="FillAndExpand"
+                                                Margin="10,5" BackgroundColor="#D65658"
+                                                Grid.Row="1"
+                                                Command="{Binding BindingContext.DeclineCommand, Source={x:Reference list}}"
+                                                CommandParameter="{Binding}"/>
+                                            </Grid>
+                                        </Expander.Content>
+                                    </Expander>
+
+                                </Frame>
+                            </DataTemplate>
+                            <!--<DataTemplate>
+                        <Frame BorderColor="Green">
+                            <Expander>
+                                <Expander.Header>
+                                    <Grid ColumnDefinitions="Auto,10,*" RowDefinitions="Auto,Auto,Auto">
+                                        <Image WidthRequest="100" Grid.RowSpan="3"
+                                   Source="{Binding ProfilePhotoStream, Converter={StaticResource ByteArrayToImageSourceConverter}}"/>
+                                        <Label Text="{Binding Name}" Grid.Column="2"/>
+                                        <Label Text="{Binding Country}" Grid.Column="2" Grid.Row="1"/>
+                                        <Label Text="{Binding Type}" Grid.Column="2" Grid.Row="2"/>
+                                    </Grid>
+                                </Expander.Header>
+
+                                <Expander.Content>
+                                    <Grid RowDefinitions="Auto,Auto,Auto, Auto, Auto, Auto, Auto,Auto,Auto,Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto" ColumnDefinitions="*,*">
+
+                                        <Label Grid.ColumnSpan="2" Text="{Binding State, StringFormat='State: {0}'}" Grid.Row="0"/>
+                                        <Label Grid.ColumnSpan="2" Text="{Binding City, StringFormat='City: {0}'}" Grid.Row="1"/>
+                                        <Label Grid.ColumnSpan="2" Text="{Binding Address, StringFormat='Address: {0}'}" Grid.Row="2"/>
+                                        <Label Grid.ColumnSpan="2" Text="{Binding BusinessNumber, StringFormat='BusinessNumber: {0}'}" Grid.Row="3"/>
+                                        <Label Grid.ColumnSpan="2" Text="{Binding MobileNumber, StringFormat='MobileNumber: {0}'}" Grid.Row="4"/>
+                                        <Label Grid.ColumnSpan="2" Text="{Binding Fax, StringFormat='Fax: {0}'}" Grid.Row="5"/>
+                                        <Label Grid.ColumnSpan="2" Text="{Binding Website, StringFormat='Website: {0}'}" Grid.Row="6"/>
+                                        <Label Grid.ColumnSpan="2" Text="{Binding PostalCode, StringFormat='PostalCode: {0}'}" Grid.Row="7"/>
+
+                                        <Frame Grid.Row="15" Grid.ColumnSpan="2" HasShadow="False" BorderColor="Green" Padding="0">
+                                            <Editor Placeholder="Admin Comments" HeightRequest="70" Text="{Binding Comments}"/>
+                                        </Frame>
+
+                                        <Button Text="Approve" Grid.Row="16" Grid.Column="1" Command="{Binding BindingContext.ApproveCommand, Source={x:Reference list}}" CommandParameter="{Binding}"/>
+                                        <Button Text="Decline" Grid.Row="16" Command="{Binding BindingContext.DeclineCommand, Source={x:Reference list}}" CommandParameter="{Binding}"/>
+                                    </Grid>
+                                </Expander.Content>
+                            </Expander>
+
+                        </Frame>
+                    </DataTemplate>-->
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </ScrollView>
+            </RefreshView>
+            <StackLayout IsVisible="{Binding HasNoData}" VerticalOptions="Center">
+                <Image Source="empty"/>
+                <Label Text="No request found" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
+            </StackLayout>
+            
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

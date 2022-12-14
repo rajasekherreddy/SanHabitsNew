@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Title="{x:Static resource:AppResources.PersonalNote}"
+             xmlns:resource="clr-namespace:HappinessIndex.Resx"
+             BackgroundColor="{DynamicResource BackgroundColor}"
+             xmlns:behavior="clr-namespace:HappinessIndex.Behaviors"
+             xmlns:viewModel="clr-namespace:HappinessIndex.ViewModels"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             x:Class="HappinessIndex.Views.PersonalNote">
+
+    <ContentPage.BindingContext>
+        <viewModel:PersonalNoteViewModel/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Behaviors>
+        <behavior:EventToCommandBehavior
+                EventName="Appearing"
+                Command="{Binding RefreshCommand}"/>
+    </ContentPage.Behaviors>
+
+    <ContentPage.Content>
+        <ScrollView>
+            <Grid Margin="{StaticResource DefaultPagePadding}" IsEnabled="{Binding IsEnabled}" Opacity="{Binding Opacity}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Label Text="{x:Static resource:AppResources.SelectTheDate}" VerticalOptions="Center"/>
+
+                <DatePicker HorizontalOptions="Start" Grid.Column="1" BackgroundColor="{DynamicResource BackgroundColor}"
+                        Date="{Binding SelectedDate}"
+                        MaximumDate="{Binding Source={x:Static sys:DateTime.Now}}"/>
+
+                <Label Text="{x:Static resource:AppResources.PersonalNoteLower}" Grid.Row="1" Grid.ColumnSpan="2" Margin="0,20,0,0"/>
+
+                <Frame Grid.Row="2" Grid.ColumnSpan="2" Padding="0" HasShadow="False" BorderColor="Gray" Margin="0,0,0,20">
+                    <Editor Text="{Binding Note}" BackgroundColor="{DynamicResource BackgroundColor}"/>
+                </Frame>
+
+                <Button Text="{x:Static resource:AppResources.Save}"
+                     Grid.ColumnSpan="2"
+                     HorizontalOptions="FillAndExpand"
+                     Margin="30,0,30,10"
+                     Command="{Binding SaveCommand}"
+                     VerticalOptions="Center"
+                     FontSize="{StaticResource ContentFontSize}"
+                     Grid.Row="3"/>
+
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

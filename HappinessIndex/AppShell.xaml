@@ -1,0 +1,260 @@
+﻿<Shell xmlns="http://xamarin.com/schemas/2014/forms"
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:page="clr-namespace:HappinessIndex.Views"
+       xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+       ios:Page.UseSafeArea="False"
+       xmlns:sfavatar="clr-namespace:Syncfusion.XForms.AvatarView;assembly=Syncfusion.Core.XForms"
+       xmlns:resource="clr-namespace:HappinessIndex.Resx"
+       NavigationPage.HasNavigationBar="False"
+       xmlns:local="clr-namespace:HappinessIndex"
+       NavigationPage.BackButtonTitle="{x:Static resource:AppResources.Close}"
+       FlyoutBackgroundColor="{DynamicResource BackgroundColor}"
+       x:Class="HappinessIndex.AppShell" Shell.NavBarIsVisible="True">
+
+    <Shell.Resources>
+
+        <local:MarginConverter x:Key="MarginConverter"/>
+
+        <local:ChartTooltipConverter x:Key="ChartTooltipConverter"/>
+
+        <DataTemplate x:Key="InhibitorTooltipTemplate">
+            <StackLayout>
+                <Label Text="{Binding DisplayName}"
+                       HorizontalOptions="CenterAndExpand"
+                       FontSize="{StaticResource ContentFontSize}"
+                       TextColor="White" FontAttributes="Bold"/>
+
+                <Label Text="{Binding Date, StringFormat='({0:MMM-dd HH:ss})'}"
+                       FontSize="10"
+                       HorizontalOptions="CenterAndExpand"
+                       TextColor="White" FontAttributes="Bold"/>
+
+                <Label Text="{Binding Notes, Converter={StaticResource ChartTooltipConverter}, ConverterParameter=Notes}"
+                       FontSize="{StaticResource ContentFontSize}"
+                       TextColor="White" LineBreakMode="WordWrap"/>
+
+                <Label Text="{Binding Causes, Converter={StaticResource ChartTooltipConverter}, ConverterParameter=Causes}"
+                        FontSize="{StaticResource ContentFontSize}"
+                        TextColor="White" LineBreakMode="WordWrap"/>
+
+                <Label Text="{Binding Fixes, Converter={StaticResource ChartTooltipConverter}, ConverterParameter=Fixes}"
+                        FontSize="{StaticResource ContentFontSize}"
+                        TextColor="White" LineBreakMode="WordWrap"/>
+
+            </StackLayout>
+        </DataTemplate>
+
+        <!--<Style TargetType="Shell">
+            <Setter Property="Shell.ForegroundColor" Value="White"/>
+            <Setter Property="Shell.TitleColor" Value="{StaticResource BackgroundDarkColor}"/>
+            <Setter Property="Shell.BackgroundColor" Value="White" />
+            <Setter Property="Shell.TabBarBackgroundColor" Value="White" />
+            <Setter Property="Shell.TabBarForegroundColor" Value="Black"/>
+            <Setter Property="Shell.TabBarUnselectedColor" Value="{StaticResource BackgroundDarkColor}"/>
+            <Setter Property="Shell.TabBarTitleColor" Value="#266489" />
+        </Style>-->
+
+        <Style TargetType="ShellContent">
+            <Setter Property="Shell.ForegroundColor" Value="{StaticResource BackgroundDarkColor}"/>
+            <Setter Property="Shell.TitleColor" Value="{StaticResource BackgroundDarkColor}"/>
+            <Setter Property="Shell.BackgroundColor" Value="White" />
+            <Setter Property="Shell.TabBarBackgroundColor" Value="White" />
+            <Setter Property="Shell.TabBarForegroundColor" Value="Black"/>
+            <Setter Property="Shell.TabBarUnselectedColor" Value="{StaticResource BackgroundDarkColor}"/>
+            <Setter Property="Shell.TabBarTitleColor" Value="#266489" />
+        </Style>
+
+        <!--<Style TargetType="TabBar" BasedOn="{StaticResource BaseStyle}" />-->
+
+         <!--<Style TargetType="FlyoutItem" BasedOn="{StaticResource BaseStyle}" />-->
+
+        <Style
+            TargetType="Layout"
+            ApplyToDerivedTypes="True"
+            Class="FlyoutItemLayoutStyle">
+
+            <Setter
+                Property="HeightRequest"
+                Value="44"/>
+            <Setter
+                TargetName="FlyoutItemLabel"
+                Property="Label.FontSize"
+                Value="{StaticResource TitleFontSize}" />
+            <Setter
+                TargetName="FlyoutItemLabel"
+                Property="Label.TextColor"
+                Value="{StaticResource TransparentButtonText}" />
+            <Setter
+                TargetName="FlyoutItemLabel"
+                Property="Label.HeightRequest"
+                Value="44" />
+            <Setter
+                Property="VisualStateManager.VisualStateGroups">
+                <VisualStateGroupList>
+                    <VisualStateGroup
+                        x:Name="CommonStates">
+                        <VisualState
+                            x:Name="Normal">
+                            <VisualState.Setters>
+                            </VisualState.Setters>
+                        </VisualState>
+                        <VisualState
+                            x:Name="Selected">
+                            <VisualState.Setters>
+                                <Setter
+                                    Property="BackgroundColor"
+                                    Value="{StaticResource BackgroundDarkColor}" />
+                                <Setter
+                                    TargetName="FlyoutItemLabel"
+                                    Property="Label.TextColor"
+                                    Value="White" />
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateGroupList>
+            </Setter>
+        </Style>
+
+    </Shell.Resources>
+
+
+    <Shell.FlyoutHeaderTemplate>
+        <DataTemplate>
+            <Grid x:Name="Header" BackgroundColor="{StaticResource BackgroundDarkColor}">
+                <Grid.Margin>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="iOS" Value="0,-1,0,0"/>
+                    </OnPlatform>
+                </Grid.Margin>
+                <Grid.Padding>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="iOS" Value="0,30,0,0" />
+                    </OnPlatform>
+                </Grid.Padding>
+                <Grid.HeightRequest>
+                    <OnPlatform x:TypeArguments="x:Double">
+                        <On Platform="iOS" Value="220" />
+                        <On Platform="Android" Value="220" />
+                    </OnPlatform>
+                </Grid.HeightRequest>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="5"/>
+                    <RowDefinition Height="10"/>
+                </Grid.RowDefinitions>
+
+                <sfavatar:SfAvatarView ContentType="Default"
+                           VerticalOptions="Center"
+                           HorizontalOptions="Center"
+                           AvatarColorMode="DarkBackground"
+                           BorderColor="{StaticResource TextColor}"
+                           ImageSource="{Binding ProfileURI}"
+                           HeightRequest="100"
+                           CornerRadius="50"
+                           WidthRequest="100"/>
+
+                <Label Grid.Row="1" TextColor="{StaticResource TextColor}"
+                   HorizontalOptions="Center" Text="{Binding Name}" FontSize="{StaticResource TitleFontSize}"/>
+
+                <Label Grid.Row="2" TextColor="{StaticResource TextColor}"
+                   HorizontalOptions="Center" Text="{Binding Email}" FontSize="{StaticResource TitleFontSize}"/>
+
+                <BoxView BackgroundColor="{DynamicResource BackgroundColor}" VerticalOptions="FillAndExpand"
+                         HorizontalOptions="FillAndExpand" Grid.Row="4"/>
+
+            </Grid>
+        </DataTemplate>
+    </Shell.FlyoutHeaderTemplate>
+
+    <FlyoutItem Route="home" FlyoutDisplayOptions="AsSingleItem"
+                Title="{x:Static resource:AppResources.HomeMenu}" Icon="home.png">
+       
+        <Tab Title="{x:Static resource:AppResources.Dashboard}" Icon="home.png">
+            <ShellContent Icon="home.png"
+                      Route="main"
+                      ContentTemplate="{DataTemplate page:DashboardPage}"/>
+        </Tab>
+
+       
+
+        <Tab Icon="MenuJournal.png" Title="{x:Static resource:AppResources.Activity}">
+            <ShellContent Icon="MenuJournal.png"
+                      Route="journal"
+                      ContentTemplate="{DataTemplate page:MircoWorkoutList}"/>
+        </Tab>
+
+         <Tab Title="{x:Static resource:AppResources.Factors}" Icon="MenuDaysScore.png">
+            <ShellContent Icon="MenuDaysScore.png"
+                      Route="dayscore"
+                      ContentTemplate="{DataTemplate page:JournalPage}"/>
+        </Tab>
+
+        <Tab Icon="MenuInhibitors.png" Title="{x:Static resource:AppResources.InhibitorsUpperCase}">
+            <ShellContent Icon="MenuInhibitors.png"
+                      Route="dashboard"
+                      ContentTemplate="{DataTemplate page:InhibitorsPage}"/>
+        </Tab>
+
+        <Tab Title="{x:Static resource:AppResources.Reports}" Icon="MenuReport.png">
+            <ShellContent Icon="MenuReport.png"
+                      Route="dashboard"
+                      Title="{x:Static resource:AppResources.Reports}"
+                      ContentTemplate="{DataTemplate page:ReportsPage}"/>
+        </Tab>
+
+    </FlyoutItem>
+
+    <ShellContent Icon="MenuFactors.png"
+                  Route="factors"
+                      Title="{x:Static resource:AppResources.happinessEnablersSetup}" ContentTemplate="{DataTemplate page:FactorsListPage}"/>
+
+    <ShellContent Icon="MenuMyProfile.png"
+                  Route="serviceproviders"
+                      Title="{x:Static resource:AppResources.MicroWorkoutsSetup}" ContentTemplate="{DataTemplate page:MicroworkoutPage}"/>
+
+    <ShellContent Icon="MenuPersonalNote.png"
+                     Title="{x:Static resource:AppResources.PersonalNote}" ContentTemplate="{DataTemplate page:PersonalNote}"/>
+
+    <ShellContent Icon="UserMenuIcon.png" Route="profile"
+                      Title="{x:Static resource:AppResources.Profile}" ContentTemplate="{DataTemplate page:ProfilePage}"/>
+
+    <!--<ShellContent Icon="MenuMyProfile.png" Title="{x:Static resource:AppResources.Settings}" ContentTemplate="{DataTemplate page:SettingsPage}"/>-->
+
+    <!--<MenuItem Icon="MenuAppTour.png" Text="{x:Static resource:AppResources.QuickTour}" Clicked="ShowAppTour"/>-->
+
+    <MenuItem Text="{x:Static resource:AppResources.Language}"
+          Icon="Language.png"
+          Clicked="NavigateChooseLanguage"/>
+
+    <MenuItem Icon="Logout.png" Text="{x:Static resource:AppResources.Logout}" Command="{Binding LogoutCommand}"/>
+
+    <MenuItem Icon="delete.png" Text="{x:Static resource:AppResources.RemoveAccount}" Command="{Binding RemoveCommand}"/>
+
+    <!--<Shell.MenuItemTemplate>
+        <DataTemplate>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Image Source="{Binding Icon}"
+                       Aspect="AspectFit"
+                       Margin="{Binding Text, Converter={StaticResource Key=MarginConverter}}"
+                       HeightRequest="22"
+                       WidthRequest="22"/>
+
+                <Label Grid.Column="1"
+                       TextColor="{StaticResource BackgroundDarkColor}"
+                       Margin="{Binding Text, Converter={StaticResource Key=MarginConverter}}"
+                       Text="{Binding Text}"
+                       FontSize="16"
+                       FontAttributes="Bold"
+                       VerticalTextAlignment="Center" /> 
+            </Grid>
+        </DataTemplate>
+    </Shell.MenuItemTemplate>-->
+
+</Shell>

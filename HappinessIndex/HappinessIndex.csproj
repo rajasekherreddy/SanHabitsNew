@@ -1,0 +1,89 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>portable</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Acr.UserDialogs" Version="7.1.0.466" />
+    <PackageReference Include="Plugin.Permissions" Version="6.0.1" />
+    <PackageReference Include="Syncfusion.Xamarin.SfComboBox" Version="18.3.0.44" />
+    <PackageReference Include="Syncfusion.Xamarin.SfListView" Version="18.3.0.44" />
+    <PackageReference Include="Xamarin.Forms" Version="4.8.0.1560" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.6.0-pre2" />
+    <PackageReference Include="sqlite-net-pcl" Version="1.7.335" />
+    <PackageReference Include="Syncfusion.Xamarin.Core" Version="18.3.0.44" />
+    <PackageReference Include="Syncfusion.Xamarin.SfMaskedEdit" Version="18.3.0.44" />
+    <PackageReference Include="Syncfusion.Xamarin.Buttons" Version="18.3.0.44" />
+    <PackageReference Include="Syncfusion.Xamarin.SfRangeSlider" Version="18.3.0.44" />
+    <PackageReference Include="Syncfusion.Xamarin.SfAutoComplete" Version="18.3.0.44" />
+    <PackageReference Include="Syncfusion.Xamarin.SfChart" Version="18.3.0.44" />
+    <PackageReference Include="Xam.Plugin.Media" Version="5.0.1" />
+    <PackageReference Include="Xamarin.FFImageLoading.Forms" Version="2.4.11.982" />
+    <PackageReference Include="Rg.Plugins.Popup" Version="2.0.0.6" />
+    <PackageReference Include="Plugin.LocalNotification" Version="5.1.0" />
+    <PackageReference Include="Microsoft.AppCenter.Crashes" Version="3.4.3" />
+    <PackageReference Include="Microsoft.AppCenter.Analytics" Version="3.4.3" />
+    <PackageReference Include="Syncfusion.Xamarin.SfRadialMenu" Version="18.3.0.44" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="Plugin.FacebookClient" Version="2.2.1" />
+    <PackageReference Include="Syncfusion.Xamarin.SfCarousel" Version="18.3.0.44" />
+    <PackageReference Include="Plugin.GoogleClient" Version="2.1.12" />
+    <PackageReference Include="Xam.Plugins.Forms.ImageCircle" Version="3.0.0.5" />
+    <PackageReference Include="FirebaseDatabase.net" Version="4.0.4" />
+    <PackageReference Include="FirebaseAuthentication.net" Version="3.4.0" />
+    <PackageReference Include="Plugin.FirebasePushNotification" Version="3.3.10" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Data\" />
+    <Folder Include="Data\LocalData\" />
+    <Folder Include="Helpers\" />
+    <Folder Include="Resx\" />
+    <Folder Include="PrivacyDocument\" />
+    <Folder Include="DependencyService\" />
+    <Folder Include="Views\Popup\" />
+    <Folder Include="Views\ServiceProvider\" />
+    <Folder Include="ViewModels\ServiceProvider\" />
+    <Folder Include="Data\CloudData\" />
+  </ItemGroup>
+ 
+  <ItemGroup>
+    <EmbeddedResource Remove="Views\MicroWorkout.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="PrivacyDocument\Privacy.pdf" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="Resx\AppResources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>AppResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Views\MicroWorkout.xaml.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Resx\AppResources.Designer.cs">
+      <DependentUpon>AppResources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Views\ReportsPage.xaml.cs">
+      <DependentUpon>..\Models\ReportsPage.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="PrivacyDocument\Privacy.pdf" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BuildHappiness.Core\BuildHappiness.Core.csproj" />
+  </ItemGroup>
+</Project>

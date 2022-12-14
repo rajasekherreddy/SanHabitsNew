@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:effectsView="clr-namespace:Syncfusion.XForms.EffectsView;assembly=Syncfusion.Core.XForms"
+             xmlns:controls="clr-namespace:HappinessIndex.Controls"
+             Title="THERAPISTS AND LIFE COACHES"
+             BackgroundColor="{DynamicResource BackgroundColor}"
+             xmlns:viewModel="clr-namespace:HappinessIndex.ViewModels"
+             x:Class="HappinessIndex.Views.ServiceProvidersView">
+
+    <ContentPage.BindingContext>
+        <viewModel:ServiceProvidersViewModel/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+
+        <StackLayout Margin="10,10,10,10">
+            <CollectionView x:Name="listView" ItemsSource="{Binding ServiceProviderMenu,Mode=TwoWay}" SelectionMode="None">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout ItemSpacing="10" Orientation="Vertical"/>
+                </CollectionView.ItemsLayout>
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+
+                        <Grid ColumnDefinitions="*,Auto">
+
+                            <Label Text="{Binding Name}" VerticalOptions="CenterAndExpand" Margin="15,0"
+                                   FontAttributes="Bold"
+                                   FontSize="16"
+                                   TextColor="{StaticResource BackgroundDarkColor}"/>
+
+                            <Image Source="next" HeightRequest="30" WidthRequest="27" Grid.Column="1" Margin="0,0,20,0"/>
+
+                            <effectsView:SfEffectsView TouchUpEffects="Highlight" ScaleFactor="0.8" Grid.ColumnSpan="2">
+
+                                <effectsView:SfEffectsView.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding Path=BindingContext.cmdServiceProvider, Source={x:Reference listView}}"
+                                                       CommandParameter="{Binding Id}"/>
+                                </effectsView:SfEffectsView.GestureRecognizers>
+
+                                <controls:BoxViewExt HeightRequest="60"
+                                                 Margin="6"
+                                                 CornerRadius="20"
+                                                 BackgroundColor="Transparent"/>
+                            </effectsView:SfEffectsView>
+
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+
+            </CollectionView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

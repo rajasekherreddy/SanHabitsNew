@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HappinessIndex.Views.MyJournalTabbedPage"
+             xmlns:local="clr-namespace:HappinessIndex.Views"
+BackgroundColor="{DynamicResource BackgroundColor}">
+ 
+ 
+
+    <local:MircoWorkoutList Title="Micro Workout"/>
+    <local:NotesPage Title="Existing"/>
+</TabbedPage>
+<!--<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    BackgroundColor="{DynamicResource BackgroundColor}"
+    xmlns:behavior="clr-namespace:HappinessIndex.Behaviors"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    ios:Page.UseSafeArea="True"
+    xmlns:local="clr-namespace:HappinessIndex.Views"
+    xmlns:helper="clr-namespace:HappinessIndex.Helpers"
+    xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+    Title="{x:Static resource:AppResources.YourHappinessScore}"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib"
+    xmlns:resource="clr-namespace:HappinessIndex.Resx"
+    xmlns:chart="clr-namespace:Syncfusion.SfChart.XForms;assembly=Syncfusion.SfChart.XForms"
+    xmlns:viewModel="clr-namespace:HappinessIndex.ViewModels"
+    x:Class="HappinessIndex.Views.ReportsPage">
+
+    <ContentPage.BindingContext>
+        <viewModel:ReportPageViewModel/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Behaviors>
+        <behavior:EventToCommandBehavior
+            EventName="Appearing"
+            Command="{Binding RefreshCommand}"/>
+    </ContentPage.Behaviors>
+    
+</ContentPage>-->

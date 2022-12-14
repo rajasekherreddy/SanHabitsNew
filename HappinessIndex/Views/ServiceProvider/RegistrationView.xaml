@@ -1,0 +1,213 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:converters="clr-namespace:BuildHappiness.Core.Converters;assembly=BuildHappiness.Core"
+             xmlns:controls="clr-namespace:HappinessIndex.Controls"
+             xmlns:resource="clr-namespace:HappinessIndex.Resx"
+             xmlns:inputLayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
+             xmlns:sfavatar="clr-namespace:Syncfusion.XForms.AvatarView;assembly=Syncfusion.Core.XForms"
+             BackgroundColor="{DynamicResource BackgroundColor}"
+             Title="{Binding Title,Mode=TwoWay}"
+             xmlns:view="clr-namespace:HappinessIndex.Views"
+             xmlns:viewModel="clr-namespace:HappinessIndex.ViewModels" xmlns:behavior="clr-namespace:HappinessIndex.Behaviors"
+             x:Class="HappinessIndex.Views.RegistrationView">
+
+    <ContentPage.BindingContext>
+        <viewModel:RregistrationViewModel/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Behaviors>
+        <behavior:EventToCommandBehavior
+                EventName="Appearing"
+                Command="{Binding RefreshCommand}"/>
+    </ContentPage.Behaviors>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:ByteArrayToImageSourceConverter x:Key="ByteArrayToImageSourceConverter"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <!--<ContentPage.Behaviors>
+        <behavior:EventToCommandBehavior
+            EventName="Disappearing"
+            Command="{Binding DisappearingCommand}"/>
+    </ContentPage.Behaviors>-->
+
+    <ContentPage.Content>
+        <ScrollView>
+            <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto" Padding="20" RowSpacing="7">
+                <Grid.Resources>
+                    <ResourceDictionary>
+                        <Style TargetType="inputLayout:SfTextInputLayout">
+                            <Setter Property="FocusedColor" Value="{StaticResource BackgroundDarkColor}"/>
+                            <Setter Property="UnfocusedColor" Value="{StaticResource BackgroundDarkColor}"/>
+                            <Setter Property="ContainerType" Value="Outlined"/>
+                        </Style>
+                    </ResourceDictionary>
+                </Grid.Resources>
+                <sfavatar:SfAvatarView ContentType="{Binding ServiceProvider.AvatarType}"
+                                       AvatarCharacter="Avatar10"
+                           ImageSource="{Binding ServiceProvider.ProfilePhotoStream, Converter={StaticResource ByteArrayToImageSourceConverter}}"
+                           VerticalOptions="Center"
+                           HorizontalOptions="Center"
+                           BorderColor="Transparent"
+                           HeightRequest="100"
+                           CornerRadius="50"
+                           WidthRequest="100"/>
+
+                <sfavatar:SfAvatarView ContentType="Custom"
+                           Margin="70,70,0,0"
+                           ImageSource="camera"
+                           BackgroundColor="{StaticResource BackgroundDarkColor}"
+                           VerticalOptions="Center"
+                           Padding="10"
+                           HorizontalOptions="Center"
+                           BorderColor="Transparent"
+                           HeightRequest="20"
+                           CornerRadius="20"
+                           WidthRequest="20">
+                    <sfavatar:SfAvatarView.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding PickPhotoCommand}"/>
+                    </sfavatar:SfAvatarView.GestureRecognizers>
+                </sfavatar:SfAvatarView>
+
+                <inputLayout:SfTextInputLayout Hint="{x:Static resource:AppResources.Name}" Grid.Row="1" IsEnabled="False">
+                    <Entry Text="{Binding ServiceProvider.Name}" FontSize="{StaticResource ContentFontSize}"/>
+                </inputLayout:SfTextInputLayout>
+
+                <inputLayout:SfTextInputLayout Hint="{x:Static resource:AppResources.Email}" Grid.Row="2" IsEnabled="False">
+                    <Entry Text="{Binding ServiceProvider.Email}" Keyboard="Email" FontSize="{StaticResource ContentFontSize}"/>
+                </inputLayout:SfTextInputLayout>
+
+                <inputLayout:SfTextInputLayout Hint="Service Provider Type" Grid.Row="3">
+                    <Picker SelectedItem="{Binding ServiceProvider.Type}">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>Therapist</x:String>
+                                <x:String>LifeCoach</x:String>
+                                <x:String>Therapist and LifeCoach</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                        <Picker.Triggers>
+                            <!--<Trigger TargetType="Picker" Property="SelectedItem" Value="Therapist">
+                                <Setter TargetName="specialities" Property="IsVisible" Value="True"/>
+                                <Setter TargetName="therapistCategory" Property="IsVisible" Value="True"/>
+                            </Trigger>-->
+                            <Trigger TargetType="Picker" Property="SelectedItem" Value="LifeCoach">
+                                <Setter TargetName="specialities" Property="IsVisible" Value="False"/>
+                                <Setter TargetName="therapistCategory" Property="IsVisible" Value="False"/>
+                            </Trigger>
+                        </Picker.Triggers>
+                    </Picker>
+                </inputLayout:SfTextInputLayout>
+
+                <inputLayout:SfTextInputLayout Hint="Therapist Category" Grid.Row="4" x:Name="therapistCategory">
+                    <Picker SelectedItem="{Binding ServiceProvider.TherapistCategory}">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>Psychiatrist</x:String>
+                                <x:String>Psychologist</x:String>
+                                <x:String>Councelor</x:String>
+                                <x:String>Others</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+                </inputLayout:SfTextInputLayout>
+
+                <inputLayout:SfTextInputLayout Hint="Specialities" Grid.Row="5" x:Name="specialities">
+                    <inputLayout:SfTextInputLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="ChooseSpecialities"/>
+                    </inputLayout:SfTextInputLayout.GestureRecognizers>
+                    <Entry x:Name="specialitiesEntry" Text="{Binding ServiceProvider.Specialities}" FontSize="{StaticResource ContentFontSize}" IsEnabled="False"/>
+                </inputLayout:SfTextInputLayout>
+
+                <inputLayout:SfTextInputLayout Hint="Country" Grid.Row="6" x:Name="country">
+                    <Picker ItemsSource="{Binding CountryList}" SelectedItem="{Binding ServiceProvider.Country}"/>
+                </inputLayout:SfTextInputLayout>
+
+                <inputLayout:SfTextInputLayout Hint="State" Grid.Row="7">
+                    <Picker ItemsSource="{Binding ServiceProvider.States}" SelectedItem="{Binding ServiceProvider.State}"/>
+                </inputLayout:SfTextInputLayout>
+
+                <inputLayout:SfTextInputLayout Hint="Postal Code" Grid.Row="8">
+                    <Entry Text="{Binding ServiceProvider.PostalCode}" FontSize="{StaticResource ContentFontSize}"/>
+                </inputLayout:SfTextInputLayout>
+
+                <inputLayout:SfTextInputLayout Hint="City" Grid.Row="9">
+                    <Entry Text="{Binding ServiceProvider.City}" FontSize="{StaticResource ContentFontSize}"/>
+                </inputLayout:SfTextInputLayout>
+
+                <inputLayout:SfTextInputLayout Hint="Address" Grid.Row="10">
+                    <Entry Text="{Binding ServiceProvider.Address}" FontSize="{StaticResource ContentFontSize}"/>
+                </inputLayout:SfTextInputLayout>
+
+                <inputLayout:SfTextInputLayout Hint="Business Number" Grid.Row="11">
+                    <Entry Text="{Binding ServiceProvider.BusinessNumber}" FontSize="{StaticResource ContentFontSize}"/>
+                </inputLayout:SfTextInputLayout>
+
+                <inputLayout:SfTextInputLayout Hint="Mobile Number" Grid.Row="12">
+                    <Entry Text="{Binding ServiceProvider.MobileNumber}" FontSize="{StaticResource ContentFontSize}"/>
+                </inputLayout:SfTextInputLayout>
+
+                <inputLayout:SfTextInputLayout Hint="Fax" Grid.Row="13">
+                    <Entry Text="{Binding ServiceProvider.Fax}" FontSize="{StaticResource ContentFontSize}"/>
+                </inputLayout:SfTextInputLayout>
+
+                <inputLayout:SfTextInputLayout Hint="Website" Grid.Row="14">
+                    <Entry Text="{Binding ServiceProvider.Website}" FontSize="{StaticResource ContentFontSize}"/>
+                </inputLayout:SfTextInputLayout>
+
+                <inputLayout:SfTextInputLayout Hint="Insurances Accepted" Grid.Row="15">
+                    <Picker SelectedItem="{Binding ServiceProvider.Insurance}" FontSize="{StaticResource ContentFontSize}">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>Yes</x:String>
+                                <x:String>No</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+                </inputLayout:SfTextInputLayout>
+
+                <inputLayout:SfTextInputLayout Hint="Select Gender" Grid.Row="16">
+                    <Picker SelectedItem="{Binding ServiceProvider.Gender}" FontSize="{StaticResource ContentFontSize}">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:Static Member="resource:AppResources.Male"/>
+                                <x:Static Member="resource:AppResources.Female"/>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+                </inputLayout:SfTextInputLayout>
+
+                <inputLayout:SfTextInputLayout Hint="Languages" Grid.Row="17">
+                    <inputLayout:SfTextInputLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="ChooseLanguage"/>
+                    </inputLayout:SfTextInputLayout.GestureRecognizers>
+                    <Entry x:Name="langEntry" Text="{Binding ServiceProvider.Language}" FontSize="{StaticResource ContentFontSize}" IsEnabled="False"/>
+                </inputLayout:SfTextInputLayout>
+
+                <inputLayout:SfTextInputLayout Hint="Video Chat" Grid.Row="18">
+                    <Picker SelectedItem="{Binding ServiceProvider.VideoChat}" FontSize="{StaticResource ContentFontSize}">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>Yes</x:String>
+                                <x:String>No</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+                </inputLayout:SfTextInputLayout>
+
+                <Button Text="Submit" Grid.Row="19" VerticalOptions="Center" Command="{Binding SubmitCommand}"/>
+
+                <ActivityIndicator IsVisible="{Binding IsBusy}" IsRunning="{Binding IsBusy}" Grid.RowSpan="19"
+                                   VerticalOptions="Center" Margin="0,0,0,150" HorizontalOptions="Center"/>
+
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+
+</ContentPage>
