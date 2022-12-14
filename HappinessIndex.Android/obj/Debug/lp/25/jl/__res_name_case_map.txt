@@ -1,0 +1,5 @@
+drawable/styleinfo.xml;drawable/styleinfo.xml
+drawable/sfclosebutton.png;drawable/sfclosebutton.png
+layout/CustomizedView.xml;layout/customizedview.xml
+layout/CustomizedView1.xml;layout/customizedview1.xml
+layout/sfautocomplete_layout.xml;layout/sfautocomplete_layout.xml

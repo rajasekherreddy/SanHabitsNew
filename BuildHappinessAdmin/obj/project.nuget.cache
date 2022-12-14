@@ -1,0 +1,32 @@
+{
+  "version": 2,
+  "dgSpecHash": "tlG/yXgcqaYbZv48QFElvY83nzAXMf683dOqLKOkZHJEGAKnITr7Ta0NJBxJOnVYxKAvCL9Zk+jXu8vDSadGfQ==",
+  "success": true,
+  "projectFilePath": "/Users/rajasekharrarekuti/Documents/workspace/workspace/SanHabits/BuildHappinessAdmin/BuildHappinessAdmin.csproj",
+  "expectedPackageFiles": [
+    "/Users/rajasekharrarekuti/.nuget/packages/acr.userdialogs/7.1.0.466/acr.userdialogs.7.1.0.466.nupkg.sha512",
+    "/Users/rajasekharrarekuti/.nuget/packages/firebaseauthentication.net/3.4.0/firebaseauthentication.net.3.4.0.nupkg.sha512",
+    "/Users/rajasekharrarekuti/.nuget/packages/firebasedatabase.net/4.0.4/firebasedatabase.net.4.0.4.nupkg.sha512",
+    "/Users/rajasekharrarekuti/.nuget/packages/litedb/4.1.4/litedb.4.1.4.nupkg.sha512",
+    "/Users/rajasekharrarekuti/.nuget/packages/microsoft.netcore.platforms/1.1.0/microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "/Users/rajasekharrarekuti/.nuget/packages/microsoft.netcore.targets/1.1.0/microsoft.netcore.targets.1.1.0.nupkg.sha512",
+    "/Users/rajasekharrarekuti/.nuget/packages/netstandard.library/2.0.3/netstandard.library.2.0.3.nupkg.sha512",
+    "/Users/rajasekharrarekuti/.nuget/packages/newtonsoft.json/12.0.3/newtonsoft.json.12.0.3.nupkg.sha512",
+    "/Users/rajasekharrarekuti/.nuget/packages/plugin.fingerprint/2.1.2/plugin.fingerprint.2.1.2.nupkg.sha512",
+    "/Users/rajasekharrarekuti/.nuget/packages/syncfusion.licensing/18.3.0.44/syncfusion.licensing.18.3.0.44.nupkg.sha512",
+    "/Users/rajasekharrarekuti/.nuget/packages/syncfusion.xamarin.core/18.3.0.44/syncfusion.xamarin.core.18.3.0.44.nupkg.sha512",
+    "/Users/rajasekharrarekuti/.nuget/packages/system.io/4.3.0/system.io.4.3.0.nupkg.sha512",
+    "/Users/rajasekharrarekuti/.nuget/packages/system.numerics.vectors/4.5.0/system.numerics.vectors.4.5.0.nupkg.sha512",
+    "/Users/rajasekharrarekuti/.nuget/packages/system.reactive/4.0.0/system.reactive.4.0.0.nupkg.sha512",
+    "/Users/rajasekharrarekuti/.nuget/packages/system.reflection/4.3.0/system.reflection.4.3.0.nupkg.sha512",
+    "/Users/rajasekharrarekuti/.nuget/packages/system.reflection.primitives/4.3.0/system.reflection.primitives.4.3.0.nupkg.sha512",
+    "/Users/rajasekharrarekuti/.nuget/packages/system.reflection.typeextensions/4.3.0/system.reflection.typeextensions.4.3.0.nupkg.sha512",
+    "/Users/rajasekharrarekuti/.nuget/packages/system.runtime/4.3.0/system.runtime.4.3.0.nupkg.sha512",
+    "/Users/rajasekharrarekuti/.nuget/packages/system.runtime.interopservices.windowsruntime/4.3.0/system.runtime.interopservices.windowsruntime.4.3.0.nupkg.sha512",
+    "/Users/rajasekharrarekuti/.nuget/packages/system.text.encoding/4.3.0/system.text.encoding.4.3.0.nupkg.sha512",
+    "/Users/rajasekharrarekuti/.nuget/packages/system.threading.tasks/4.3.0/system.threading.tasks.4.3.0.nupkg.sha512",
+    "/Users/rajasekharrarekuti/.nuget/packages/xamarin.essentials/1.6.0-pre2/xamarin.essentials.1.6.0-pre2.nupkg.sha512",
+    "/Users/rajasekharrarekuti/.nuget/packages/xamarin.forms/4.8.0.1560/xamarin.forms.4.8.0.1560.nupkg.sha512"
+  ],
+  "logs": []
+}
