@@ -10,6 +10,9 @@ using System.Threading;
 using System.Threading.Tasks;
 using Rg.Plugins.Popup.Services;
 using HappinessIndex.Views;
+using HappinessIndex.Resx;
+using HappinessIndex.Views.Popup;
+using System.Runtime.InteropServices.ComTypes;
 
 namespace HappinessIndex.ViewModels
 {
@@ -17,7 +20,7 @@ namespace HappinessIndex.ViewModels
     {
         bool appeared;
 
-        private string editDate;
+        private string editDate="good";
         public string EditDate
         {
             get => editDate;
@@ -49,6 +52,12 @@ namespace HappinessIndex.ViewModels
 
         public Command PlayTimerCommand { get; set; }
 
+        public Command StartTimerCommand { get; set; }
+
+        public Command PauseTimerCommand { get; set; }
+
+        public Command CloseTimerCommand { get; set; }
+
         public MircoWorkoutListViewModel()
         {
             isFromYoutube = false;
@@ -56,6 +65,10 @@ namespace HappinessIndex.ViewModels
             PlayInYoutubeCommand = new Command(PlayInYoutubeHanlder);
             PlayTimerCommand = new Command(PlayTimerHanlder);
             SaveHighlightsCommand = new Command(SaveHighlights);
+            StartTimerCommand = new Command(StartTimerHanlder);
+            PauseTimerCommand = new Command(StopTimerHanlder);
+            CloseTimerCommand = new Command(CloseTimerHanlder);
+            
         }
 
         bool isPreviousDayAndHasRecords;bool isFromYoutube = false;
@@ -98,65 +111,173 @@ namespace HappinessIndex.ViewModels
 
 
         System.Timers.Timer timer;
-        int mins = 0, secs = 30;
+        int DurationMin = 0, DurationSec = 30;
+        int breakMins = 0, breakSecs = 10;
         bool timerInProgess = false;
+        bool isWorkout = true;
+        bool isPause = false;
         bool isFromPlayTimerHanlder;
-        MicroWorkout MicroWorkout;
+        private MicroWorkout microWorkout;
+        public MicroWorkout MicroWorkout
+        {
+            get => microWorkout;
+            set
+            {
+                if (microWorkout == value) return;
+                microWorkout = value;
+
+                NotifyPropertyChanged();
+            }
+        }
+
         private async void PlayTimerHanlder(object Id)
         {
-            isFromPlayTimerHanlder = true;
-            if (timerInProgess)
+            //isFromPlayTimerHanlder = true;
+            //if (timerInProgess)
+            //{
+            //    await Application.Current.MainPage.DisplayAlert("", "Workout In-Progress.", "OK");
+            //    return;
+            //}
+
+            microWorkout = SelectedFactors.Where(x => x.ID == (int)Id).FirstOrDefault();
+            //mins = microWorkout.WorkoutDurationMin;
+            //secs = microWorkout.WorkoutDurationSec;
+            //timer = new System.Timers.Timer();
+            //timer.Interval = 1000; // 1 sec  
+            //timer.Elapsed += Timer_Elapsed;
+            //timer.Start();
+
+            //isFromYoutube = true;
+
+            //if (!string.IsNullOrEmpty(MicroWorkout.YoutubeLink))
+            //{
+            //    await Browser.OpenAsync(MicroWorkout.YoutubeLink, BrowserLaunchMode.SystemPreferred);
+            //}
+
+
+
+
+            microWorkout = SelectedFactors.Where(x => x.ID == (int)Id).FirstOrDefault();
+            var popup = new MicroWorkoutTimerPage(microWorkout) ;
+
+            popup.TaskCompleted += (sender, arg) =>
             {
-                await Application.Current.MainPage.DisplayAlert("", "Workout In-Progress.", "OK");
-                return;
+                 Application.Current.MainPage.DisplayAlert("", "Workout In-Progress.", "OK");
+            };
+
+            await PopupNavigation.Instance.PushAsync(popup);
+
+        }
+
+        private async void StartTimerHanlder(object Id)
+        {
+            if (isPause)
+            {
+                isPause = false;
+                timer.Start();
             }
-
-            MicroWorkout = SelectedFactors.Where(x => x.ID == (int)Id).FirstOrDefault();
-            mins = MicroWorkout.WorkoutDurationMin;
-            secs = MicroWorkout.WorkoutDurationSec;
-            timer = new System.Timers.Timer();
-
-            timer.Interval = 1000; // 1 sec  
-            timer.Elapsed += Timer_Elapsed;
-            timer.Start();
-
-            isFromYoutube = true;
-
-            if (!string.IsNullOrEmpty(MicroWorkout.YoutubeLink))
+            else
             {
-                await Browser.OpenAsync(MicroWorkout.YoutubeLink, BrowserLaunchMode.SystemPreferred);
+                isFromPlayTimerHanlder = true;
+                if (timerInProgess)
+                {
+                    await Application.Current.MainPage.DisplayAlert("", "Workout In-Progress.", "OK");
+                    return;
+                }
+
+                //microWorkout = SelectedFactors.Where(x => x.ID == (int)Id).FirstOrDefault();
+                DurationMin = microWorkout.WorkoutDurationMin;
+                DurationSec = microWorkout.WorkoutDurationSec;
+                breakMins = microWorkout.BreakDurationMin;
+                breakSecs = microWorkout.BreakDurationSec;
+                timer = new System.Timers.Timer();
+                timer.Interval = 1000; // 1 sec  
+                timer.Elapsed += Timer_Elapsed;
+                timer.Start();
+            }
+        }
+
+        private async void StopTimerHanlder(object Id)
+        {
+            if (timer != null)
+            {
+                isPause = true;
+                timer.Stop();
             }
             
+        }
+
+        private async void CloseTimerHanlder(object Id)
+        {
+
             
-    }
+
+            if (timer != null)
+            {
+                microWorkout.NoOfSetsCompleted = 1;
+                microWorkout.WorkoutDurationMin = DurationMin;
+                microWorkout.WorkoutDurationSec = DurationSec;
+                microWorkout.BreakDurationMin = breakMins;
+                microWorkout.BreakDurationSec = breakSecs;
+                timer.Stop();
+            }
+
+            await PopupNavigation.Instance.PopAllAsync();
+
+        }
 
 
 
-        private void Timer_Elapsed(object sender, ElapsedEventArgs e)
+        private async void Timer_Elapsed(object sender, ElapsedEventArgs e)
         {
             timerInProgess = true;
-            MicroWorkout.WorkoutDurationSec--;
+            microWorkout.WorkoutDurationSec--;
 
-            if (MicroWorkout.WorkoutDurationSec == 0)
+            if (microWorkout.WorkoutDurationSec == 0)
             {
-                if (MicroWorkout.WorkoutDurationMin == 0)
+                if (microWorkout.WorkoutDurationMin == 0)
                 {
-                    timer.Stop();
-                    //show alert
-                    timerInProgess = false;
-                    MicroWorkout.WorkoutDurationMin = mins;
-                    MicroWorkout.WorkoutDurationSec = secs;
-                    DataService.UpdateMicroWoroutAsync(MicroWorkout);
-                    Device.BeginInvokeOnMainThread(() =>
+
+                    if (isWorkout&&microWorkout.NoOfSets>1)
                     {
-                        Application.Current.MainPage.DisplayAlert("", "Duration completed", "OK");
-                    });
-                    MicroWorkout.IsPlayed = true;
+                        isWorkout = false;
+                        microWorkout.WorkoutDurationMin = breakMins;
+                        microWorkout.WorkoutDurationSec = breakSecs;
+                    }
+                    else
+                    {
+                        isWorkout = true;
+                        microWorkout.WorkoutDurationMin = DurationMin;
+                        microWorkout.WorkoutDurationSec = DurationSec;
+                        if (microWorkout.NoOfSets <= microWorkout.NoOfSetsCompleted)
+                        {
+                            //Make it 1 once sets completed.
+                            microWorkout.NoOfSetsCompleted = 1;
+                            timer.Stop();
+                            //show alert
+                            timerInProgess = false;
+                            await DataService.UpdateMicroWoroutAsync(microWorkout);
+                            Device.BeginInvokeOnMainThread(() =>
+                            {
+                                //PopupNavigation.Instance.PopAllAsync();
+                                Application.Current.MainPage.DisplayAlert("", "Duration completed", "OK");
+                            });
+                            microWorkout.IsPlayed = true;
+                            await PopupNavigation.Instance.PopAllAsync();
+
+                        }
+                        else
+                        {
+                            microWorkout.NoOfSetsCompleted++;
+                        }
+                    }
+
+
                 }
-                if (MicroWorkout.WorkoutDurationMin > 0)
+                else if (microWorkout.WorkoutDurationMin > 0)
                 {
-                    MicroWorkout.WorkoutDurationMin--;
-                    MicroWorkout.WorkoutDurationSec = 60;
+                    microWorkout.WorkoutDurationMin--;
+                    microWorkout.WorkoutDurationSec = 60;
                 }
             }
         }

@@ -1,0 +1,12 @@
+/Users/rajasekharrarekuti/Documents/workspace/workspace/SanHabits/BuildHappiness.Core/bin/Debug/netstandard2.0/BuildHappiness.Core.deps.json
+/Users/rajasekharrarekuti/Documents/workspace/workspace/SanHabits/BuildHappiness.Core/bin/Debug/netstandard2.0/BuildHappiness.Core.dll
+/Users/rajasekharrarekuti/Documents/workspace/workspace/SanHabits/BuildHappiness.Core/bin/Debug/netstandard2.0/ref/BuildHappiness.Core.dll
+/Users/rajasekharrarekuti/Documents/workspace/workspace/SanHabits/BuildHappiness.Core/bin/Debug/netstandard2.0/BuildHappiness.Core.pdb
+/Users/rajasekharrarekuti/Documents/workspace/workspace/SanHabits/BuildHappiness.Core/obj/Debug/netstandard2.0/BuildHappiness.Core.GeneratedMSBuildEditorConfig.editorconfig
+/Users/rajasekharrarekuti/Documents/workspace/workspace/SanHabits/BuildHappiness.Core/obj/Debug/netstandard2.0/BuildHappiness.Core.AssemblyInfoInputs.cache
+/Users/rajasekharrarekuti/Documents/workspace/workspace/SanHabits/BuildHappiness.Core/obj/Debug/netstandard2.0/BuildHappiness.Core.AssemblyInfo.cs
+/Users/rajasekharrarekuti/Documents/workspace/workspace/SanHabits/BuildHappiness.Core/obj/Debug/netstandard2.0/BuildHappiness.Core.csproj.CoreCompileInputs.cache
+/Users/rajasekharrarekuti/Documents/workspace/workspace/SanHabits/BuildHappiness.Core/obj/Debug/netstandard2.0/BuildHappiness.Core.dll
+/Users/rajasekharrarekuti/Documents/workspace/workspace/SanHabits/BuildHappiness.Core/obj/Debug/netstandard2.0/ref/BuildHappiness.Core.dll
+/Users/rajasekharrarekuti/Documents/workspace/workspace/SanHabits/BuildHappiness.Core/obj/Debug/netstandard2.0/BuildHappiness.Core.pdb
+/Users/rajasekharrarekuti/Documents/workspace/workspace/SanHabits/BuildHappiness.Core/obj/Debug/netstandard2.0/BuildHappiness.Core.csproj.AssemblyReference.cache

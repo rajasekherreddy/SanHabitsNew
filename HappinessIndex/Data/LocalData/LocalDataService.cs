@@ -307,13 +307,15 @@ namespace HappinessIndex.Data.LocalData
             var data =await db.Table<MicroWorkout>().Where(x => x.WorkoutDate == AppSettings.JournalDate.Date.Date).ToListAsync();
             if (data ==null || data!=null && data.Count < 1)
             {
+                var WorkoutDurationMin = 0;
+                var WorkoutDurationSec = 30;
                 List<MicroWorkout> defaultFactors = new List<MicroWorkout>()
             {
                 new MicroWorkout() { Name = "Squats", Description="Squats Desc", WorkoutIcon = "squats.png", YoutubeLink="https://www.youtube.com/watch?v=J8_39BIxqdk", IsSelected=true, WorkoutDurationMin=0,WorkoutDurationSec=30, WorkoutReminder=new TimeSpan(7,30,0)},
                 new MicroWorkout() { Name = "Lunges", Description="Lunges Desc", WorkoutIcon = "lunges.png", YoutubeLink="", IsSelected=true,WorkoutDurationMin=0,WorkoutDurationSec=30, WorkoutReminder=new TimeSpan(4,30,0)},
                 new MicroWorkout() { Name = "Push Ups", Description="Push Ups Desc", WorkoutIcon = "pushups.png", YoutubeLink="", IsSelected=true,WorkoutDurationMin=0,WorkoutDurationSec=30, WorkoutReminder=new TimeSpan(5,30,0)},
                 new MicroWorkout() { Name = "Clam Shells", Description="clamshells Desc",  WorkoutIcon = "calmshells.png", YoutubeLink="",IsSelected=true,WorkoutDurationMin=0,WorkoutDurationSec=30},
-                new MicroWorkout() { Name = "Straight Leg Raises", Description = "MeditationPeaceSpirituality", WorkoutIcon = "calmshells.png", YoutubeLink="",WorkoutDurationMin=0,WorkoutDurationSec=30},
+                new MicroWorkout() { Name = "Straight Leg Raises", Description = "MeditationPeaceSpirituality", WorkoutIcon = "calmshells.png", YoutubeLink="",WorkoutDurationMin=0,WorkoutDurationSec=30,BreakDurationSec=50},
                 new MicroWorkout() { Name = "Side Leg Raises", Description="Workout6 Desc", WorkoutIcon = "calmshells.png", YoutubeLink="",WorkoutDurationMin=0,WorkoutDurationSec=30},
                 new MicroWorkout() { Name = "Chin Ups", Description = "SearchForKnowledgeIntellectual", WorkoutIcon = "chinups.png", YoutubeLink="",WorkoutDurationMin=0,WorkoutDurationSec=30},
                 new MicroWorkout() { Name = "Half Crunch", Description="halfcrunch Desc", WorkoutIcon = "halfcrunch.png", YoutubeLink="",WorkoutDurationMin=0,WorkoutDurationSec=30},

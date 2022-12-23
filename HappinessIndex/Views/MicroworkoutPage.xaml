@@ -167,18 +167,18 @@
 
                                             <StackLayout Grid.Row="6" Orientation="Horizontal" Padding="0" Margin="0,15,0,0" IsEnabled="{Binding AllowEdit}">
                                                 <Label Text="Number of sets:" HorizontalOptions="Start" VerticalOptions="CenterAndExpand"/>
-                                                <Picker Title="Min" HorizontalOptions="Start" VerticalOptions="CenterAndExpand" ItemsSource="{Binding Source={x:Reference List}, Path=BindingContext.DurationPickerMinutes}" SelectedItem="{Binding NoOfSets}" />
+                                                <Picker Title="sets" HorizontalOptions="Start" VerticalOptions="CenterAndExpand" ItemsSource="{Binding Source={x:Reference List}, Path=BindingContext.DurationPickerMinutes}" SelectedItem="{Binding NoOfSets}" />
                                                 
                                             </StackLayout>
 
                                             <StackLayout Grid.Row="7" Orientation="Horizontal" Padding="0" Margin="0,15,0,0" IsEnabled="{Binding AllowEdit}">
-                                                <Label Text="Workout  Duration:" HorizontalOptions="Start" VerticalOptions="CenterAndExpand"/>
+                                                <Label Text="Workout  Duration(Min:Sec):" HorizontalOptions="Start" VerticalOptions="CenterAndExpand"/>
                                                 <Picker Title="Min" HorizontalOptions="Start" VerticalOptions="CenterAndExpand" ItemsSource="{Binding Source={x:Reference List}, Path=BindingContext.DurationPickerMinutes}" SelectedItem="{Binding WorkoutDurationMin}" />
                                                 <Picker Title="Sec"  HorizontalOptions="Start" VerticalOptions="CenterAndExpand" ItemsSource="{Binding Source={x:Reference List}, Path=BindingContext.DurationPickerSeconds}" SelectedItem="{Binding WorkoutDurationSec}" />
                                             </StackLayout>
 
                                             <StackLayout Grid.Row="8" Orientation="Horizontal" Padding="0" Margin="0,15,0,0" IsEnabled="{Binding AllowEdit}">
-                                                <Label Text="break  Duration:" HorizontalOptions="Start" VerticalOptions="CenterAndExpand"/>
+                                                <Label Text="break  Duration(Min:Sec):" HorizontalOptions="Start" VerticalOptions="CenterAndExpand"/>
                                                 <Picker Title="Min" HorizontalOptions="Start" VerticalOptions="CenterAndExpand" ItemsSource="{Binding Source={x:Reference List}, Path=BindingContext.DurationPickerMinutes}" SelectedItem="{Binding BreakDurationMin}" />
                                                 <Picker Title="Sec"  HorizontalOptions="Start" VerticalOptions="CenterAndExpand" ItemsSource="{Binding Source={x:Reference List}, Path=BindingContext.DurationPickerSeconds}" SelectedItem="{Binding BreakDurationSec}" />
                                             </StackLayout>

@@ -1,0 +1,56 @@
+﻿<Properties StartupConfiguration="{E47141B0-3681-47E3-ADE9-D449F9ACD0A0}|Default">
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.ItemProperties.HappinessIndex.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.1E1A9995-49C3-435F-8022-4D120337D599" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <Xamarin.Addins.Core.Project ActiveDebugTarget="Android.pixel_2_pie_9_0_-_api_28" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="HappinessIndex/Views/MircoWorkoutList.xaml">
+    <Files>
+      <File FileName="HappinessIndex/Views/MircoWorkoutList.xaml" Line="13" Column="1" />
+      <File FileName="HappinessIndex/Views/MicroWorkoutTimerPage.xaml" Line="77" Column="11" />
+      <File FileName="HappinessIndex/Views/MicroWorkoutTimerPage.xaml.cs" Line="55" Column="1" />
+      <File FileName="HappinessIndex/Views/MircoWorkoutList.xaml.cs" Line="35" Column="44" />
+      <File FileName="HappinessIndex.iOS/Main.cs" Line="18" Column="1" />
+      <File FileName="HappinessIndex/ViewModels/MircoWorkoutListViewModel.cs" Line="154" Column="13" />
+      <File FileName="HappinessIndex/Resx/AppResources.resx" Line="840" Column="90" />
+      <File FileName="HappinessIndex/Models/MicroWorkout.cs" Line="43" Column="42" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="HappinessIndex" expanded="True">
+            <Node name="Core" expanded="True">
+              <Node name="BuildHappiness.Core" expanded="True" />
+            </Node>
+            <Node name="HappinessIndex" expanded="True">
+              <Node name="Models" expanded="True" />
+              <Node name="Resx" expanded="True">
+                <Node name="AppResources.resx" expanded="True" />
+              </Node>
+              <Node name="ViewModels" expanded="True" />
+              <Node name="Views" expanded="True">
+                <Node name="Popup" expanded="True">
+                  <Node name="AddFactor.xaml" expanded="True" />
+                  <Node name="AddFactorMicroWorkout.xaml" expanded="True" />
+                </Node>
+                <Node name="MicroworkoutPage.xaml" expanded="True" />
+                <Node name="MicroWorkoutTimerPage.xaml" expanded="True" />
+                <Node name="MircoWorkoutList.xaml" expanded="True" selected="True" />
+                <Node name="ResetPasswordPage.xaml" expanded="True" />
+                <Node name="SettingsPage.xaml" expanded="True" />
+              </Node>
+            </Node>
+            <Node name="HappinessIndex.iOS" expanded="True" />
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.HappinessIndex.Android PreferredExecutionTarget="Android.pixel_2_pie_9_0_-_api_28" />
+  <MultiItemStartupConfigurations />
+</Properties>

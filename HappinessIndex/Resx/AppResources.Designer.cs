@@ -1521,6 +1521,15 @@ namespace HappinessIndex.Resx {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Pause.
+        /// </summary>
+        internal static string Pause {
+            get {
+                return ResourceManager.GetString("Pause", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Personal Information.
         /// </summary>
         internal static string Personal_Information {
@@ -1926,6 +1935,15 @@ namespace HappinessIndex.Resx {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Start Workout.
+        /// </summary>
+        internal static string StartWorkout {
+            get {
+                return ResourceManager.GetString("StartWorkout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Please select state.
         /// </summary>
         internal static string StateValidtionMsg {
@@ -2174,6 +2192,15 @@ namespace HappinessIndex.Resx {
         internal static string Work {
             get {
                 return ResourceManager.GetString("Work", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Workout In Progress.
+        /// </summary>
+        internal static string WorkoutInProgress {
+            get {
+                return ResourceManager.GetString("WorkoutInProgress", resourceCulture);
             }
         }
         

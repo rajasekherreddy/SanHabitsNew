@@ -219,6 +219,16 @@ namespace HappinessIndex.ViewModels
             IsBusy = true;
 
             canUpdateDB = false;
+
+            var result = await DataService.UpdateAllMicroWoroutAsync(MicroWorkoutList.Where(x => x.IsUpdated).ToList());
+            if (result == 1)
+            {
+                //await PopupNavigation.Instance.PushAsync(new CommonMessage("", AppResources.FactorChangeWarning, AppResources.Ok));
+
+            }
+            await App.GetShell().GoToAsync("//journal");
+            IsBusy = false;
+
             //Previous days
 
             #region commented code
@@ -260,14 +270,7 @@ namespace HappinessIndex.ViewModels
 
             #endregion
 
-           var result = await DataService.UpdateAllMicroWoroutAsync(MicroWorkoutList.Where(x => x.IsUpdated).ToList());
-            if (result == 1)
-            {
-                //await PopupNavigation.Instance.PushAsync(new CommonMessage("", AppResources.FactorChangeWarning, AppResources.Ok));
-               
-            }
-            await App.GetShell().GoToAsync("//journal");
-            IsBusy = false;
+
         }
 
         bool canUpdateDB;

@@ -31,14 +31,17 @@ namespace HappinessIndex.Models
         private int workoutDurationSec;
         public int WorkoutDurationSec { get => workoutDurationSec; set { workoutDurationSec = value; NotifyPropertyChanged(); } }
 
-        private int breakDurationMin;
+        private int breakDurationMin=0;
         public int BreakDurationMin { get => breakDurationMin; set { breakDurationMin = value; NotifyPropertyChanged(); } }
 
-        private int breakDurationSec;
+        private int breakDurationSec=10;
         public int BreakDurationSec { get => breakDurationSec; set { breakDurationSec = value; NotifyPropertyChanged(); } }
 
-        private int noOfSets;
+        private int noOfSets=3;
         public int NoOfSets { get => noOfSets; set { noOfSets = value; NotifyPropertyChanged(); } }
+
+        private int noOfSetsCompleted = 1;
+        public int NoOfSetsCompleted { get => noOfSetsCompleted; set { noOfSetsCompleted = value; NotifyPropertyChanged(); } }
 
         public TimeSpan WorkoutReminder { get; set; }
 

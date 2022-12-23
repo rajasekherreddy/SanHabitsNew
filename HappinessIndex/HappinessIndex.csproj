@@ -79,6 +79,9 @@
       <DependentUpon>..\Models\ReportsPage.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\MicroWorkoutTimerPage.xaml.cs">
+      <DependentUpon>MicroWorkoutTimerPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Remove="PrivacyDocument\Privacy.pdf" />

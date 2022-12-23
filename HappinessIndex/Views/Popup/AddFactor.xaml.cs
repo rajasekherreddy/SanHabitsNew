@@ -27,5 +27,7 @@ namespace HappinessIndex.Views.Popup
         {
             CloseAllPopup();
         }
+
+
     }
 }

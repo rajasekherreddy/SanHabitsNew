@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<popupPage:PopupBasePage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+             xmlns:inputLayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
+             xmlns:resource="clr-namespace:HappinessIndex.Resx"
+             xmlns:popupPage="clr-namespace:HappinessIndex.Views.Popup"
+             CloseWhenBackgroundIsClicked="False"
+             xmlns:viewModel="clr-namespace:HappinessIndex.ViewModels"
+             x:Class="HappinessIndex.Views.MicroWorkoutTimerPage">
+
+    <ContentPage.BindingContext>
+        <viewModel:MircoWorkoutListViewModel/>
+    </ContentPage.BindingContext>
+
+    <Grid HorizontalOptions="FillAndExpand"
+          VerticalOptions="End"
+          Padding="20,0, 20, 20"
+          RowSpacing="20"
+          BackgroundColor="{StaticResource BackgroundColor}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <StackLayout Orientation="Horizontal" Margin="-20,0"
+                     BackgroundColor="{StaticResource BackgroundDarkColor}">
+            <Label Style="{StaticResource PageTitle}" TextColor="White"
+                   HorizontalOptions="StartAndExpand"
+                   Margin="20,0"
+                   >
+                <Label.FormattedText>
+                <FormattedString>
+                    <Span Text="{Binding MicroWorkout.Name}" />
+                        <Span Text=" " />
+                    <Span Text="{x:Static resource:AppResources.WorkoutInProgress}" />
+                    </FormattedString>
+            </Label.FormattedText>
+
+                </Label>
+            <Button ImageSource="CloseFilled.png"
+                    HorizontalOptions="End"
+                    Command="{Binding CloseTimerCommand}"
+                HeightRequest="40" WidthRequest="40" Margin="0,0,7,0"
+                    BackgroundColor="Transparent"/>
+        </StackLayout>
+
+       
+
+        <Label x:Name="NoOfsets"
+            Grid.Row="2"
+            Margin="0,30,0,0"
+            HorizontalOptions="Center"
+            FontSize="70">
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span Text="{Binding MicroWorkout.WorkoutDurationMin}" />
+                    <Span Text=":" />
+                    <Span Text="{Binding MicroWorkout.WorkoutDurationSec}" />
+                    </FormattedString>
+            </Label.FormattedText>
+            </Label>
+
+        <Label x:Name="NoOfsetsCompleted"
+            Grid.Row="1"
+            Margin="0,30,0,0"
+            HorizontalOptions="Center"
+            FontSize="50">
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span Text="Set " />
+                    <Span Text="{Binding MicroWorkout.NoOfSetsCompleted}" />
+                    <Span Text=" of " />
+                    <Span Text="{Binding MicroWorkout.NoOfSets}" />
+                    </FormattedString>
+            </Label.FormattedText>
+            </Label>
+
+        <Button Text="{x:Static resource:AppResources.StartWorkout}"
+                Command="{Binding StartTimerCommand}" CommandParameter="Popup"
+                VerticalOptions="Center" Grid.Row="9" HorizontalOptions="FillAndExpand" Margin="50,0" />
+
+
+        <Button Text="{x:Static resource:AppResources.Pause}"
+                Command="{Binding PauseTimerCommand}" CommandParameter="Popup"
+                VerticalOptions="Center" Grid.Row="10" HorizontalOptions="FillAndExpand" Margin="50,0"/>
+
+
+
+    </Grid>
+</popupPage:PopupBasePage>
+

@@ -7,9 +7,9 @@
       <dSYMSourcePathExists>false</dSYMSourcePathExists>
       <NoSymbolStrip>true</NoSymbolStrip>
       <dSYMInfoPlistRelativePath>HappinessIndex.iOS.app.dSYM\Contents\Info.plist</dSYMInfoPlistRelativePath>
-      <SymbolFile>/Users/rajasekharrarekuti/Documents/workspace/workspace/HappinessIndex-dev final 2 2/HappinessIndex.iOS/obj/iPhoneSimulator/Debug/mtouch-symbols.list</SymbolFile>
+      <SymbolFile>/Users/rajasekharrarekuti/Documents/workspace/workspace/SanHabits/HappinessIndex.iOS/obj/iPhoneSimulator/Debug/mtouch-symbols.list</SymbolFile>
       <DSymName>HappinessIndex.iOS.app.dSYM</DSymName>
-      <SourceProjectPath>/Users/rajasekharrarekuti/Documents/workspace/workspace/HappinessIndex-dev final 2 2/HappinessIndex.iOS</SourceProjectPath>
+      <SourceProjectPath>/Users/rajasekharrarekuti/Documents/workspace/workspace/SanHabits/HappinessIndex.iOS</SourceProjectPath>
     </_PostProcessingItem>
   </ItemGroup>
 </Project>
