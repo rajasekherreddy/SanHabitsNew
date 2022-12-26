@@ -42,6 +42,7 @@ namespace HappinessIndex.Models
 
         private int noOfSetsCompleted = 1;
         public int NoOfSetsCompleted { get => noOfSetsCompleted; set { noOfSetsCompleted = value; NotifyPropertyChanged(); } }
+        public int NextSet { get => noOfSetsCompleted + 1;}
 
         public TimeSpan WorkoutReminder { get; set; }
 
@@ -54,6 +55,12 @@ namespace HappinessIndex.Models
         public bool IsPlayed { get => isPlayed; set { isPlayed = value;NotifyPropertyChanged(); } }
 
         public bool IsCustomWorkout { get; set; } = false;
+
+        private bool isWorkoutTime=true;
+        public bool IsWorkoutTime { get => isWorkoutTime; set { isWorkoutTime = value; NotifyPropertyChanged(); } }
+
+        private bool isBreakTime=false;
+        public bool IsBreakTime { get => isBreakTime; set { isBreakTime = value; NotifyPropertyChanged(); } }
 
         //public DateTime WorkoutDate { get; set; } = DateTime.Today;
         public DateTime WorkoutDate { get; set; } = AppSettings.JournalDate.Date.Date;

@@ -68,6 +68,7 @@
             Grid.Row="1"
             Margin="0,30,0,0"
             HorizontalOptions="Center"
+            IsVisible="{Binding MicroWorkout.IsWorkoutTime}"
             FontSize="50">
             <Label.FormattedText>
                 <FormattedString>
@@ -79,14 +80,37 @@
             </Label.FormattedText>
             </Label>
 
+        <Label x:Name="readyForSet"
+            Grid.Row="1"
+            Margin="0,30,0,0"
+            HorizontalOptions="Center"
+            IsVisible="{Binding MicroWorkout.IsBreakTime}"
+            FontSize="50">
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span Text="Get ready for " />
+                    <Span Text="{Binding MicroWorkout.NextSet}" />
+                    
+                    </FormattedString>
+            </Label.FormattedText>
+            </Label>
+
+        <!--<MediaElement
+            Grid.Row="4"
+            HeightRequest="200"
+            Source="https://www.youtube.com/watch?v=oZYZhEuqja8"
+                      x:Name="mediaSource"
+                          AutoPlay="True" ShowsPlaybackControls="True" 
+                          VerticalOptions="FillAndExpand" />-->
+
         <Button Text="{x:Static resource:AppResources.StartWorkout}"
                 Command="{Binding StartTimerCommand}" CommandParameter="Popup"
-                VerticalOptions="Center" Grid.Row="9" HorizontalOptions="FillAndExpand" Margin="50,0" />
+                VerticalOptions="Center" Grid.Row="6" HorizontalOptions="FillAndExpand" Margin="50,0" />
 
 
         <Button Text="{x:Static resource:AppResources.Pause}"
                 Command="{Binding PauseTimerCommand}" CommandParameter="Popup"
-                VerticalOptions="Center" Grid.Row="10" HorizontalOptions="FillAndExpand" Margin="50,0"/>
+                VerticalOptions="Center" Grid.Row="7" HorizontalOptions="FillAndExpand" Margin="50,0"/>
 
 
 

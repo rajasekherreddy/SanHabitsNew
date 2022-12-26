@@ -238,15 +238,19 @@ namespace HappinessIndex.ViewModels
                 if (microWorkout.WorkoutDurationMin == 0)
                 {
 
-                    if (isWorkout&&microWorkout.NoOfSets>1)
+                    if (isWorkout && microWorkout.NoOfSets>1 && microWorkout.NoOfSetsCompleted!=microWorkout.NoOfSets)
                     {
                         isWorkout = false;
+                        microWorkout.IsBreakTime = true;
+                        microWorkout.IsWorkoutTime = false ;
                         microWorkout.WorkoutDurationMin = breakMins;
                         microWorkout.WorkoutDurationSec = breakSecs;
                     }
                     else
                     {
                         isWorkout = true;
+                        microWorkout.IsBreakTime = false;
+                        microWorkout.IsWorkoutTime = true;
                         microWorkout.WorkoutDurationMin = DurationMin;
                         microWorkout.WorkoutDurationSec = DurationSec;
                         if (microWorkout.NoOfSets <= microWorkout.NoOfSetsCompleted)

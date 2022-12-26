@@ -5,6 +5,7 @@ using System.Linq;
 
 using Foundation;
 using UIKit;
+using Xamarin.Forms;
 
 namespace HappinessIndex.iOS
 {

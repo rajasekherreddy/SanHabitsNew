@@ -377,3 +377,9 @@
 /Users/rajasekharrarekuti/Documents/workspace/workspace/SanHabits/HappinessIndex.iOS/obj/iPhoneSimulator/Debug/HappinessIndex.iOS.csproj.CopyComplete
 /Users/rajasekharrarekuti/Documents/workspace/workspace/SanHabits/HappinessIndex.iOS/obj/iPhoneSimulator/Debug/HappinessIndex.iOS.exe
 /Users/rajasekharrarekuti/Documents/workspace/workspace/SanHabits/HappinessIndex.iOS/obj/iPhoneSimulator/Debug/HappinessIndex.iOS.pdb
+/Users/rajasekharrarekuti/Documents/workspace/workspace/SanHabits/HappinessIndex.iOS/bin/iPhoneSimulator/Debug/AngleSharp.dll
+/Users/rajasekharrarekuti/Documents/workspace/workspace/SanHabits/HappinessIndex.iOS/bin/iPhoneSimulator/Debug/Microsoft.Bcl.AsyncInterfaces.dll
+/Users/rajasekharrarekuti/Documents/workspace/workspace/SanHabits/HappinessIndex.iOS/bin/iPhoneSimulator/Debug/System.Text.Encoding.CodePages.dll
+/Users/rajasekharrarekuti/Documents/workspace/workspace/SanHabits/HappinessIndex.iOS/bin/iPhoneSimulator/Debug/System.Text.Encodings.Web.dll
+/Users/rajasekharrarekuti/Documents/workspace/workspace/SanHabits/HappinessIndex.iOS/bin/iPhoneSimulator/Debug/System.Text.Json.dll
+/Users/rajasekharrarekuti/Documents/workspace/workspace/SanHabits/HappinessIndex.iOS/bin/iPhoneSimulator/Debug/YoutubeExplode.dll

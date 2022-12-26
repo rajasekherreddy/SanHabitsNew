@@ -16,6 +16,7 @@ using Microsoft.AppCenter.Crashes;
 using Plugin.FirebasePushNotification;
 using Plugin.LocalNotification;
 using Rg.Plugins.Popup.Services;
+using SQLite;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 
@@ -29,7 +30,7 @@ namespace HappinessIndex
 
         public App()
         {
-            Xamarin.Forms.Device.SetFlags(new string[] { "Shapes_Experimental", "Expander_Experimental", "RadioButton_Experimental", "SwipeView_Experimental" });
+            Xamarin.Forms.Device.SetFlags(new string[] { "MediaElement_Experimental","Shapes_Experimental", "Expander_Experimental", "RadioButton_Experimental", "SwipeView_Experimental" });
 
             Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("MzQzNDg0QDMxMzgyZTMzMmUzMFhEOHZmWFdXa1JKbytiM3I4eEpTQS95YldLNW84bUQ5aHg5OHdhMHhHV3M9");
             AppCenter.Start("ios=e5cf8c7e-69ba-471a-b98e-d1a2efeacc9c;android=570c69e0-cb0f-4334-abec-e383a03c1eea", typeof(Crashes), typeof(Analytics));

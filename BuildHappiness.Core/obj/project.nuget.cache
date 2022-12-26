@@ -1,19 +1,29 @@
 {
   "version": 2,
-  "dgSpecHash": "2hRbTeRqAH4o11vPM+kD+yLQutnJtaYvlnbQQRUsz+h8FXhZorkOiBMCps1uNjvQjffXnbJ9Zufq3f8tf/RplA==",
+  "dgSpecHash": "D+CiZzdOXMT7fxJwsG5wnFbDxCGN4JR45bRJhlS823Y1EJacSpWkGuF7gUoWaJlX4+F0ZY8oZc1DHj3/aLznyw==",
   "success": true,
   "projectFilePath": "/Users/rajasekharrarekuti/Documents/workspace/workspace/SanHabits/BuildHappiness.Core/BuildHappiness.Core.csproj",
   "expectedPackageFiles": [
     "/Users/rajasekharrarekuti/.nuget/packages/acr.userdialogs/7.1.0.466/acr.userdialogs.7.1.0.466.nupkg.sha512",
+    "/Users/rajasekharrarekuti/.nuget/packages/anglesharp/0.17.0/anglesharp.0.17.0.nupkg.sha512",
     "/Users/rajasekharrarekuti/.nuget/packages/firebaseauthentication.net/3.4.0/firebaseauthentication.net.3.4.0.nupkg.sha512",
+    "/Users/rajasekharrarekuti/.nuget/packages/microsoft.bcl.asyncinterfaces/6.0.0/microsoft.bcl.asyncinterfaces.6.0.0.nupkg.sha512",
     "/Users/rajasekharrarekuti/.nuget/packages/microsoft.netcore.platforms/1.1.0/microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "/Users/rajasekharrarekuti/.nuget/packages/netstandard.library/2.0.3/netstandard.library.2.0.3.nupkg.sha512",
     "/Users/rajasekharrarekuti/.nuget/packages/newtonsoft.json/12.0.3/newtonsoft.json.12.0.3.nupkg.sha512",
     "/Users/rajasekharrarekuti/.nuget/packages/syncfusion.licensing/18.3.0.44/syncfusion.licensing.18.3.0.44.nupkg.sha512",
     "/Users/rajasekharrarekuti/.nuget/packages/syncfusion.xamarin.core/18.3.0.44/syncfusion.xamarin.core.18.3.0.44.nupkg.sha512",
+    "/Users/rajasekharrarekuti/.nuget/packages/system.buffers/4.5.1/system.buffers.4.5.1.nupkg.sha512",
+    "/Users/rajasekharrarekuti/.nuget/packages/system.memory/4.5.4/system.memory.4.5.4.nupkg.sha512",
     "/Users/rajasekharrarekuti/.nuget/packages/system.numerics.vectors/4.5.0/system.numerics.vectors.4.5.0.nupkg.sha512",
+    "/Users/rajasekharrarekuti/.nuget/packages/system.runtime.compilerservices.unsafe/6.0.0/system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
+    "/Users/rajasekharrarekuti/.nuget/packages/system.text.encoding.codepages/5.0.0/system.text.encoding.codepages.5.0.0.nupkg.sha512",
+    "/Users/rajasekharrarekuti/.nuget/packages/system.text.encodings.web/6.0.0/system.text.encodings.web.6.0.0.nupkg.sha512",
+    "/Users/rajasekharrarekuti/.nuget/packages/system.text.json/6.0.6/system.text.json.6.0.6.nupkg.sha512",
+    "/Users/rajasekharrarekuti/.nuget/packages/system.threading.tasks.extensions/4.5.4/system.threading.tasks.extensions.4.5.4.nupkg.sha512",
     "/Users/rajasekharrarekuti/.nuget/packages/xamarin.essentials/1.5.3.2/xamarin.essentials.1.5.3.2.nupkg.sha512",
-    "/Users/rajasekharrarekuti/.nuget/packages/xamarin.forms/4.8.0.1560/xamarin.forms.4.8.0.1560.nupkg.sha512"
+    "/Users/rajasekharrarekuti/.nuget/packages/xamarin.forms/4.8.0.1560/xamarin.forms.4.8.0.1560.nupkg.sha512",
+    "/Users/rajasekharrarekuti/.nuget/packages/youtubeexplode/6.2.5/youtubeexplode.6.2.5.nupkg.sha512"
   ],
   "logs": []
 }

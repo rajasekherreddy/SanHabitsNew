@@ -30,6 +30,7 @@ com.google.android.material.tabs.TabLayout;/Users/rajasekharrarekuti/Documents/w
 com.google.android.material.tabs.TabLayout;obj/Debug/res/layout/tabbar.xml
 corners;/Users/rajasekharrarekuti/Documents/workspace/workspace/SanHabits/BuildHappinessAdmin.Android/obj/Debug/lp/1/jl/res/drawable/roundedbg.xml
 corners;/Users/rajasekharrarekuti/Documents/workspace/workspace/SanHabits/BuildHappinessAdmin.Android/obj/Debug/lp/1/jl/res/drawable/roundedbgdark.xml
+crc64720bb2db43a66fe9.FormsViewPager;/Users/rajasekharrarekuti/Documents/workspace/workspace/SanHabits/BuildHappinessAdmin.Android/obj/Debug/lp/59/jl/res/layout/rootlayout.xml
 declare-styleable;/Users/rajasekharrarekuti/Documents/workspace/workspace/SanHabits/BuildHappinessAdmin.Android/obj/Debug/lp/1/jl/res/values/attrs.xml
 declare-styleable;/Users/rajasekharrarekuti/Documents/workspace/workspace/SanHabits/BuildHappinessAdmin.Android/obj/Debug/lp/59/jl/res/values/attrs.xml
 external-cache-path;/Users/rajasekharrarekuti/Documents/workspace/workspace/SanHabits/BuildHappinessAdmin.Android/obj/Debug/lp/58/jl/res/xml/xamarin_essentials_fileprovider_file_paths.xml
